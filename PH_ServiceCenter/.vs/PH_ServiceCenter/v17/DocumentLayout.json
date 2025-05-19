@@ -1,30 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\",
+  "WorkspaceRootPath": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\andro\\source\\repos\\ph_servicecenter\\ph_servicecenter\\wwwroot\\css\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|solutionrelative:ph_servicecenter\\wwwroot\\css\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\andro\\source\\repos\\ph_servicecenter\\ph_servicecenter\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|solutionrelative:ph_servicecenter\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\andro\\source\\repos\\ph_servicecenter\\ph_servicecenter\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|solutionrelative:ph_servicecenter\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\andro\\source\\repos\\ph_servicecenter\\ph_servicecenter\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\quiro\\onedrive\\documents\\github\\service_center_ph\\ph_servicecenter\\ph_servicecenter\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|solutionrelative:ph_servicecenter\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\andro\\source\\repos\\ph_servicecenter\\ph_servicecenter\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|solutionrelative:ph_servicecenter\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\andro\\source\\repos\\ph_servicecenter\\ph_servicecenter\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|solutionrelative:ph_servicecenter\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -263,75 +243,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "styles.css",
-              "DocumentMoniker": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\PH_ServiceCenter\\wwwroot\\css\\styles.css",
-              "RelativeDocumentMoniker": "PH_ServiceCenter\\wwwroot\\css\\styles.css",
-              "ToolTip": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\PH_ServiceCenter\\wwwroot\\css\\styles.css",
-              "RelativeToolTip": "PH_ServiceCenter\\wwwroot\\css\\styles.css",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAAAGsAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-01T20:13:31.293Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "PH_ServiceCenter\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "PH_ServiceCenter\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-01T20:18:11.204Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\PH_ServiceCenter\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "PH_ServiceCenter\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\PH_ServiceCenter\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "PH_ServiceCenter\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T20:18:08.614Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "site.js",
-              "DocumentMoniker": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\PH_ServiceCenter\\wwwroot\\js\\site.js",
-              "RelativeDocumentMoniker": "PH_ServiceCenter\\wwwroot\\js\\site.js",
-              "ToolTip": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\PH_ServiceCenter\\wwwroot\\js\\site.js",
-              "RelativeToolTip": "PH_ServiceCenter\\wwwroot\\js\\site.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-05-01T20:01:42.493Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\PH_ServiceCenter\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "PH_ServiceCenter\\wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\PH_ServiceCenter\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "PH_ServiceCenter\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAIwBgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-05-01T20:00:26.554Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "PH_ServiceCenter\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\andro\\source\\repos\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "PH_ServiceCenter\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-01T19:57:12.487Z"
+              "WhenOpened": "2025-05-01T20:18:11.204Z",
+              "EditorCaption": ""
             }
           ]
         },

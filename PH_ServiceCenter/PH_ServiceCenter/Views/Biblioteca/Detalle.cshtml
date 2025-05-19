@@ -1,0 +1,19 @@
+﻿@model PH_ServiceCenter.Controllers.ArticuloGuia
+@{
+    ViewBag.Title = "Detalle de Guía";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-white">Detalle del Proceso</h2>
+
+<div class="card bg-dark text-white">
+    <div class="card-body">
+        <h4>@Model.Titulo</h4>
+        <p>@Model.Descripcion</p>
+        <p><strong>Temática:</strong> @Model.Tematica</p>
+        <a href="/Documentos/@Model.Titulo.Replace(" ", "_").ToLower().Trim().ToString().Replace("á", "a").Replace("é", "e")_guia.pdf" class="btn btn-success" download>Descargar Guía</a>
+        <button class="btn btn-warning ml-2" onclick="alert('Gracias, el error ha sido reportado.')">Reportar Error</button>
+    </div>
+</div>
+
+<a href="@Url.Action("Index", "Biblioteca")" class="btn btn-secondary mt-3">Volver</a>

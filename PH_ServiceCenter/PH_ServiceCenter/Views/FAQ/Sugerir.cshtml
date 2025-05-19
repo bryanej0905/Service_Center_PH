@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Sugerir Pregunta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-white">Sugerir una Nueva Pregunta</h2>
+
+<form method="post" action="@Url.Action("GuardarSugerencia", "Faq")">
+    <div class="form-group">
+        <label class="text-white">Tu Pregunta</label>
+        <textarea name="pregunta" class="form-control" rows="4" required></textarea>
+    </div>
+
+    <div class="form-group mt-2">
+        <label class="text-white">Tu Correo (opcional)</label>
+        <input type="email" name="email" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-danger mt-3">Enviar sugerencia</button>
+</form>
+
+<a href="@Url.Action("Index", "Faq")" class="btn btn-secondary mt-3">Volver a FAQ</a>

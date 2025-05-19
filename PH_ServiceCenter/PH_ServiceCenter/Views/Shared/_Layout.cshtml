@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site-faq.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
- <div class="container">
+    <div class="container">
         <!-- Navbar superior -->
         <nav class="navbar">
             <div class="navbar-left">
@@ -70,24 +71,25 @@
                 </li>
                 <li class="menu-item">
                     <a href="#">
-                        <i class="fas fa-robot"></i>
-                        <span>Redes ChatBot</span>
-                    </a>
+                        <a href="@Url.Action("Index", "FAQ")" class="nav-link">
+                            <i class="fas fa-question-circle"></i>
+                            <span>FAQ</span>
+                        </a>
                 </li>
                 <li class="menu-item">
-                    <a href="#">
+                    <a href="@Url.Action("Index", "Biblioteca")" class="nav-link">
                         <i class="fas fa-book"></i>
-                        <span>Biblioteca Didáctica FAQ</span>
+                        <span>Biblioteca Didáctica</span>
                     </a>
                 </li>
             </ul>
         </aside>
 
-            <!-- Main Content -->
-            <main role="main" class="flex-fill p-4">
-                @RenderBody()
-            </main>
-        </div>
+        <!-- Main Content -->
+        <main role="main" class="flex-fill p-4">
+            @RenderBody()
+        </main>
+    </div>
     </div>
 
     <footer class="border-top footer text-muted mt-3">
