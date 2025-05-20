@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Pizza Hut</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #chatbox {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 500px;
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+        .user, .bot {
+            margin: 5px 0;
+        }
+        .user {
+            text-align: right;
+            color: blue;
+        }
+        .bot {
+            text-align: left;
+            color: green;
+        }
+        .suggestion {
+            color: #444;
+            cursor: pointer;
+            background-color: #e0e0e0;
+            margin: 2px 0;
+            padding: 4px 6px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+        .suggestion:hover {
+            background-color: #d0d0d0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Chatbot PizzaHut</h2>
+
+    <div id="chatbox"></div>
+
+    <input type="text" id="userInput" placeholder="Escribe tu pregunta..." style="width: 400px;">
+    <button onclick="sendMessage()">Enviar</button>
+
+    <script>
+        async function sendMessage(preguntaSug = null) {
+            const input = document.getElementById("userInput");
+            const chatbox = document.getElementById("chatbox");
+
+            const message = preguntaSug || input.value.trim();
+            if (message === "") return;
+
+            if (!preguntaSug) {
+                const userMessage = document.createElement("div");
+                userMessage.className = "user";
+                userMessage.textContent = "Tú: " + message;
+                chatbox.appendChild(userMessage);
+            }
+
+            input.value = "";
+
+            try {
+                const response = await fetch("/chat", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                const data = await response.json();
+
+                const botMessage = document.createElement("div");
+                botMessage.className = "bot";
+                botMessage.textContent = "Bot: " + data.response;
+                chatbox.appendChild(botMessage);
+
+                // Mostrar sugerencias si hay
+                if (data.suggestions && data.suggestions.length > 0) {
+                    const suggestionContainer = document.createElement("div");
+                    suggestionContainer.className = "bot";
+                    suggestionContainer.innerHTML = "¿Quizás quisiste preguntar:";
+                    data.suggestions.forEach(sug => {
+                        const sugElem = document.createElement("div");
+                        sugElem.className = "suggestion";
+                        sugElem.textContent = sug;
+                        sugElem.onclick = () => sendMessage(sug);
+                        suggestionContainer.appendChild(sugElem);
+                    });
+                    chatbox.appendChild(suggestionContainer);
+                }
+
+                // Auto-scroll hacia abajo
+                chatbox.scrollTop = chatbox.scrollHeight;
+
+            } catch (error) {
+                const errorMessage = document.createElement("div");
+                errorMessage.className = "bot";
+                errorMessage.textContent = "Error: no se pudo conectar con el servidor.";
+                chatbox.appendChild(errorMessage);
+            }
+        }
+    </script>
+</body>
+</html>
