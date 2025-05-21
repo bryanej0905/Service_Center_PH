@@ -1,14 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\",
+  "WorkspaceRootPath": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\andro\\documents\\github\\service_center_ph\\ph_servicecenter\\ph_servicecenter\\ph_servicecenter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|solutionrelative:ph_servicecenter\\ph_servicecenter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\quiro\\onedrive\\documents\\github\\service_center_ph\\ph_servicecenter\\ph_servicecenter\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|solutionrelative:ph_servicecenter\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\andro\\documents\\github\\service_center_ph\\ph_servicecenter\\ph_servicecenter\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\quiro\\onedrive\\documents\\github\\service_center_ph\\ph_servicecenter\\ph_servicecenter\\views\\biblioteca\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|solutionrelative:ph_servicecenter\\views\\biblioteca\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\quiro\\onedrive\\documents\\github\\service_center_ph\\ph_servicecenter\\ph_servicecenter\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|solutionrelative:ph_servicecenter\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\quiro\\onedrive\\documents\\github\\service_center_ph\\ph_servicecenter\\ph_servicecenter\\views\\biblioteca\\administrador.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|solutionrelative:ph_servicecenter\\views\\biblioteca\\administrador.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|c:\\users\\quiro\\onedrive\\documents\\github\\service_center_ph\\ph_servicecenter\\ph_servicecenter\\views\\biblioteca\\detalle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71A64B00-A64C-4A74-B22A-BF7F5E7124A3}|PH_ServiceCenter\\PH_ServiceCenter.csproj|solutionrelative:ph_servicecenter\\views\\biblioteca\\detalle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -247,23 +259,62 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PH_ServiceCenter",
-              "DocumentMoniker": "C:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\PH_ServiceCenter.csproj",
-              "RelativeDocumentMoniker": "PH_ServiceCenter\\PH_ServiceCenter.csproj",
-              "ToolTip": "C:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\PH_ServiceCenter.csproj",
-              "RelativeToolTip": "PH_ServiceCenter\\PH_ServiceCenter.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-20T17:18:49.315Z",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "PH_ServiceCenter\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "PH_ServiceCenter\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-21T01:31:14.19Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Biblioteca\\Index.cshtml",
+              "RelativeDocumentMoniker": "PH_ServiceCenter\\Views\\Biblioteca\\Index.cshtml",
+              "ToolTip": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Biblioteca\\Index.cshtml",
+              "RelativeToolTip": "PH_ServiceCenter\\Views\\Biblioteca\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-19T00:21:19.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Detalle.cshtml",
+              "DocumentMoniker": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Biblioteca\\Detalle.cshtml",
+              "RelativeDocumentMoniker": "PH_ServiceCenter\\Views\\Biblioteca\\Detalle.cshtml",
+              "ToolTip": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Biblioteca\\Detalle.cshtml",
+              "RelativeToolTip": "PH_ServiceCenter\\Views\\Biblioteca\\Detalle.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-19T00:21:18.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Administrador.cshtml",
+              "DocumentMoniker": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Biblioteca\\Administrador.cshtml",
+              "RelativeDocumentMoniker": "PH_ServiceCenter\\Views\\Biblioteca\\Administrador.cshtml",
+              "ToolTip": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Biblioteca\\Administrador.cshtml",
+              "RelativeToolTip": "PH_ServiceCenter\\Views\\Biblioteca\\Administrador.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-19T00:21:17.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "PH_ServiceCenter\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\PH_ServiceCenter\\PH_ServiceCenter\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "PH_ServiceCenter\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
