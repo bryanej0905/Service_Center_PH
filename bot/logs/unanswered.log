@@ -128,3 +128,92 @@
 2025-05-20 19:52:01,196 127.0.0.1 - - [20/May/2025 19:52:01] "POST /chat HTTP/1.1" 200 -
 2025-05-20 19:52:07,075 127.0.0.1 - - [20/May/2025 19:52:07] "POST /chat HTTP/1.1" 200 -
 2025-05-20 19:52:11,036 127.0.0.1 - - [20/May/2025 19:52:11] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:54:41,306 Use pytorch device_name: cpu
+2025-05-20 19:54:41,306 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:54:43,644 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:54:43,644 [33mPress CTRL+C to quit[0m
+2025-05-20 19:54:45,271 127.0.0.1 - - [20/May/2025 19:54:45] "GET / HTTP/1.1" 200 -
+2025-05-20 19:54:49,670 127.0.0.1 - - [20/May/2025 19:54:49] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:56:00,506 127.0.0.1 - - [20/May/2025 19:56:00] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:56:04,547 127.0.0.1 - - [20/May/2025 19:56:04] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:56:10,001 127.0.0.1 - - [20/May/2025 19:56:10] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:56:16,900 127.0.0.1 - - [20/May/2025 19:56:16] "GET / HTTP/1.1" 200 -
+2025-05-20 19:56:28,282 127.0.0.1 - - [20/May/2025 19:56:28] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:56:36,700 127.0.0.1 - - [20/May/2025 19:56:36] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:56:44,000 127.0.0.1 - - [20/May/2025 19:56:43] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:56:59,650 127.0.0.1 - - [20/May/2025 19:56:59] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:57:08,392 127.0.0.1 - - [20/May/2025 19:57:08] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:58:30,013 127.0.0.1 - - [20/May/2025 19:58:30] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:58:35,833 127.0.0.1 - - [20/May/2025 19:58:35] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:59:25,762 127.0.0.1 - - [20/May/2025 19:59:25] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:59:36,703 127.0.0.1 - - [20/May/2025 19:59:36] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:59:49,869 127.0.0.1 - - [20/May/2025 19:59:49] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:03:19,858 Use pytorch device_name: cpu
+2025-05-20 20:03:19,858 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 20:03:22,258 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 20:03:22,258 [33mPress CTRL+C to quit[0m
+2025-05-20 20:03:23,742 127.0.0.1 - - [20/May/2025 20:03:23] "GET / HTTP/1.1" 200 -
+2025-05-20 20:03:28,412 127.0.0.1 - - [20/May/2025 20:03:28] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:04:06,195 127.0.0.1 - - [20/May/2025 20:04:06] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:04:13,197 127.0.0.1 - - [20/May/2025 20:04:13] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:04:39,418 Use pytorch device_name: cpu
+2025-05-20 20:04:39,418 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 20:04:41,697 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 20:04:41,697 [33mPress CTRL+C to quit[0m
+2025-05-20 20:04:44,878 127.0.0.1 - - [20/May/2025 20:04:44] "GET / HTTP/1.1" 200 -
+2025-05-20 20:04:49,609 127.0.0.1 - - [20/May/2025 20:04:49] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:04:52,946 127.0.0.1 - - [20/May/2025 20:04:52] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:07:47,734 Use pytorch device_name: cpu
+2025-05-20 20:07:47,734 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 20:07:49,923 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 20:07:49,923 [33mPress CTRL+C to quit[0m
+2025-05-20 20:08:03,595 127.0.0.1 - - [20/May/2025 20:08:03] "GET / HTTP/1.1" 200 -
+2025-05-20 20:08:06,400 127.0.0.1 - - [20/May/2025 20:08:06] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:08:23,522 127.0.0.1 - - [20/May/2025 20:08:23] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:08:31,385 127.0.0.1 - - [20/May/2025 20:08:31] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:09:36,899 127.0.0.1 - - [20/May/2025 20:09:36] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:10:47,974 127.0.0.1 - - [20/May/2025 20:10:47] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:11:04,407 127.0.0.1 - - [20/May/2025 20:11:04] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:12:14,479 Use pytorch device_name: cpu
+2025-05-20 20:12:14,479 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 20:12:16,669 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 20:12:16,669 [33mPress CTRL+C to quit[0m
+2025-05-20 20:12:18,989 127.0.0.1 - - [20/May/2025 20:12:18] "GET / HTTP/1.1" 200 -
+2025-05-20 20:12:24,160 127.0.0.1 - - [20/May/2025 20:12:24] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:14:59,535 Use pytorch device_name: cpu
+2025-05-20 20:14:59,535 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 20:15:02,006 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 20:15:02,007 [33mPress CTRL+C to quit[0m
+2025-05-20 20:15:04,205 127.0.0.1 - - [20/May/2025 20:15:04] "GET / HTTP/1.1" 200 -
+2025-05-20 20:15:08,140 127.0.0.1 - - [20/May/2025 20:15:08] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:15:46,893 127.0.0.1 - - [20/May/2025 20:15:46] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:16:22,984 Use pytorch device_name: cpu
+2025-05-20 20:16:22,985 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 20:16:25,054 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 20:16:25,054 [33mPress CTRL+C to quit[0m
+2025-05-20 20:16:29,853 127.0.0.1 - - [20/May/2025 20:16:29] "GET / HTTP/1.1" 200 -
+2025-05-20 20:16:37,942 127.0.0.1 - - [20/May/2025 20:16:37] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:18:30,087 Use pytorch device_name: cpu
+2025-05-20 20:18:30,088 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 20:18:32,225 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 20:18:32,225 [33mPress CTRL+C to quit[0m
+2025-05-20 20:18:34,704 127.0.0.1 - - [20/May/2025 20:18:34] "GET / HTTP/1.1" 200 -
+2025-05-20 20:18:52,499 127.0.0.1 - - [20/May/2025 20:18:52] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:18:56,132 127.0.0.1 - - [20/May/2025 20:18:56] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:19:53,285 127.0.0.1 - - [20/May/2025 20:19:53] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:20:32,308 127.0.0.1 - - [20/May/2025 20:20:32] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:24:04,686 Use pytorch device_name: cpu
+2025-05-20 20:24:04,686 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 20:24:06,936 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 20:24:06,936 [33mPress CTRL+C to quit[0m
+2025-05-20 20:24:08,383 127.0.0.1 - - [20/May/2025 20:24:08] "GET / HTTP/1.1" 200 -
+2025-05-20 20:24:14,368 127.0.0.1 - - [20/May/2025 20:24:14] "POST /chat HTTP/1.1" 200 -

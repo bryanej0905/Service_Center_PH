@@ -4,18 +4,26 @@ from flask import Blueprint, request, jsonify, render_template
 from utils import normalize_text
 from gpt_fallback import generate_rag_response
 
-# Lista de palabras prohibidas (en minúsculas, sin acentos)
-PROHIBITED_WORDS = {'pinga', 'puta', 'cabron', 'mierda'}  # Añade más según necesidad
+# Lista de palabras prohibidas (profano)
+PROHIBITED_WORDS = {'pinga', 'puta', 'cabron', 'mierda'}
+# Lista de temas completamente prohibidos
+PROHIBITED_TOPICS = {'bomba', 'explosivo', 'arma'}
 
 # Umbral mínimo de similitud para permitir fallback RAG
 RAG_THRESHOLD = 0.6
 
+
 def contains_profanity(text: str) -> bool:
-    """
-    Devuelve True si alguno de los términos prohibidos aparece en el texto normalizado.
-    """
+    """True si aparece alguna palabra profana en el texto."""
     tokens = set(text.split())
     return any(word in PROHIBITED_WORDS for word in tokens)
+
+
+def contains_disallowed_topic(text: str) -> bool:
+    """True si el texto menciona un tema completamente prohibido."""
+    tokens = set(text.split())
+    return any(topic in tokens for topic in PROHIBITED_TOPICS)
+
 
 # Configuración del logger para consultas sin respuesta
 def setup_logger():
@@ -30,6 +38,7 @@ def setup_logger():
     )
     return logging.getLogger(__name__)
 
+
 # Creamos el blueprint
 tchat_bp = Blueprint('chat', __name__)
 logger = setup_logger()
@@ -38,36 +47,43 @@ logger = setup_logger()
 faq_loader = None
 matcher = None
 
+
 @tchat_bp.route('/')
 def index():
     return render_template('index.html')
 
+
 @tchat_bp.route('/chat', methods=['POST'])
 def chat():
     raw = request.json.get('message', '') or ''
+    # Normalización para filtros y búsqueda
     q_norm = normalize_text(raw)
 
-    # Filtro de profanidad
+    # 1) Prohibir temas sensibles
+    if contains_disallowed_topic(q_norm):
+        return jsonify({'response': 'Lo siento, no puedo ayudar con esa solicitud.', 'suggestions': []})
+
+    # 2) Filtro de profanidad
     if contains_profanity(q_norm):
         return jsonify({'response': 'Lo siento, no puedo ayudar con esa solicitud.', 'suggestions': []})
 
+    # 3) Pregunta vacía
     if not q_norm:
         return jsonify({'response': 'Por favor, escribe una pregunta válida.', 'suggestions': []})
 
-    # Intento de respuesta y captura de score desde el matcher
-    # Se espera que matcher.find devuelva (answer, suggestions, score)
+    # 4) Intento de matcher con score
     result = matcher.find(q_norm)
     if len(result) == 3:
         answer, suggestions, score = result
     else:
-        # Caída para compatibilidad: sin score
         answer, suggestions = result
-        score = 1.0  # asume alta confianza
+        score = 1.0  # confianza alta por defecto
 
+    # 5) Respuesta directa si existe
     if answer:
         return jsonify({'response': answer, 'suggestions': suggestions})
 
-    # Si la similitud es muy baja, no invocar al LLM
+    # 6) Si similitud baja, no fallback
     if score < RAG_THRESHOLD:
         logger.info(f"Similarity {score:.2f} below threshold for: '{raw}'")
         return jsonify({
@@ -75,10 +91,10 @@ def chat():
             'suggestions': []
         })
 
-    # Loguear la consulta sin respuesta original
+    # 7) Loguear la consulta sin respuesta original
     logger.info(f"No answer for: '{raw}'")
 
-    # Preparar contexto para RAG: usar las sugerencias como contexto
+    # 8) Preparar contexto para RAG
     context_pairs = [(q, faq_loader.get_answer(q)) for q in suggestions]
     rag_response = generate_rag_response(raw, context_pairs)
 

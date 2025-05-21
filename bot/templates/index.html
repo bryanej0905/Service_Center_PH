@@ -1,114 +1,202 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Chatbot Pizza Hut</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        #chatbox {
-            border: 1px solid #ccc;
-            padding: 10px;
-            width: 500px;
-            height: 300px;
-            overflow-y: auto;
-            margin-bottom: 10px;
-            background-color: #f9f9f9;
-        }
-        .user, .bot {
-            margin: 5px 0;
-        }
-        .user {
-            text-align: right;
-            color: blue;
-        }
-        .bot {
-            text-align: left;
-            color: green;
-        }
-        .suggestion {
-            color: #444;
-            cursor: pointer;
-            background-color: #e0e0e0;
-            margin: 2px 0;
-            padding: 4px 6px;
-            display: inline-block;
-            border-radius: 5px;
-        }
-        .suggestion:hover {
-            background-color: #d0d0d0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chatbot Pizza Hut</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      width: 100%;
+      max-width: 600px;
+      height: 90vh;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chat-header {
+      padding: 16px;
+      background-color: #d32f2f;
+      color: #fff;
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    #chatbox {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+    }
+    .message {
+      display: flex;
+      margin-bottom: 12px;
+    }
+    .message.user {
+      justify-content: flex-end;
+    }
+    .message.bot {
+      justify-content: flex-start;
+    }
+    .bubble {
+      padding: 10px 16px;
+      border-radius: 20px;
+      max-width: 75%;
+      line-height: 1.4;
+    }
+    .message.user .bubble {
+      background-color: #e3f2fd;
+      color: #0d47a1;
+      border-bottom-right-radius: 4px;
+    }
+    .message.bot .bubble {
+      background-color: #f1f8e9;
+      color: #33691e;
+      border-bottom-left-radius: 4px;
+    }
+    .input-area {
+      display: flex;
+      padding: 12px;
+      border-top: 1px solid #ddd;
+      align-items: center;
+    }
+    #userInput {
+      flex: 1;
+      padding: 10px 16px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 20px 0 0 20px;
+      outline: none;
+    }
+    #sendBtn {
+      padding: 10px 20px;
+      border: none;
+      background-color: #d32f2f;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 0 20px 20px 0;
+      outline: none;
+      transition: background-color 0.2s;
+    }
+    #sendBtn:hover {
+      background-color: #b71c1c;
+    }
+    .loader {
+      width: 24px;
+      height: 24px;
+      margin-left: 12px;
+      border: 4px solid #ccc;
+      border-top-color: #d32f2f;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      display: none;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: -8px;
+      margin-bottom: 12px;
+    }
+    .suggestion {
+      background-color: #e0e0e0;
+      padding: 6px 12px;
+      border-radius: 16px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background-color 0.2s;
+    }
+    .suggestion:hover {
+      background-color: #d5d5d5;
+    }
+  </style>
 </head>
 <body>
-
-    <h2>Chatbot PizzaHut</h2>
-
+  <div class="container">
+    <div class="chat-header">Chatbot Pizza Hut</div>
     <div id="chatbox"></div>
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Escribe tu pregunta..." autocomplete="off">
+      <button id="sendBtn">Enviar</button>
+      <div id="loader" class="loader"></div>
+    </div>
+  </div>
 
-    <input type="text" id="userInput" placeholder="Escribe tu pregunta..." style="width: 400px;">
-    <button onclick="sendMessage()">Enviar</button>
+  <script>
+    const chatbox = document.getElementById('chatbox');
+    const input = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const loader = document.getElementById('loader');
 
-    <script>
-        async function sendMessage(preguntaSug = null) {
-            const input = document.getElementById("userInput");
-            const chatbox = document.getElementById("chatbox");
+    // Enviar con botón o Enter
+    sendBtn.addEventListener('click', () => sendMessage());
+    input.addEventListener('keypress', e => {
+      if (e.key === 'Enter') sendMessage();
+    });
 
-            const message = preguntaSug || input.value.trim();
-            if (message === "") return;
+    async function sendMessage(preguntaSug = null) {
+      const text = preguntaSug || input.value.trim();
+      if (!text) return;
 
-            if (!preguntaSug) {
-                const userMessage = document.createElement("div");
-                userMessage.className = "user";
-                userMessage.textContent = "Tú: " + message;
-                chatbox.appendChild(userMessage);
-            }
+      appendMessage('user', text);
+      input.value = '';
+      loader.style.display = 'inline-block';
+      chatbox.scrollTop = chatbox.scrollHeight;
 
-            input.value = "";
+      try {
+        const res = await fetch('/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text })
+        });
+        const data = await res.json();
+        appendMessage('bot', data.response, data.suggestions);
+      } catch (err) {
+        appendMessage('bot', 'Error: no se pudo conectar con el servidor.');
+      } finally {
+        loader.style.display = 'none';
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }
+    }
 
-            try {
-                const response = await fetch("/chat", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({ message: message })
-                });
+    function appendMessage(sender, text, suggestions = []) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'message ' + sender;
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.textContent = text;
+      msgDiv.appendChild(bubble);
+      chatbox.appendChild(msgDiv);
 
-                const data = await response.json();
-
-                const botMessage = document.createElement("div");
-                botMessage.className = "bot";
-                botMessage.textContent = "Bot: " + data.response;
-                chatbox.appendChild(botMessage);
-
-                // Mostrar sugerencias si hay
-                if (data.suggestions && data.suggestions.length > 0) {
-                    const suggestionContainer = document.createElement("div");
-                    suggestionContainer.className = "bot";
-                    suggestionContainer.innerHTML = "¿Quizás quisiste preguntar:";
-                    data.suggestions.forEach(sug => {
-                        const sugElem = document.createElement("div");
-                        sugElem.className = "suggestion";
-                        sugElem.textContent = sug;
-                        sugElem.onclick = () => sendMessage(sug);
-                        suggestionContainer.appendChild(sugElem);
-                    });
-                    chatbox.appendChild(suggestionContainer);
-                }
-
-                // Auto-scroll hacia abajo
-                chatbox.scrollTop = chatbox.scrollHeight;
-
-            } catch (error) {
-                const errorMessage = document.createElement("div");
-                errorMessage.className = "bot";
-                errorMessage.textContent = "Error: no se pudo conectar con el servidor.";
-                chatbox.appendChild(errorMessage);
-            }
-        }
-    </script>
+      if (sender === 'bot' && suggestions.length > 0) {
+        const sugContainer = document.createElement('div');
+        sugContainer.className = 'suggestions';
+        suggestions.forEach(s => {
+          const btn = document.createElement('div');
+          btn.className = 'suggestion';
+          btn.textContent = s;
+          btn.onclick = () => sendMessage(s);
+          sugContainer.appendChild(btn);
+        });
+        chatbox.appendChild(sugContainer);
+      }
+    }
+  </script>
 </body>
 </html>
