@@ -1,50 +1,29 @@
-from flask import Flask, request, jsonify, render_template
-import pandas as pd
-from difflib import get_close_matches
+# app.py
+import os
+from flask import Flask
+from faq_loader import FAQLoader
+from matcher import Matcher
+import routes
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
 
-# Cargar preguntas y respuestas desde el CSV
-data = pd.read_csv('data/faq.csv')
-faq_dict = dict(zip(data['pregunta'], data['respuesta']))
-preguntas = list(faq_dict.keys())
+    # 1) Calcula la ruta absoluta al CSV dentro de bot/data/faq.csv
+    base_dir = os.path.dirname(os.path.abspath(__file__))  # .../Service_Center_PH/bot
+    csv_path = os.path.join(base_dir, 'data', 'faq.csv')
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+    # 2) Inicializa el loader con la ruta correcta
+    loader = FAQLoader(csv_path)
 
-@app.route('/chat', methods=['POST'])
-def chat():
-    user_question = request.json.get('message', '').strip().lower()
+    # 3) Crea el matcher e inyecta en routes
+    matcher_inst = Matcher(loader.questions, loader.get_answer)
+    routes.faq_loader = loader
+    routes.matcher    = matcher_inst
 
-    if not user_question:
-        return jsonify({'response': 'Por favor, escribe una pregunta válida.'})
-
-    # Buscar coincidencias exactas
-    for pregunta in preguntas:
-        if user_question == pregunta.lower():
-            sugerencias = get_close_matches(user_question, preguntas, n=3, cutoff=0.3)
-            sugerencias = [s for s in sugerencias if s.lower() != pregunta.lower()]
-            return jsonify({
-                'response': faq_dict[pregunta],
-                'suggestions': sugerencias
-            })
-
-    # Buscar coincidencias difusas
-    matches = get_close_matches(user_question, preguntas, n=3, cutoff=0.4)
-
-    if matches:
-        respuesta = faq_dict[matches[0]]
-        sugerencias = matches[1:]  # Las siguientes 2 sugerencias
-        return jsonify({
-            'response': respuesta,
-            'suggestions': sugerencias
-        })
-    else:
-        return jsonify({
-            'response': 'Lo siento, no tengo una respuesta para eso.',
-            'suggestions': []
-        })
+    # 4) Registra el blueprint
+    app.register_blueprint(routes.chat_bp)
+    return app
 
 if __name__ == '__main__':
+    app = create_app()
     app.run(debug=True)
