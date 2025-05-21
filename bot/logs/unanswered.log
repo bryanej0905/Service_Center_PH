@@ -1,0 +1,130 @@
+2025-05-20 19:18:15,919 Use pytorch device_name: cpu
+2025-05-20 19:18:15,919 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:19:13,288 Use pytorch device_name: cpu
+2025-05-20 19:19:13,288 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:20:56,258 Use pytorch device_name: cpu
+2025-05-20 19:20:56,258 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:22:18,487 Use pytorch device_name: cpu
+2025-05-20 19:22:18,488 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:22:20,819 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:22:20,820 [33mPress CTRL+C to quit[0m
+2025-05-20 19:22:20,821  * Restarting with stat
+2025-05-20 19:22:26,680 Use pytorch device_name: cpu
+2025-05-20 19:22:26,680 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:22:28,753  * Debugger is active!
+2025-05-20 19:22:28,758  * Debugger PIN: 231-504-141
+2025-05-20 19:22:48,378 Use pytorch device_name: cpu
+2025-05-20 19:22:48,379 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:22:50,645 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:22:50,645 [33mPress CTRL+C to quit[0m
+2025-05-20 19:22:50,646  * Restarting with stat
+2025-05-20 19:22:56,777 Use pytorch device_name: cpu
+2025-05-20 19:22:56,777 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:22:59,601  * Debugger is active!
+2025-05-20 19:22:59,606  * Debugger PIN: 231-504-141
+2025-05-20 19:23:49,295 Use pytorch device_name: cpu
+2025-05-20 19:23:49,295 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:23:51,885 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:23:51,885 [33mPress CTRL+C to quit[0m
+2025-05-20 19:23:51,886  * Restarting with stat
+2025-05-20 19:23:58,160 Use pytorch device_name: cpu
+2025-05-20 19:23:58,160 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:24:00,400  * Debugger is active!
+2025-05-20 19:24:00,406  * Debugger PIN: 231-504-141
+2025-05-20 19:24:10,395 127.0.0.1 - - [20/May/2025 19:24:10] "GET / HTTP/1.1" 200 -
+2025-05-20 19:24:14,677 127.0.0.1 - - [20/May/2025 19:24:14] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:24:30,846 127.0.0.1 - - [20/May/2025 19:24:30] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:24:33,786 127.0.0.1 - - [20/May/2025 19:24:33] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:26:55,724 Use pytorch device_name: cpu
+2025-05-20 19:26:55,724 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:26:57,935 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:26:57,935 [33mPress CTRL+C to quit[0m
+2025-05-20 19:26:57,936  * Restarting with stat
+2025-05-20 19:27:04,631 Use pytorch device_name: cpu
+2025-05-20 19:27:04,631 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:27:06,890  * Debugger is active!
+2025-05-20 19:27:06,897  * Debugger PIN: 231-504-141
+2025-05-20 19:27:07,234 127.0.0.1 - - [20/May/2025 19:27:07] "GET / HTTP/1.1" 200 -
+2025-05-20 19:27:11,422 127.0.0.1 - - [20/May/2025 19:27:11] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:29:05,091 Use pytorch device_name: cpu
+2025-05-20 19:29:05,091 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:29:07,313 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:29:07,313 [33mPress CTRL+C to quit[0m
+2025-05-20 19:29:07,314  * Restarting with stat
+2025-05-20 19:29:13,204 Use pytorch device_name: cpu
+2025-05-20 19:29:13,204 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:29:15,776  * Debugger is active!
+2025-05-20 19:29:15,782  * Debugger PIN: 231-504-141
+2025-05-20 19:29:16,063 127.0.0.1 - - [20/May/2025 19:29:16] "GET / HTTP/1.1" 200 -
+2025-05-20 19:29:25,159 127.0.0.1 - - [20/May/2025 19:29:25] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:30:03,867 Use pytorch device_name: cpu
+2025-05-20 19:30:03,867 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:30:06,128 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:30:06,128 [33mPress CTRL+C to quit[0m
+2025-05-20 19:30:06,129  * Restarting with stat
+2025-05-20 19:30:12,241 Use pytorch device_name: cpu
+2025-05-20 19:30:12,241 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:30:14,664  * Debugger is active!
+2025-05-20 19:30:14,671  * Debugger PIN: 231-504-141
+2025-05-20 19:30:14,996 127.0.0.1 - - [20/May/2025 19:30:14] "GET / HTTP/1.1" 200 -
+2025-05-20 19:30:16,836 127.0.0.1 - - [20/May/2025 19:30:16] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:32:14,609  * Detected change in 'c:\\Users\\isaac\\Desktop\\Proyectos\\Service_Center_PH\\bot\\app.py', reloading
+2025-05-20 19:32:15,554  * Restarting with stat
+2025-05-20 19:32:22,093 Use pytorch device_name: cpu
+2025-05-20 19:32:22,094 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:41:13,345 Use pytorch device_name: cpu
+2025-05-20 19:41:13,345 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:41:15,729 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:41:15,729 [33mPress CTRL+C to quit[0m
+2025-05-20 19:41:18,903 127.0.0.1 - - [20/May/2025 19:41:18] "GET / HTTP/1.1" 200 -
+2025-05-20 19:41:19,737 127.0.0.1 - - [20/May/2025 19:41:19] "GET / HTTP/1.1" 200 -
+2025-05-20 19:41:22,425 127.0.0.1 - - [20/May/2025 19:41:22] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:41:42,458 127.0.0.1 - - [20/May/2025 19:41:42] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:43:28,088 127.0.0.1 - - [20/May/2025 19:43:28] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:44:04,868 127.0.0.1 - - [20/May/2025 19:44:04] "GET / HTTP/1.1" 200 -
+2025-05-20 19:44:12,511 127.0.0.1 - - [20/May/2025 19:44:12] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:46:43,631 Use pytorch device_name: cpu
+2025-05-20 19:46:43,631 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:46:45,853 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:46:45,853 [33mPress CTRL+C to quit[0m
+2025-05-20 19:46:48,548 127.0.0.1 - - [20/May/2025 19:46:48] "GET / HTTP/1.1" 200 -
+2025-05-20 19:46:53,316 127.0.0.1 - - [20/May/2025 19:46:53] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:48:03,891 127.0.0.1 - - [20/May/2025 19:48:03] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:48:56,486 Use pytorch device_name: cpu
+2025-05-20 19:48:56,486 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:48:58,648 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:48:58,649 [33mPress CTRL+C to quit[0m
+2025-05-20 19:49:00,461 127.0.0.1 - - [20/May/2025 19:49:00] "GET / HTTP/1.1" 200 -
+2025-05-20 19:49:04,486 127.0.0.1 - - [20/May/2025 19:49:04] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:49:08,884 127.0.0.1 - - [20/May/2025 19:49:08] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:49:11,744 127.0.0.1 - - [20/May/2025 19:49:11] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:49:14,700 127.0.0.1 - - [20/May/2025 19:49:14] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:50:37,054 Use pytorch device_name: cpu
+2025-05-20 19:50:37,054 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:50:40,615 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:50:40,615 [33mPress CTRL+C to quit[0m
+2025-05-20 19:50:44,826 127.0.0.1 - - [20/May/2025 19:50:44] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:51:32,787 Use pytorch device_name: cpu
+2025-05-20 19:51:32,787 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 19:51:34,972 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 19:51:34,972 [33mPress CTRL+C to quit[0m
+2025-05-20 19:51:36,250 127.0.0.1 - - [20/May/2025 19:51:36] "GET / HTTP/1.1" 200 -
+2025-05-20 19:51:38,924 127.0.0.1 - - [20/May/2025 19:51:38] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:51:44,578 127.0.0.1 - - [20/May/2025 19:51:44] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:51:48,257 127.0.0.1 - - [20/May/2025 19:51:48] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:51:52,490 127.0.0.1 - - [20/May/2025 19:51:52] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:51:55,951 127.0.0.1 - - [20/May/2025 19:51:55] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:52:01,196 127.0.0.1 - - [20/May/2025 19:52:01] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:52:07,075 127.0.0.1 - - [20/May/2025 19:52:07] "POST /chat HTTP/1.1" 200 -
+2025-05-20 19:52:11,036 127.0.0.1 - - [20/May/2025 19:52:11] "POST /chat HTTP/1.1" 200 -

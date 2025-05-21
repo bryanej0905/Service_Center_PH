@@ -1,8 +1,7 @@
-# app.py
 import os
 from flask import Flask
 from faq_loader import FAQLoader
-from matcher import Matcher
+from embedding_matcher import EmbeddingMatcher
 import routes
 
 def create_app():
@@ -15,15 +14,15 @@ def create_app():
     # 2) Inicializa el loader con la ruta correcta
     loader = FAQLoader(csv_path)
 
-    # 3) Crea el matcher e inyecta en routes
-    matcher_inst = Matcher(loader.questions, loader.get_answer)
+    # 3) Crea el EmbeddingMatcher e inyecta en routes
+    matcher_inst = EmbeddingMatcher(loader.questions, loader.get_answer)
     routes.faq_loader = loader
-    routes.matcher    = matcher_inst
+    routes.matcher = matcher_inst
 
-    # 4) Registra el blueprint
-    app.register_blueprint(routes.chat_bp)
+    # 4) Registra el blueprint (usando tchat_bp de routes)
+    app.register_blueprint(routes.tchat_bp)
     return app
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(debug=True)
+    app.run(debug=False)
