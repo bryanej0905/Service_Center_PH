@@ -6,6 +6,7 @@ import routes
 
 def create_app():
     app = Flask(__name__)
+    
 
     # 1) Calcula la ruta absoluta al CSV dentro de bot/data/faq.csv
     base_dir = os.path.dirname(os.path.abspath(__file__))  # .../Service_Center_PH/bot

@@ -217,3 +217,188 @@
 2025-05-20 20:24:06,936 [33mPress CTRL+C to quit[0m
 2025-05-20 20:24:08,383 127.0.0.1 - - [20/May/2025 20:24:08] "GET / HTTP/1.1" 200 -
 2025-05-20 20:24:14,368 127.0.0.1 - - [20/May/2025 20:24:14] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:25:01,957 127.0.0.1 - - [20/May/2025 20:25:01] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:25:13,042 127.0.0.1 - - [20/May/2025 20:25:13] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:25:41,116 127.0.0.1 - - [20/May/2025 20:25:41] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:28:39,635 Use pytorch device_name: cpu
+2025-05-20 20:28:39,635 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 20:28:41,900 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 20:28:41,900 [33mPress CTRL+C to quit[0m
+2025-05-20 20:28:45,311 127.0.0.1 - - [20/May/2025 20:28:45] "GET / HTTP/1.1" 200 -
+2025-05-20 20:28:52,188 127.0.0.1 - - [20/May/2025 20:28:52] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:28:54,339 127.0.0.1 - - [20/May/2025 20:28:54] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:29:29,045 127.0.0.1 - - [20/May/2025 20:29:29] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:29:39,093 127.0.0.1 - - [20/May/2025 20:29:39] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:52:42,040 Use pytorch device_name: cpu
+2025-05-20 20:52:42,040 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 20:52:44,501 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 20:52:44,502 [33mPress CTRL+C to quit[0m
+2025-05-20 20:52:48,105 127.0.0.1 - - [20/May/2025 20:52:48] "GET / HTTP/1.1" 200 -
+2025-05-20 20:52:50,315 127.0.0.1 - - [20/May/2025 20:52:50] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:53:54,762 127.0.0.1 - - [20/May/2025 20:53:54] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:55:51,676 Use pytorch device_name: cpu
+2025-05-20 20:55:51,676 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 20:55:54,294 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 20:55:54,294 [33mPress CTRL+C to quit[0m
+2025-05-20 20:55:56,195 127.0.0.1 - - [20/May/2025 20:55:56] "GET / HTTP/1.1" 200 -
+2025-05-20 20:56:33,294 127.0.0.1 - - [20/May/2025 20:56:33] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:57:16,591 127.0.0.1 - - [20/May/2025 20:57:16] "POST /chat HTTP/1.1" 200 -
+2025-05-20 20:59:28,833 Use pytorch device_name: cpu
+2025-05-20 20:59:28,833 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 20:59:31,261 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 20:59:31,261 [33mPress CTRL+C to quit[0m
+2025-05-20 20:59:33,278 127.0.0.1 - - [20/May/2025 20:59:33] "GET / HTTP/1.1" 200 -
+2025-05-20 21:00:09,126 127.0.0.1 - - [20/May/2025 21:00:09] "POST /chat HTTP/1.1" 200 -
+2025-05-20 21:01:01,067 No exact answer for: '¿Puedo usar más de un cupón de descuento por pedido?' (score=1.00)
+2025-05-20 21:01:01,067 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\isaac\Desktop\Proyectos\Service_Center_PH\bot\routes.py", line 88, in chat
+    rag_response = generate_rag_response(raw, context_pairs)
+  File "c:\Users\isaac\Desktop\Proyectos\Service_Center_PH\bot\gpt_fallback.py", line 33, in generate_rag_response
+    resp = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+    ...<2 lines>...
+        temperature=0
+    )
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\openai\lib\_old_api.py", line 39, in __call__
+    raise APIRemovedInV1(symbol=self._symbol)
+openai.lib._old_api.APIRemovedInV1: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-05-20 21:01:01,070 127.0.0.1 - - [20/May/2025 21:01:01] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-05-20 21:01:07,209 No exact answer for: '¿Puedo usar más de un cupón de descuento por pedido?' (score=1.00)
+2025-05-20 21:01:07,209 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\isaac\Desktop\Proyectos\Service_Center_PH\bot\routes.py", line 88, in chat
+    rag_response = generate_rag_response(raw, context_pairs)
+  File "c:\Users\isaac\Desktop\Proyectos\Service_Center_PH\bot\gpt_fallback.py", line 33, in generate_rag_response
+    resp = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+    ...<2 lines>...
+        temperature=0
+    )
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\openai\lib\_old_api.py", line 39, in __call__
+    raise APIRemovedInV1(symbol=self._symbol)
+openai.lib._old_api.APIRemovedInV1: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-05-20 21:01:07,211 127.0.0.1 - - [20/May/2025 21:01:07] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-05-20 21:03:24,243 Use pytorch device_name: cpu
+2025-05-20 21:03:24,243 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-20 21:03:26,347 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-20 21:03:26,347 [33mPress CTRL+C to quit[0m
+2025-05-20 21:03:27,345 127.0.0.1 - - [20/May/2025 21:03:27] "GET / HTTP/1.1" 200 -
+2025-05-20 21:03:32,274 No exact answer for: '¿Puedo usar más de un cupón de descuento por pedido? .' (score=1.00)
+2025-05-20 21:03:32,274 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\isaac\Desktop\Proyectos\Service_Center_PH\bot\routes.py", line 88, in chat
+    rag_response = generate_rag_response(raw, context_pairs)
+  File "c:\Users\isaac\Desktop\Proyectos\Service_Center_PH\bot\gpt_fallback.py", line 33, in generate_rag_response
+    resp = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+    ...<2 lines>...
+        temperature=0
+    )
+  File "C:\Users\isaac\Desktop\Proyectos\Service_Center_PH\.venv\Lib\site-packages\openai\lib\_old_api.py", line 39, in __call__
+    raise APIRemovedInV1(symbol=self._symbol)
+openai.lib._old_api.APIRemovedInV1: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-05-20 21:03:32,278 127.0.0.1 - - [20/May/2025 21:03:32] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-05-20 21:03:35,086 127.0.0.1 - - [20/May/2025 21:03:35] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:03:45,173 Use pytorch device_name: cpu
+2025-05-22 16:03:45,174 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-22 16:05:14,084 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 16:05:14,084 [33mPress CTRL+C to quit[0m
+2025-05-22 16:05:17,705 127.0.0.1 - - [22/May/2025 16:05:17] "GET / HTTP/1.1" 200 -
+2025-05-22 16:05:17,753 127.0.0.1 - - [22/May/2025 16:05:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-22 16:05:25,691 Use pytorch device_name: cpu
+2025-05-22 16:05:25,691 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-22 16:05:29,913 127.0.0.1 - - [22/May/2025 16:05:29] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:05:31,554 127.0.0.1 - - [22/May/2025 16:05:31] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:05:33,097 127.0.0.1 - - [22/May/2025 16:05:33] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:05:36,441 No match (score=0.33) for: 'pizza'
+2025-05-22 16:05:36,442 127.0.0.1 - - [22/May/2025 16:05:36] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:05:42,739 No match (score=0.29) for: 'ubi'
+2025-05-22 16:05:42,739 127.0.0.1 - - [22/May/2025 16:05:42] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:05:46,648 127.0.0.1 - - [22/May/2025 16:05:46] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:06:12,622 No match (score=0.27) for: 'blowjob'
+2025-05-22 16:06:12,623 127.0.0.1 - - [22/May/2025 16:06:12] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:06:21,270 127.0.0.1 - - [22/May/2025 16:06:21] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:06:23,576 No match (score=0.53) for: 'donde'
+2025-05-22 16:06:23,577 127.0.0.1 - - [22/May/2025 16:06:23] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:06:29,418 127.0.0.1 - - [22/May/2025 16:06:29] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:06:39,286 No match (score=0.59) for: 'donde puedo ver nutricion'
+2025-05-22 16:06:39,287 127.0.0.1 - - [22/May/2025 16:06:39] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:08:59,503 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-22 16:08:59,503 [33mPress CTRL+C to quit[0m
+2025-05-22 16:09:01,567 127.0.0.1 - - [22/May/2025 16:09:01] "GET / HTTP/1.1" 200 -
+2025-05-22 16:09:08,359 Use pytorch device_name: cpu
+2025-05-22 16:09:08,359 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-22 16:09:10,664 127.0.0.1 - - [22/May/2025 16:09:10] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:09:14,952 No match (score=0.33) for: 'pizza'
+2025-05-22 16:09:14,953 127.0.0.1 - - [22/May/2025 16:09:14] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:09:27,236 127.0.0.1 - - [22/May/2025 16:09:27] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:09:48,337 No match (score=0.26) for: 'Adroid'
+2025-05-22 16:09:48,338 127.0.0.1 - - [22/May/2025 16:09:48] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:09:51,566 No match (score=0.28) for: 'android'
+2025-05-22 16:09:51,566 127.0.0.1 - - [22/May/2025 16:09:51] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:09:55,450 No match (score=0.60) for: 'tarjetas'
+2025-05-22 16:09:55,450 127.0.0.1 - - [22/May/2025 16:09:55] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:10:00,982 127.0.0.1 - - [22/May/2025 16:10:00] "POST /chat HTTP/1.1" 200 -
+2025-05-22 16:10:12,817 127.0.0.1 - - [22/May/2025 16:10:12] "POST /chat HTTP/1.1" 200 -
