@@ -10,7 +10,7 @@ PROHIBITED_WORDS = {'pinga', 'puta', 'cabron', 'mierda'}
 PROHIBITED_TOPICS = {'bomba', 'explosivo', 'arma'}
 
 # Umbral mínimo de similitud para aceptar una respuesta
-EMBED_THRESHOLD = 0.6
+EMBED_THRESHOLD = 0.7
 
 def contains_profanity(text: str) -> bool:
     tokens = set(text.split())
