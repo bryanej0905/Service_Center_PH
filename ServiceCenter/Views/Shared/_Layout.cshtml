@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PH_ServiceCenter</title>
+    <link rel="stylesheet" href="~/Content/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Content/css/styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Content/css/site-faq.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+
+<body style="
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url('/Content/lib/img/Fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /* para que no se mueva al hacer scroll */
+
+">
+    <div class="container">
+        <!-- Navbar superior -->
+        <nav class="navbar" style="background-image: url('/Content/lib/img/header.png')">
+            <div class="navbar-left">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <button id="sidebarToggle" class="btn-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                }
+
+                <div class="logo-container" style="top: -30px">
+                    <img src="~/Content/lib/img/pizza-hut-logo.png" style="height: 180px" alt="Pizza Hut Logo" class="logo">
+                </div>
+            </div>
+            <div class="navbar-right">
+                <!--  <button id="themeToggle" class="btn-theme">
+                <i class="fas fa-moon"></i>
+            </button> -->
+                <div class="user-profile">
+                    @Html.Partial("_LoginPartial")
+                </div>
+
+            </div>
+
+        </nav>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <h3 style="display: flex; align-items: center;">
+                        <img src="~/Content/lib/img/icono.png" alt="icono" style="height: 40px; margin-right: 10px;">
+                        Service Desk
+                    </h3>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="menu-item active">
+                        <a href="#"><i class="fas fa-calculator"></i><span>Arqueo de Fondo de Menudo</span></a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#"><i class="fas fa-cash-register"></i><span>Arqueo de Caja Registradora</span></a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#"><i class="fas fa-utensils"></i><span>Administrar Restaurantes</span></a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#"><i class="fas fa-bell"></i><span>Administrar Avisos</span></a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#"><i class="fas fa-headset"></i><span>Service Desk</span></a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="@Url.Action("Index", "FAQ")"><i class="fas fa-question-circle"></i><span>FAQ</span></a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="@Url.Action("Index", "Biblioteca")"><i class="fas fa-book"></i><span>Biblioteca Didáctica</span></a>
+                    </li>
+                </ul>
+            </aside>
+        }
+
+
+
+        <!-- Main Content -->
+        <main role="main" class="main-content flex-fill p-4" id="mainContent"
+              style="min-height: 100vh; background-color: transparent;">
+            @RenderBody()
+        </main>
+
+
+
+    </div>
+    </div>
+
+    <footer class="border-top footer text-muted mt-3">
+        <div class="container">
+            &copy; 2025 - PH_ServiceCenter - <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/Content/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/Content/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
+    <script src="~/Content/js/site.js" asp-append-version="true"></script>
+    <script src="~/Content/js/script.js" asp-append-version="true"></script>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleBtn = document.getElementById("sidebarToggle");
+            const sidebar = document.getElementById("sidebar");
+            const mainContent = document.getElementById("mainContent");
+
+            toggleBtn.addEventListener("click", function () {
+                sidebar.classList.toggle("collapsed");
+                mainContent.classList.toggle("sidebar-collapsed");
+            });
+        });
+    </script>
+
+
+
+</body>
+</html>
