@@ -42,6 +42,76 @@ matcher    = None
 def index():
     return render_template('index.html')
 
+
+@tchat_bp.route('/upload_csv', methods=['POST'])
+def upload_csv():
+    global faq_loader  # usamos el loader que ya inyectaste en app.py
+
+    file = request.files.get('file')
+    if not file or not file.filename.endswith('.csv'):
+        return "Archivo inválido. Debe ser .csv", 400
+
+    # Guardar el archivo en /data
+    upload_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
+    os.makedirs(upload_dir, exist_ok=True)
+    path = os.path.join(upload_dir, file.filename)
+    file.save(path)
+
+    # Recargar todos los CSVs del directorio
+    faq_loader.reload()
+
+    return f'Archivo {file.filename} subido correctamente y FAQs actualizados.', 200
+
+
+@tchat_bp.route('/available_csvs', methods=['GET'])
+def available_csvs():
+    data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
+    files = [f for f in os.listdir(data_dir) if f.endswith('.csv')]
+    return jsonify(files)
+
+@tchat_bp.route('/delete_csv', methods=['DELETE'])
+def delete_csv():
+    global faq_loader
+
+    # Verifica faq_loader y data_dir
+    if not faq_loader:
+        return jsonify({'success': False, 'error': 'Servicio no inicializado.'}), 500
+
+    data_dir = getattr(faq_loader, 'data_dir', None)
+    if not data_dir or not os.path.isdir(data_dir):
+        return jsonify({'success': False, 'error': 'Directorio no encontrado.'}), 400
+
+    data = request.get_json(force=True, silent=True)
+    if not data or 'filename' not in data:
+        return jsonify({'success': False, 'error': 'Falta el nombre del archivo.'}), 400
+
+    filename = data['filename']
+
+    # Seguridad básica contra path traversal
+    if '/' in filename or '\\' in filename or '..' in filename:
+        return jsonify({'success': False, 'error': 'Nombre de archivo inválido.'}), 400
+
+    if not filename.endswith('.csv'):
+        return jsonify({'success': False, 'error': 'Archivo debe ser .csv'}), 400
+
+    file_path = os.path.join(data_dir, filename)
+
+    if not os.path.isfile(file_path):
+        return jsonify({'success': False, 'error': 'Archivo no existe.'}), 404
+
+    try:
+        os.remove(file_path)
+        faq_loader.reload()  # Recarga los datos para que refleje el cambio
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@tchat_bp.errorhandler(Exception)
+def handle_exception(e):
+    # Aquí puedes loguear la excepción e
+    return jsonify({'success': False, 'error': str(e)}), 500
+
 @tchat_bp.route('/chat', methods=['POST'])
 def chat():
     raw = request.json.get('message', '') or ''

@@ -402,3 +402,333 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 2025-05-22 16:09:55,450 127.0.0.1 - - [22/May/2025 16:09:55] "POST /chat HTTP/1.1" 200 -
 2025-05-22 16:10:00,982 127.0.0.1 - - [22/May/2025 16:10:00] "POST /chat HTTP/1.1" 200 -
 2025-05-22 16:10:12,817 127.0.0.1 - - [22/May/2025 16:10:12] "POST /chat HTTP/1.1" 200 -
+2025-05-25 00:18:34,054 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-25 00:18:34,055 [33mPress CTRL+C to quit[0m
+2025-05-25 00:19:24,110 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-25 00:19:24,110 [33mPress CTRL+C to quit[0m
+2025-05-25 00:20:14,843 127.0.0.1 - - [25/May/2025 00:20:14] "GET / HTTP/1.1" 200 -
+2025-05-25 00:20:15,045 127.0.0.1 - - [25/May/2025 00:20:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-25 00:20:36,554 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 63, in chat
+    answer, suggestions, score = matcher.find(q_norm)
+                                 ~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\embedding_matcher.py", line 37, in find
+    self._load_model()
+    ~~~~~~~~~~~~~~~~^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\embedding_matcher.py", line 25, in _load_model
+    from sentence_transformers import SentenceTransformer
+ModuleNotFoundError: No module named 'sentence_transformers'
+2025-05-25 00:20:36,558 127.0.0.1 - - [25/May/2025 00:20:36] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-05-25 00:20:52,890 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 63, in chat
+    answer, suggestions, score = matcher.find(q_norm)
+                                 ~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\embedding_matcher.py", line 37, in find
+    self._load_model()
+    ~~~~~~~~~~~~~~~~^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\embedding_matcher.py", line 25, in _load_model
+    from sentence_transformers import SentenceTransformer
+ModuleNotFoundError: No module named 'sentence_transformers'
+2025-05-25 00:20:52,894 127.0.0.1 - - [25/May/2025 00:20:52] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-05-25 00:21:13,121 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-25 00:21:13,121 [33mPress CTRL+C to quit[0m
+2025-05-25 00:21:22,815 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 59, in chat
+    answer, suggestions, _ = (*matcher.find(q_norm), 1.0)[:3]
+                               ~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\embedding_matcher.py", line 37, in find
+    self._load_model()
+    ~~~~~~~~~~~~~~~~^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\embedding_matcher.py", line 25, in _load_model
+    from sentence_transformers import SentenceTransformer
+ModuleNotFoundError: No module named 'sentence_transformers'
+2025-05-25 00:21:22,821 127.0.0.1 - - [25/May/2025 00:21:22] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-05-25 00:21:24,990 127.0.0.1 - - [25/May/2025 00:21:24] "GET / HTTP/1.1" 200 -
+2025-05-25 00:21:30,324 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 59, in chat
+    answer, suggestions, _ = (*matcher.find(q_norm), 1.0)[:3]
+                               ~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\embedding_matcher.py", line 37, in find
+    self._load_model()
+    ~~~~~~~~~~~~~~~~^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\embedding_matcher.py", line 25, in _load_model
+    from sentence_transformers import SentenceTransformer
+ModuleNotFoundError: No module named 'sentence_transformers'
+2025-05-25 00:21:30,327 127.0.0.1 - - [25/May/2025 00:21:30] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-05-25 12:14:08,033 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-25 12:14:08,034 [33mPress CTRL+C to quit[0m
+2025-05-25 12:15:11,675 127.0.0.1 - - [25/May/2025 12:15:11] "GET / HTTP/1.1" 200 -
+2025-05-25 12:15:16,001 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\Documents\GitHub\Service_Center_PH\bot\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 59, in chat
+    answer, suggestions, _ = (*matcher.find(q_norm), 1.0)[:3]
+                               ~~~~~~~~~~~~^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\embedding_matcher.py", line 37, in find
+    self._load_model()
+    ~~~~~~~~~~~~~~~~^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\embedding_matcher.py", line 25, in _load_model
+    from sentence_transformers import SentenceTransformer
+ModuleNotFoundError: No module named 'sentence_transformers'
+2025-05-25 12:15:16,063 127.0.0.1 - - [25/May/2025 12:15:16] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-05-25 12:18:31,300 127.0.0.1 - - [25/May/2025 12:18:31] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-05-25 12:32:18,893 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-25 12:32:18,893 [33mPress CTRL+C to quit[0m
+2025-05-25 12:32:52,962 127.0.0.1 - - [25/May/2025 12:32:52] "GET / HTTP/1.1" 200 -
+2025-05-25 12:33:13,670 Use pytorch device_name: cpu
+2025-05-25 12:33:13,670 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-25 12:33:17,787 Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-05-25 12:33:39,193 127.0.0.1 - - [25/May/2025 12:33:39] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:33:58,868 127.0.0.1 - - [25/May/2025 12:33:58] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:34:01,608 127.0.0.1 - - [25/May/2025 12:34:01] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:34:03,969 127.0.0.1 - - [25/May/2025 12:34:03] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:34:05,988 127.0.0.1 - - [25/May/2025 12:34:05] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:34:07,419 127.0.0.1 - - [25/May/2025 12:34:07] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:34:10,569 127.0.0.1 - - [25/May/2025 12:34:10] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:34:12,270 127.0.0.1 - - [25/May/2025 12:34:12] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:34:13,434 127.0.0.1 - - [25/May/2025 12:34:13] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:34:47,117 No match (score=0.53) for: 'puede ayudarme con el envio'
+2025-05-25 12:34:47,118 127.0.0.1 - - [25/May/2025 12:34:47] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:34:53,185 No match (score=0.38) for: 'envio'
+2025-05-25 12:34:53,185 127.0.0.1 - - [25/May/2025 12:34:53] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:34:55,669 No match (score=0.59) for: 'movil'
+2025-05-25 12:34:55,669 127.0.0.1 - - [25/May/2025 12:34:55] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:34:59,881 No match (score=0.28) for: 'telefono'
+2025-05-25 12:34:59,881 127.0.0.1 - - [25/May/2025 12:34:59] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:35:09,135 No match (score=0.25) for: 'numero'
+2025-05-25 12:35:09,136 127.0.0.1 - - [25/May/2025 12:35:09] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:35:17,152 No match (score=0.39) for: 'eventos'
+2025-05-25 12:35:17,153 127.0.0.1 - - [25/May/2025 12:35:17] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:35:31,260 127.0.0.1 - - [25/May/2025 12:35:31] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:35:35,210 127.0.0.1 - - [25/May/2025 12:35:35] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:35:37,606 127.0.0.1 - - [25/May/2025 12:35:37] "POST /chat HTTP/1.1" 200 -
+2025-05-25 12:35:39,302 127.0.0.1 - - [25/May/2025 12:35:39] "POST /chat HTTP/1.1" 200 -
+2025-05-25 13:59:46,801 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-25 13:59:46,802 [33mPress CTRL+C to quit[0m
+2025-05-25 14:00:15,808 127.0.0.1 - - [25/May/2025 14:00:15] "GET / HTTP/1.1" 200 -
+2025-05-25 14:01:02,065 Use pytorch device_name: cpu
+2025-05-25 14:01:02,066 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-25 14:01:05,634 127.0.0.1 - - [25/May/2025 14:01:05] "POST /chat HTTP/1.1" 200 -
+2025-05-25 14:05:04,686 127.0.0.1 - - [25/May/2025 14:05:04] "POST /chat HTTP/1.1" 200 -
+2025-05-25 15:49:34,124 127.0.0.1 - - [25/May/2025 15:49:34] "GET / HTTP/1.1" 200 -
+2025-05-25 15:49:34,194 127.0.0.1 - - [25/May/2025 15:49:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-26 14:59:26,384 127.0.0.1 - - [26/May/2025 14:59:26] "GET / HTTP/1.1" 200 -
+2025-05-26 14:59:26,479 127.0.0.1 - - [26/May/2025 14:59:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-26 14:59:36,639 127.0.0.1 - - [26/May/2025 14:59:36] "POST /chat HTTP/1.1" 200 -
+2025-05-26 15:17:48,147 No match (score=0.42) for: 'pizza sabe mal'
+2025-05-26 15:17:48,147 127.0.0.1 - - [26/May/2025 15:17:48] "POST /chat HTTP/1.1" 200 -
+2025-05-26 15:17:54,756 No match (score=0.45) for: 'sabes algo'
+2025-05-26 15:17:54,757 127.0.0.1 - - [26/May/2025 15:17:54] "POST /chat HTTP/1.1" 200 -
+2025-05-26 15:18:01,082 No match (score=0.38) for: 'Me puedes ayudar'
+2025-05-26 15:18:01,082 127.0.0.1 - - [26/May/2025 15:18:01] "POST /chat HTTP/1.1" 200 -
+2025-05-26 15:18:04,273 No match (score=0.26) for: 'ayuda'
+2025-05-26 15:18:04,273 127.0.0.1 - - [26/May/2025 15:18:04] "POST /chat HTTP/1.1" 200 -
+2025-05-26 15:18:15,071 127.0.0.1 - - [26/May/2025 15:18:15] "POST /chat HTTP/1.1" 200 -
+2025-05-26 15:18:17,442 127.0.0.1 - - [26/May/2025 15:18:17] "POST /chat HTTP/1.1" 200 -
+2025-05-26 15:18:19,598 127.0.0.1 - - [26/May/2025 15:18:19] "POST /chat HTTP/1.1" 200 -
+2025-05-26 15:18:20,959 127.0.0.1 - - [26/May/2025 15:18:20] "POST /chat HTTP/1.1" 200 -
+2025-05-26 15:18:24,177 127.0.0.1 - - [26/May/2025 15:18:24] "POST /chat HTTP/1.1" 200 -
+2025-05-26 18:53:40,399 No match (score=0.42) for: 'picha'
+2025-05-26 18:53:40,404 127.0.0.1 - - [26/May/2025 18:53:40] "POST /chat HTTP/1.1" 200 -
+2025-05-26 18:53:53,446 No match (score=0.31) for: 'hijueputa'
+2025-05-26 18:53:53,446 127.0.0.1 - - [26/May/2025 18:53:53] "POST /chat HTTP/1.1" 200 -
+2025-05-27 18:05:14,452 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-27 18:05:14,452 [33mPress CTRL+C to quit[0m
+2025-05-27 18:05:42,023 127.0.0.1 - - [27/May/2025 18:05:42] "GET / HTTP/1.1" 200 -
+2025-05-27 18:05:42,106 127.0.0.1 - - [27/May/2025 18:05:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-27 18:31:06,457 Use pytorch device_name: cpu
+2025-05-27 18:31:06,458 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-27 18:31:11,527 127.0.0.1 - - [27/May/2025 18:31:11] "POST /chat HTTP/1.1" 200 -
+2025-05-27 18:31:17,210 127.0.0.1 - - [27/May/2025 18:31:17] "POST /chat HTTP/1.1" 200 -
+2025-05-27 18:31:19,316 127.0.0.1 - - [27/May/2025 18:31:19] "POST /chat HTTP/1.1" 200 -
+2025-05-27 18:31:24,475 127.0.0.1 - - [27/May/2025 18:31:24] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:09:17,507 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-27 19:09:17,511 [33mPress CTRL+C to quit[0m
+2025-05-27 19:09:55,964 127.0.0.1 - - [27/May/2025 19:09:55] "GET / HTTP/1.1" 200 -
+2025-05-27 19:10:12,711 Use pytorch device_name: cpu
+2025-05-27 19:10:12,711 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-05-27 19:10:17,765 127.0.0.1 - - [27/May/2025 19:10:17] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:20,149 127.0.0.1 - - [27/May/2025 19:10:20] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:21,648 127.0.0.1 - - [27/May/2025 19:10:21] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:22,755 127.0.0.1 - - [27/May/2025 19:10:22] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:24,186 127.0.0.1 - - [27/May/2025 19:10:24] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:25,365 127.0.0.1 - - [27/May/2025 19:10:25] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:26,577 127.0.0.1 - - [27/May/2025 19:10:26] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:27,250 127.0.0.1 - - [27/May/2025 19:10:27] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:28,209 127.0.0.1 - - [27/May/2025 19:10:28] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:29,263 127.0.0.1 - - [27/May/2025 19:10:29] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:30,164 127.0.0.1 - - [27/May/2025 19:10:30] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:30,724 127.0.0.1 - - [27/May/2025 19:10:30] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:31,687 127.0.0.1 - - [27/May/2025 19:10:31] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:32,527 127.0.0.1 - - [27/May/2025 19:10:32] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:33,875 127.0.0.1 - - [27/May/2025 19:10:33] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:36,282 127.0.0.1 - - [27/May/2025 19:10:36] "POST /chat HTTP/1.1" 200 -
+2025-05-27 19:10:37,457 127.0.0.1 - - [27/May/2025 19:10:37] "POST /chat HTTP/1.1" 200 -
+2025-06-02 17:27:49,835 127.0.0.1 - - [02/Jun/2025 17:27:49] "GET / HTTP/1.1" 200 -
+2025-06-02 17:27:49,942 127.0.0.1 - - [02/Jun/2025 17:27:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-02 17:27:52,419 127.0.0.1 - - [02/Jun/2025 17:27:52] "POST /chat HTTP/1.1" 200 -
+2025-06-02 17:27:56,095 127.0.0.1 - - [02/Jun/2025 17:27:56] "POST /chat HTTP/1.1" 200 -
+2025-06-02 17:27:57,021 127.0.0.1 - - [02/Jun/2025 17:27:57] "POST /chat HTTP/1.1" 200 -
+2025-06-02 17:27:58,275 127.0.0.1 - - [02/Jun/2025 17:27:58] "POST /chat HTTP/1.1" 200 -
+2025-06-04 18:10:16,958 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 18:10:16,959 [33mPress CTRL+C to quit[0m
+2025-06-04 18:10:32,625 127.0.0.1 - - [04/Jun/2025 18:10:32] "GET / HTTP/1.1" 200 -
+2025-06-04 18:10:32,719 127.0.0.1 - - [04/Jun/2025 18:10:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-04 18:11:31,906 Use pytorch device_name: cpu
+2025-06-04 18:11:31,906 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-04 18:11:37,215 127.0.0.1 - - [04/Jun/2025 18:11:37] "POST /chat HTTP/1.1" 200 -
+2025-06-04 18:11:44,000 127.0.0.1 - - [04/Jun/2025 18:11:44] "POST /chat HTTP/1.1" 200 -
+2025-06-04 18:31:09,847 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 18:31:09,847 [33mPress CTRL+C to quit[0m
+2025-06-04 18:31:30,750 127.0.0.1 - - [04/Jun/2025 18:31:30] "GET / HTTP/1.1" 200 -
+2025-06-04 18:32:04,179 Use pytorch device_name: cpu
+2025-06-04 18:32:04,179 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-04 18:32:08,394 127.0.0.1 - - [04/Jun/2025 18:32:08] "POST /chat HTTP/1.1" 200 -
+2025-06-04 18:32:24,300 127.0.0.1 - - [04/Jun/2025 18:32:24] "POST /chat HTTP/1.1" 200 -
+2025-06-04 18:32:37,935 127.0.0.1 - - [04/Jun/2025 18:32:37] "POST /chat HTTP/1.1" 200 -
+2025-06-04 18:36:05,406 127.0.0.1 - - [04/Jun/2025 18:36:05] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-04 18:56:40,311 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 18:56:40,311 [33mPress CTRL+C to quit[0m
+2025-06-04 18:56:57,892 127.0.0.1 - - [04/Jun/2025 18:56:57] "GET / HTTP/1.1" 200 -
+2025-06-04 18:57:05,791 127.0.0.1 - - [04/Jun/2025 18:57:05] "GET / HTTP/1.1" 200 -
+2025-06-04 18:58:24,102 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 18:58:24,102 [33mPress CTRL+C to quit[0m
+2025-06-04 18:58:29,670 127.0.0.1 - - [04/Jun/2025 18:58:29] "GET / HTTP/1.1" 200 -
+2025-06-04 18:58:29,719 127.0.0.1 - - [04/Jun/2025 18:58:29] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-04 18:58:39,247 127.0.0.1 - - [04/Jun/2025 18:58:39] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-04 18:58:58,035 127.0.0.1 - - [04/Jun/2025 18:58:58] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-04 18:59:19,087 Use pytorch device_name: cpu
+2025-06-04 18:59:19,087 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-04 18:59:23,232 127.0.0.1 - - [04/Jun/2025 18:59:23] "POST /chat HTTP/1.1" 200 -
+2025-06-04 18:59:27,914 127.0.0.1 - - [04/Jun/2025 18:59:27] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-04 19:00:40,886 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 19:00:40,887 [33mPress CTRL+C to quit[0m
+2025-06-04 19:00:57,599 127.0.0.1 - - [04/Jun/2025 19:00:57] "GET / HTTP/1.1" 200 -
+2025-06-04 19:01:20,455 127.0.0.1 - - [04/Jun/2025 19:01:20] "[31m[1mPOST /upload_csv HTTP/1.1[0m" 400 -
+2025-06-04 19:01:40,424 127.0.0.1 - - [04/Jun/2025 19:01:40] "[31m[1mPOST /upload_csv HTTP/1.1[0m" 400 -
+2025-06-04 19:01:53,172 127.0.0.1 - - [04/Jun/2025 19:01:53] "POST /upload_csv HTTP/1.1" 200 -
+2025-06-04 19:02:00,531 127.0.0.1 - - [04/Jun/2025 19:02:00] "POST /upload_csv HTTP/1.1" 200 -
+2025-06-04 19:02:58,988 127.0.0.1 - - [04/Jun/2025 19:02:58] "POST /upload_csv HTTP/1.1" 200 -
+2025-06-04 19:03:43,457 Use pytorch device_name: cpu
+2025-06-04 19:03:43,457 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-04 19:03:47,385 127.0.0.1 - - [04/Jun/2025 19:03:47] "POST /chat HTTP/1.1" 200 -
+2025-06-04 19:07:22,578 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 19:07:22,578 [33mPress CTRL+C to quit[0m
+2025-06-04 19:08:57,866 127.0.0.1 - - [04/Jun/2025 19:08:57] "GET / HTTP/1.1" 200 -
+2025-06-04 19:11:48,740 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 19:11:48,740 [33mPress CTRL+C to quit[0m
+2025-06-04 19:14:33,900 127.0.0.1 - - [04/Jun/2025 19:14:33] "GET / HTTP/1.1" 200 -
+2025-06-04 19:14:33,925 127.0.0.1 - - [04/Jun/2025 19:14:33] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-04 19:22:52,374 Use pytorch device_name: cpu
+2025-06-04 19:22:52,374 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-04 19:22:58,404 127.0.0.1 - - [04/Jun/2025 19:22:58] "POST /chat HTTP/1.1" 200 -
+2025-06-04 19:23:06,587 127.0.0.1 - - [04/Jun/2025 19:23:06] "POST /chat HTTP/1.1" 200 -
+2025-06-04 19:23:14,995 127.0.0.1 - - [04/Jun/2025 19:23:14] "POST /chat HTTP/1.1" 200 -
+2025-06-04 19:23:40,882 127.0.0.1 - - [04/Jun/2025 19:23:40] "POST /chat HTTP/1.1" 200 -
+2025-06-04 19:34:49,880 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 19:34:49,880 [33mPress CTRL+C to quit[0m
+2025-06-04 19:36:03,741 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 19:36:03,741 [33mPress CTRL+C to quit[0m
+2025-06-04 19:36:21,680 127.0.0.1 - - [04/Jun/2025 19:36:21] "GET / HTTP/1.1" 200 -
+2025-06-04 19:36:21,776 127.0.0.1 - - [04/Jun/2025 19:36:21] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-04 19:36:41,270 127.0.0.1 - - [04/Jun/2025 19:36:41] "POST /upload_csv HTTP/1.1" 200 -
+2025-06-04 19:36:43,069 127.0.0.1 - - [04/Jun/2025 19:36:43] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-04 19:36:48,336 127.0.0.1 - - [04/Jun/2025 19:36:48] "[33mDELETE /delete_csv HTTP/1.1[0m" 404 -
+2025-06-04 19:36:56,681 127.0.0.1 - - [04/Jun/2025 19:36:56] "[33mDELETE /delete_csv HTTP/1.1[0m" 404 -
+2025-06-04 19:37:08,142 127.0.0.1 - - [04/Jun/2025 19:37:08] "[33mDELETE /delete_csv HTTP/1.1[0m" 404 -
+2025-06-04 19:44:30,894 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 19:44:30,894 [33mPress CTRL+C to quit[0m
+2025-06-04 19:49:40,838 127.0.0.1 - - [04/Jun/2025 19:49:40] "GET / HTTP/1.1" 200 -
+2025-06-04 19:49:40,938 127.0.0.1 - - [04/Jun/2025 19:49:40] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-04 19:49:50,928 127.0.0.1 - - [04/Jun/2025 19:49:50] "DELETE /delete_csv HTTP/1.1" 200 -
+2025-06-04 19:49:53,877 127.0.0.1 - - [04/Jun/2025 19:49:53] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-04 19:50:16,314 Use pytorch device_name: cpu
+2025-06-04 19:50:16,314 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-04 19:50:20,618 127.0.0.1 - - [04/Jun/2025 19:50:20] "POST /chat HTTP/1.1" 200 -
+2025-06-04 19:50:36,267 127.0.0.1 - - [04/Jun/2025 19:50:36] "POST /chat HTTP/1.1" 200 -
+2025-06-04 19:55:40,404 127.0.0.1 - - [04/Jun/2025 19:55:40] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-04 19:57:07,729 127.0.0.1 - - [04/Jun/2025 19:57:07] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-04 20:02:13,559 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 20:02:13,560 [33mPress CTRL+C to quit[0m
+2025-06-04 20:09:18,640 127.0.0.1 - - [04/Jun/2025 20:09:18] "GET / HTTP/1.1" 200 -
+2025-06-04 20:09:18,666 127.0.0.1 - - [04/Jun/2025 20:09:18] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-04 20:09:34,673 Use pytorch device_name: cpu
+2025-06-04 20:09:34,674 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-04 20:09:38,193 127.0.0.1 - - [04/Jun/2025 20:09:38] "POST /chat HTTP/1.1" 200 -
+2025-06-04 20:12:59,592 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 20:12:59,592 [33mPress CTRL+C to quit[0m
+2025-06-04 20:14:00,281 127.0.0.1 - - [04/Jun/2025 20:14:00] "GET / HTTP/1.1" 200 -
+2025-06-04 20:14:00,302 127.0.0.1 - - [04/Jun/2025 20:14:00] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-04 20:14:22,854 Use pytorch device_name: cpu
+2025-06-04 20:14:22,854 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-04 20:14:26,684 127.0.0.1 - - [04/Jun/2025 20:14:26] "POST /chat HTTP/1.1" 200 -
+2025-06-04 20:15:29,604 127.0.0.1 - - [04/Jun/2025 20:15:29] "POST /chat HTTP/1.1" 200 -
+2025-06-04 20:15:43,899 127.0.0.1 - - [04/Jun/2025 20:15:43] "POST /chat HTTP/1.1" 200 -

@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Chatbot Pizza Hut</title>
   <style>
+    
+    /* ... tu CSS actual ... */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
       background-color: #fafafa;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
     }
     .container {
       width: 100%;
       max-width: 600px;
-      height: 90vh;
+      height: 60vh;
       background: #fff;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       border-radius: 8px;
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      margin-top: 20px;
     }
     .chat-header {
       padding: 16px;
@@ -40,7 +43,8 @@
       overflow-y: auto;
       background-color: #f9f9f9;
     }
-    .message {
+  
+  .message {
       display: flex;
       margin-bottom: 12px;
     }
@@ -66,20 +70,7 @@
       color: #33691e;
       border-bottom-left-radius: 4px;
     }
-    .input-area {
-      display: flex;
-      padding: 12px;
-      border-top: 1px solid #ddd;
-      align-items: center;
-    }
-    #userInput {
-      flex: 1;
-      padding: 10px 16px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 20px 0 0 20px;
-      outline: none;
-    }
+
     #sendBtn {
       padding: 10px 20px;
       border: none;
@@ -125,78 +116,237 @@
     .suggestion:hover {
       background-color: #d5d5d5;
     }
+
+    table {
+      width: 100%;
+      max-width: 600px;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f5f5f5;
+    }
+    button.delete-btn {
+      background-color: #d32f2f;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button.delete-btn:hover {
+      background-color: #b71c1c;
+    }
+    form {
+      margin-bottom: 30px;
+      max-width: 600px;
+      width: 100%;
+      padding: 12px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
+
   <div class="container">
     <div class="chat-header">Chatbot Pizza Hut</div>
     <div id="chatbox"></div>
     <div class="input-area">
-      <input type="text" id="userInput" placeholder="Escribe tu pregunta..." autocomplete="off">
+      <input type="text" id="userInput" placeholder="Escribe tu pregunta..." autocomplete="off" />
       <button id="sendBtn">Enviar</button>
-      <div id="loader" class="loader"></div>
+      <div id="loader" class="loader" style="display:none;"></div>
     </div>
   </div>
 
-  <script>
-    const chatbox = document.getElementById('chatbox');
-    const input = document.getElementById('userInput');
-    const sendBtn = document.getElementById('sendBtn');
-    const loader = document.getElementById('loader');
+  <h2>Archivos CSV Disponibles</h2>
+  <table aria-label="Lista de archivos CSV">
+    <thead>
+      <tr>
+        <th>Nombre del archivo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="csvTableBody">
+      <!-- Aquí se insertan filas -->
+    </tbody>
+  </table>
 
-    // Enviar con botón o Enter
-    sendBtn.addEventListener('click', () => sendMessage());
-    input.addEventListener('keypress', e => {
-      if (e.key === 'Enter') sendMessage();
+  <form id="uploadForm" enctype="multipart/form-data">
+    <label for="csvFile">Subir nuevo CSV:</label>
+    <input type="file" id="csvFile" name="csvFile" accept=".csv" required />
+    <button type="submit">Subir</button>
+  </form>
+
+<script>
+  // Funciones para chatbot (igual que las tuyas)
+  const chatbox = document.getElementById('chatbox');
+  const input = document.getElementById('userInput');
+  const sendBtn = document.getElementById('sendBtn');
+  const loader = document.getElementById('loader');
+
+  sendBtn.addEventListener('click', () => sendMessage());
+  input.addEventListener('keypress', e => {
+    if (e.key === 'Enter') sendMessage();
+  });
+
+  async function sendMessage(preguntaSug = null) {
+    const text = preguntaSug || input.value.trim();
+    if (!text) return;
+
+    appendMessage('user', text);
+    input.value = '';
+    loader.style.display = 'inline-block';
+    chatbox.scrollTop = chatbox.scrollHeight;
+
+    try {
+      const res = await fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text })
+      });
+      const data = await res.json();
+      appendMessage('bot', data.response, data.suggestions);
+    } catch {
+      appendMessage('bot', 'Error: no se pudo conectar con el servidor.');
+    } finally {
+      loader.style.display = 'none';
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+  }
+
+  function appendMessage(sender, text, suggestions = []) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'message ' + sender;
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    bubble.textContent = text;
+    msgDiv.appendChild(bubble);
+    chatbox.appendChild(msgDiv);
+
+    if (sender === 'bot' && suggestions.length > 0) {
+      const sugContainer = document.createElement('div');
+      sugContainer.className = 'suggestions';
+      suggestions.forEach(s => {
+        const btn = document.createElement('div');
+        btn.className = 'suggestion';
+        btn.textContent = s;
+        btn.onclick = () => sendMessage(s);
+        sugContainer.appendChild(btn);
+      });
+      chatbox.appendChild(sugContainer);
+    }
+  }
+
+  // Funciones para listar y borrar CSVs
+  const csvTableBody = document.getElementById('csvTableBody');
+
+  async function loadCSVList() {
+    try {
+      const res = await fetch('/available_csvs');
+      const csvs = await res.json();
+      csvTableBody.innerHTML = '';
+
+      if (!csvs.length) {
+        const tr = document.createElement('tr');
+        const td = document.createElement('td');
+        td.colSpan = 2;
+        td.textContent = 'No hay archivos CSV disponibles.';
+        tr.appendChild(td);
+        csvTableBody.appendChild(tr);
+        return;
+      }
+
+      csvs.forEach(filename => {
+        const tr = document.createElement('tr');
+
+        const tdName = document.createElement('td');
+        tdName.textContent = filename;
+        tr.appendChild(tdName);
+
+        const tdActions = document.createElement('td');
+        const btnDelete = document.createElement('button');
+        btnDelete.className = 'delete-btn';
+        btnDelete.textContent = 'Borrar';
+        btnDelete.onclick = () => {
+          if (confirm(`¿Seguro que deseas borrar "${filename}"? Esta acción no se puede deshacer.`)) {
+            deleteCSV(filename);
+          }
+        };
+        tdActions.appendChild(btnDelete);
+        tr.appendChild(tdActions);
+
+        csvTableBody.appendChild(tr);
+      });
+    } catch (err) {
+      alert('Error cargando la lista de CSVs: ' + err);
+    }
+  }
+
+async function deleteCSV(filename) {
+  try {
+    const res = await fetch('/delete_csv', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename })
     });
 
-    async function sendMessage(preguntaSug = null) {
-      const text = preguntaSug || input.value.trim();
-      if (!text) return;
-
-      appendMessage('user', text);
-      input.value = '';
-      loader.style.display = 'inline-block';
-      chatbox.scrollTop = chatbox.scrollHeight;
-
-      try {
-        const res = await fetch('/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: text })
-        });
-        const data = await res.json();
-        appendMessage('bot', data.response, data.suggestions);
-      } catch (err) {
-        appendMessage('bot', 'Error: no se pudo conectar con el servidor.');
-      } finally {
-        loader.style.display = 'none';
-        chatbox.scrollTop = chatbox.scrollHeight;
+    const text = await res.text();
+    try {
+      const data = JSON.parse(text);
+      if (data.success) {
+        alert(`Archivo "${filename}" borrado correctamente.`);
+        loadCSVList();
+      } else {
+        alert('Error al borrar archivo: ' + (data.error || 'Desconocido'));
       }
+    } catch {
+      alert('Respuesta inesperada del servidor: ' + text);
     }
+  } catch (err) {
+    alert('Error al borrar archivo: ' + err);
+  }
+}
 
-    function appendMessage(sender, text, suggestions = []) {
-      const msgDiv = document.createElement('div');
-      msgDiv.className = 'message ' + sender;
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-      bubble.textContent = text;
-      msgDiv.appendChild(bubble);
-      chatbox.appendChild(msgDiv);
 
-      if (sender === 'bot' && suggestions.length > 0) {
-        const sugContainer = document.createElement('div');
-        sugContainer.className = 'suggestions';
-        suggestions.forEach(s => {
-          const btn = document.createElement('div');
-          btn.className = 'suggestion';
-          btn.textContent = s;
-          btn.onclick = () => sendMessage(s);
-          sugContainer.appendChild(btn);
-        });
-        chatbox.appendChild(sugContainer);
-      }
+  // Subida CSV
+  const uploadForm = document.getElementById('uploadForm');
+  uploadForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fileInput = document.getElementById('csvFile');
+    if (!fileInput.files.length) {
+      alert('Selecciona un archivo CSV primero.');
+      return;
     }
-  </script>
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+
+    try {
+      const res = await fetch('/upload_csv', {
+        method: 'POST',
+        body: formData
+      });
+      const text = await res.text();
+      alert(text);
+      fileInput.value = '';
+      loadCSVList();
+    } catch {
+      alert('Error al subir el archivo.');
+    }
+  });
+
+  // Cargar lista al inicio
+  window.onload = () => {
+    loadCSVList();
+  };
+</script>
+
 </body>
 </html>
