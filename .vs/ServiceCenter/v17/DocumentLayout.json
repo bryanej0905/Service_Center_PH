@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{46C816D0-3A73-43C1-AC4B-2A10723FDE32}|ServiceCenter\\ServiceCenter.csproj|c:\\users\\quiro\\onedrive\\documents\\github\\service_center_ph\\servicecenter\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{46C816D0-3A73-43C1-AC4B-2A10723FDE32}|ServiceCenter\\ServiceCenter.csproj|solutionrelative:servicecenter\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46C816D0-3A73-43C1-AC4B-2A10723FDE32}|ServiceCenter\\ServiceCenter.csproj|C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\servicecenter\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46C816D0-3A73-43C1-AC4B-2A10723FDE32}|ServiceCenter\\ServiceCenter.csproj|solutionrelative:servicecenter\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 399,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 60,
           "Children": [
             {
               "$type": "Bookmark",
@@ -250,6 +259,31 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{a34b1c5d-6d37-4a0c-a8b0-99f8e8158b48}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\ServiceCenter\\Web.config",
+              "RelativeDocumentMoniker": "ServiceCenter\\Web.config",
+              "ToolTip": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\ServiceCenter\\Web.config",
+              "RelativeToolTip": "ServiceCenter\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-04T02:11:28.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\ServiceCenter\\Startup.cs",
+              "RelativeDocumentMoniker": "ServiceCenter\\Startup.cs",
+              "ToolTip": "C:\\Users\\quiro\\OneDrive\\Documents\\GitHub\\Service_Center_PH\\ServiceCenter\\Startup.cs",
+              "RelativeToolTip": "ServiceCenter\\Startup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-04T02:11:25.175Z"
             }
           ]
         },

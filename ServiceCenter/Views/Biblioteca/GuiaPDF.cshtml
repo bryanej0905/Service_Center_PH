@@ -1,0 +1,100 @@
+﻿@model ServiceCenter.Models.Guia
+@{
+    Layout = null;
+    }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.Titulo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px 30px 20px 30px;
+        }
+
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+            .header-table td, .header-table th {
+                border: 1px solid #222;
+                padding: 5px 7px;
+                font-size: 0.95em;
+            }
+
+            .header-table .center {
+                text-align: center;
+            }
+
+            .header-table .right {
+                text-align: right;
+            }
+
+        .doc-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .content {
+            margin: 40px 0 40px 0;
+            font-size: 1.08em;
+        }
+
+        .footer {
+            font-size: 0.97em;
+            color: #222;
+            border-top: 1px solid #aaa;
+            padding-top: 8px;
+            text-align: center;
+            margin-top: 40px;
+            background: white;
+        }
+
+        .logo {
+            height: 120px;
+        }
+
+        .code-highlight {
+            color: #d00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table class="header-table">
+        <tr>
+            <td style="width: 25%;">
+                <img src="@Url.Content("~/Content/lib/img/pizza-hut-logo.png")" class="logo" alt="Pizza Hut Logo" /><br />
+                <b>Código:</b> TS-F-02<br />
+                <b>RIGE A PARTIR DE:</b> 17/06/2025
+            </td>
+            <td class="center" style="width: 50%;">
+                <b>Carta de asignación del fondo de<br />cambio de menudo<br />Gerente</b>
+            </td>
+            <td style="width: 25%;">
+                <b>Versión:</b> 00<br />
+                <b>Página:</b> 1 / 1<br />
+                <b>ACTUALIZACIÓN:</b> 17/06/2025
+            </td>
+        </tr>
+    </table>
+
+    <div class="doc-title">@Model.Titulo</div>
+    <div class="content">
+        @Html.Raw(Model.Contenido.Replace("\r\n", "<br/>"))
+    </div>
+
+    <div class="footer">
+        Comidas Centroamericanas S.A<br />
+        Central Telefónica: (506) 2203-2595 Fax: (506) 2232-7159<br />
+        Apdo. 3094-1000 San José Costa Rica, Pavas Zona Industrial<br />
+        Email: info@pizzahutcr.com - www.pizzahutcr.com
+    </div>
+</body>
+</html>
