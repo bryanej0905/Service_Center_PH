@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNet.Identity
+
+@if (Request.IsAuthenticated)
+{
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <a href="@Url.Action("Index", "Manage")"
+           class="btn rounded-pill d-flex align-items-center gap-2"
+           style="background-color: #e9ecef; color: #333; border: 1px solid #ced4da;">
+            <i class="fas fa-user-circle" style="color: #6c757d;"></i>
+            @("Hola " + User.Identity.GetUserName())
+        </a>
+
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style = "display:inline" }))
+        {
+            @Html.AntiForgeryToken()
+            <button type="submit"
+                    class="btn rounded-pill d-flex align-items-center gap-2"
+                    style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;">
+                <i class="fas fa-sign-out-alt" style="color: #dc3545;"></i>
+                Cerrar sesión
+            </button>
+        }
+    </div>
+}
+else
+{
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <a href="@Url.Action("Register", "Account")" id="registerLink"
+           class="btn rounded-pill d-flex align-items-center gap-2"
+           style="background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb;">
+            <i class="fas fa-user-plus" style="color: #17a2b8;"></i>
+            Registrarse
+        </a>
+
+        <a href="@Url.Action("Login", "Account")" id="loginLink"
+           class="btn rounded-pill d-flex align-items-center gap-2"
+           style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;">
+            <i class="fas fa-sign-in-alt" style="color: #28a745;"></i>
+            Iniciar sesión
+        </a>
+    </div>
+}

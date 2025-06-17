@@ -1,0 +1,102 @@
+﻿@model ServiceCenter.ViewModels.TicketDetalleViewModel
+@{
+    ViewBag.Title = "Detalle del Ticket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .detalle-ticket {
+        background-color: lightgray;
+        padding: 30px;
+        border-radius: 12px;
+        max-width: 800px;
+        margin: 30px auto;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    }
+
+        .detalle-ticket h2 {
+            color: #b30000;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .detalle-ticket dt {
+            font-weight: bold;
+            color: #222;
+            margin-top: 10px;
+        }
+
+        .detalle-ticket dd {
+            margin-left: 0;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+    .btn-volver {
+        background-color: #555;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+    }
+
+        .btn-volver:hover {
+            background-color: #333;
+        }
+</style>
+
+<div class="detalle-ticket">
+    <h2>Detalle del Ticket</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>N° Ticket</dt>
+        <dd>@Model.Id</dd>
+
+        <dt>Título</dt>
+        <dd>@Model.Titulo</dd>
+
+        <dt>Descripción</dt>
+        <dd>@Model.Descripcion</dd>
+
+        <dt>Estado</dt>
+        <dd>@Model.Estado</dd>
+
+        <dt>Prioridad</dt>
+        <dd>@Model.Prioridad</dd>
+
+        <dt>Categoría</dt>
+        <dd>@Model.Categoria</dd>
+
+        <dt>Departamento</dt>
+        <dd>@Model.DepartamentoNombre</dd>
+
+        <dt>Creado por</dt>
+        <dd>@Model.UsuarioCreadorUserName</dd>
+
+        <dt>Fecha de Creación</dt>
+        <dd>@Model.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</dd>
+
+        @if (Model.Adjuntos != null && Model.Adjuntos.Any())
+        {
+            <h4 style="margin-top: 30px; color: #b30000;">Archivos Adjuntos</h4>
+            <ul style="list-style-type: none; padding-left: 0;">
+                @foreach (var adjunto in Model.Adjuntos)
+                {
+                    <li style="margin-bottom: 10px;">
+                        <a href="@Url.Action("Descargar", "Adjuntos", new { id = adjunto.Id })" target="_blank" style="color: #0066cc;">
+                            📎 @adjunto.NombreArchivo
+                        </a>
+                        <span style="color: #666; font-size: 0.9em;">(subido el @adjunto.FechaSubida.ToString("dd/MM/yyyy HH:mm"))</span>
+                    </li>
+                }
+            </ul>
+        }
+
+    </dl>
+
+    <div style="margin-top: 20px; text-align: center;">
+        @Html.ActionLink("Volver", "Index", null, new { @class = "btn-volver" })
+    </div>
+</div>

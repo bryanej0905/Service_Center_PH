@@ -1,0 +1,213 @@
+﻿@using System
+@using System.Linq
+@using System.Web
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using System.Web.Optimization
+@using System.Web.Routing
+@using Microsoft.AspNet.Identity
+@inherits System.Web.Mvc.WebViewPage<dynamic>
+@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - PH_ServiceCenter</title>
+
+    <!-- CSS -->
+    <link href="@Url.Content("~/Content/lib/bootstrap/dist/css/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/css/site.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/css/site-faq.css")" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+    @RenderSection("Styles", required: false)
+    <style>
+        .main-layout-wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            min-height: 0;
+            width: 100%;
+        }
+
+        .sidebar {
+            min-width: 240px;
+            max-width: 270px;
+            background: #22292f;
+            color: #fff;
+            min-height: 100vh;
+            box-shadow: 1px 0 12px rgba(0,0,0,0.08);
+        }
+
+            .sidebar.collapsed {
+                display: none !important;
+            }
+
+        .main-content-area {
+            flex-grow: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+        }
+
+        @@media (max-width: 900px) {
+            .sidebar {
+                min-width: 0;
+                width: 100%;
+                max-width: none;
+                position: absolute;
+                z-index: 30;
+                left: 0;
+                top: 0;
+                height: 100vh;
+                display: none;
+            }
+
+                .sidebar:not(.collapsed) {
+                    display: block !important;
+                }
+        }
+    </style>
+    @{
+        var isLoggedIn = User.Identity.IsAuthenticated;
+    }
+
+    @if (isLoggedIn)
+    {
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('@Url.Content("~/Content/lib/img/Fondo.jpg")');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            z-index: 1;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(5px);
+            z-index: -1;
+        }
+        </style>
+    }
+
+</head>
+
+<body class="d-flex flex-column min-vh-100" style="
+    margin: 0; padding: 0;
+    background-image: url('@Url.Content("~/Content/lib/img/Fondo.jpg")');
+    background-size: cover; background-repeat: no-repeat;
+    background-position: center; background-attachment: fixed;">
+
+    <!-- Navbar siempre arriba -->
+    <nav class="navbar" style="background-image: url('@Url.Content("~/Content/lib/img/header.png")')">
+        <div class="navbar-left">
+            @if (User?.Identity?.IsAuthenticated ?? false)
+            {
+                <button id="sidebarToggle" class="btn-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            }
+            <div class="logo-container" style="top: -30px">
+                <img src="@Url.Content("~/Content/lib/img/pizza-hut-logo.png")"
+                     style="height: 180px"
+                     alt="Pizza Hut Logo" />
+            </div>
+        </div>
+        <div class="navbar-right">
+            @Html.Partial("_LoginPartial")
+        </div>
+    </nav>
+
+    <!-- Sidebar y contenido principal alineados -->
+    <div class="main-layout-wrapper flex-grow-1">
+        @if (User?.Identity?.IsAuthenticated ?? false)
+        {
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <h3 style="display:flex; align-items:center;">
+                        <img src="@Url.Content("~/Content/lib/img/icono.png")"
+                             alt="icono"
+                             style="height:40px; margin-right:10px;" />
+                        Service Desk
+                    </h3>
+                </div>
+                <ul class="sidebar-menu">
+                  
+                    <li class="menu-item @(currentController == "Tickets" ? "active" : "")">
+                        <a href="@Url.Action("Index", "Tickets")">
+                            <i class="fas fa-headset"></i> Service Desk
+                        </a>
+                    </li>
+                    <li class="menu-item @(currentController=="FAQ" ? "active" : "")">
+                        <a href="@Url.Action("Index","FAQ")">
+                            <i class="fas fa-question-circle"></i> FAQ
+                        </a>
+                    </li>
+                    <li class="menu-item @(currentController=="Biblioteca" ? "active" : "")">
+                        <a href="@Url.Action("Index","Biblioteca")">
+                            <i class="fas fa-book"></i> Biblioteca Didáctica
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+        }
+
+        <!-- Contenido principal -->
+        <div class="main-content-area">
+            <main role="main" class="main-content flex-grow-1 p-4" id="mainContent" style="background-color:transparent;">
+                @RenderBody()
+            </main>
+            <!-- Footer siempre abajo -->
+            <footer class="footer bg-light text-center text-muted py-3 border-top mt-auto">
+                <div>
+                    Comidas Centroamericanas S.A<br />
+                    Central Telefónica: (506) 2203-2595 Fax: (506) 2232-7159<br />
+                    Apdo. 3094–1000 San José Costa Rica, Pavas Zona Industrial<br />
+                    Email: info@pizzahutcr.com – www.pizzahutcr.com
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="@Url.Content("~/Content/lib/jquery/dist/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/lib/bootstrap/dist/js/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/Content/js/site.js")"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var btn = document.getElementById("sidebarToggle"),
+                sb = document.getElementById("sidebar"),
+                mc = document.getElementById("mainContent");
+            if (btn && sb && mc) {
+                btn.addEventListener("click", () => {
+                    sb.classList.toggle("collapsed");
+                });
+            }
+        });
+    </script>
+</body>
+</html>

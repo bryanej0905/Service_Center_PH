@@ -1,0 +1,125 @@
+﻿@model IEnumerable<ServiceCenter.ViewModels.TicketListViewModel>
+@{
+    ViewBag.Title = "Tickets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        color: #f2f2f2;
+    }
+
+    h2 {
+        color: white;
+        font-weight: 600;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #ffffff33;
+        padding-bottom: 8px;
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    .btn-create {
+        background-color: white;
+        color: #111;
+        border: none;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 6px;
+        transition: 0.2s ease;
+    }
+
+        .btn-create:hover {
+            background-color: #f1f1f1;
+        }
+
+    .table-container {
+        background-color: rgba(255, 255, 255, 0.06);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.4);
+        backdrop-filter: blur(3px);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ffffff22;
+    }
+
+    th {
+        color: #ffffff;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    tr:hover {
+        background-color: rgba(255,255,255,0.05);
+    }
+
+    .actions a {
+        margin-right: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        color: #ffffff;
+        padding: 5px 10px;
+        border-radius: 4px;
+    }
+
+        .actions a.btn-info {
+            background-color: #2d8fff;
+        }
+
+        .actions a.btn-danger {
+            background-color: #e74c3c;
+        }
+</style>
+
+<div class="table-container">
+    <h2>Tickets</h2>
+
+    <p>
+        @Html.ActionLink("Crear Nuevo Ticket", "Create", null, new { @class = "btn-create" })
+    </p>
+    <br />
+
+    <table>
+        <thead>
+            <tr>
+                <th>N° Ticket</th>
+                <th>@Html.DisplayNameFor(model => model.Titulo)</th>
+                <th>Estado</th>
+                <th>Prioridad</th>
+                <th>Categoría</th>
+                <th>Departamento</th>
+                <th>Creado por</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Titulo</td>
+                    <td>@item.Estado</td>
+                    <td>@item.Prioridad</td>
+                    <td>@item.Categoria</td>
+                    <td>@item.DepartamentoNombre</td>
+                    <td>@item.UsuarioCreadorNombre</td>
+                    <td class="actions">
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn-info" })
+                        @*@Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn-danger" })*@
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
