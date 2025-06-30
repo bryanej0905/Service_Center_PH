@@ -1,25 +1,22 @@
+
 import os
 import logging
-from flask import Blueprint, request, jsonify, render_template
+import requests
+from flask import Blueprint, request, jsonify, render_template, session
 from utils import normalize_text
 from difflib import get_close_matches
+import spacy
 
-# Lista de palabras prohibidas (profano)
+# ======================= Configuración inicial =========================
+
 PROHIBITED_WORDS = {'pinga', 'puta', 'cabron', 'mierda'}
-# Lista de temas completamente prohibidos
 PROHIBITED_TOPICS = {'bomba', 'explosivo', 'arma'}
-
-# Umbral mínimo de similitud para aceptar una respuesta
 EMBED_THRESHOLD = 0.6
 
-def contains_profanity(text: str) -> bool:
-    tokens = set(text.split())
-    return any(word in PROHIBITED_WORDS for word in tokens)
+# NLP para sustantivos en español
+nlp = spacy.load("es_core_news_sm")
 
-def contains_disallowed_topic(text: str) -> bool:
-    tokens = set(text.split())
-    return any(topic in tokens for topic in PROHIBITED_TOPICS)
-
+# Logger
 def setup_logger():
     log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
     os.makedirs(log_dir, exist_ok=True)
@@ -31,37 +28,151 @@ def setup_logger():
     )
     return logging.getLogger(__name__)
 
+logger = setup_logger()
 tchat_bp = Blueprint('chat', __name__)
-logger   = setup_logger()
 
-# Estos objetos serán inyectados desde app.py
+# Inyectados desde app.py
 faq_loader = None
-matcher    = None
+matcher = None
+
+# ======================= Utilidades =========================
+
+def contains_profanity(text: str) -> bool:
+    tokens = set(text.split())
+    return any(word in PROHIBITED_WORDS for word in tokens)
+
+def contains_disallowed_topic(text: str) -> bool:
+    tokens = set(text.split())
+    return any(topic in PROHIBITED_TOPICS for topic in tokens)
+
+def extract_nouns(texts):
+    nouns = []
+    for text in texts:
+        doc = nlp(text)
+        nouns.extend([token.text.capitalize() for token in doc if token.pos_ == "NOUN"])
+    return list(dict.fromkeys(nouns))
+
+def generar_titulo_ticket(nouns):
+    return ", ".join(nouns)
+
+def login_api(username, password):
+    try:
+        response = requests.post("https://api.servicecenterph.com/api/Auth/login", json={
+            "username": username,
+            "password": password
+        }, timeout=5)
+        if response.status_code == 200:
+            return response.json().get("token")
+        return None
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Error al hacer login: {e}")
+        return None
+
+def enviar_ticket(titulo, descripcion, categoria, token):
+    headers = {"Authorization": f"Bearer {token}"}
+    payload = {
+        "titulo": titulo,
+        "descripcion": descripcion,
+        "categoria": categoria
+    }
+    try:
+        response = requests.post("https://api.servicecenterph.com/api/Tickets", headers=headers, json=payload, timeout=5)
+        return response.status_code, response.text
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Error al enviar ticket: {e}")
+        return 500, "Error al conectar con el servidor de tickets."
+
+# ======================= Rutas =========================
 
 @tchat_bp.route('/')
 def index():
     return render_template('index.html')
 
+@tchat_bp.route('/chat', methods=['POST'])
+def chat():
+    raw = request.json.get('message', '') or ''
+    q_norm = normalize_text(raw)
+
+    session.setdefault('recent_inputs', [])
+    session['recent_inputs'].append(raw)
+    if len(session['recent_inputs']) > 3:
+        session['recent_inputs'].pop(0)
+
+    if contains_disallowed_topic(q_norm) or contains_profanity(q_norm):
+        return jsonify({'response': 'Lo siento, no puedo ayudar con esa solicitud.', 'suggestions': []})
+
+    if not q_norm:
+        return jsonify({'response': 'Por favor, escribe una pregunta válida.', 'suggestions': []})
+
+    if q_norm in faq_loader._q2a:
+        answer, suggestions, _ = (*matcher.find(q_norm), 1.0)[:3]
+        session['intentos_fallidos'] = 0
+        return jsonify({'response': faq_loader._q2a[q_norm], 'suggestions': suggestions})
+
+    answer, suggestions, score = matcher.find(q_norm)
+
+    if score >= EMBED_THRESHOLD:
+        session['intentos_fallidos'] = 0
+        return jsonify({'response': answer, 'suggestions': suggestions})
+
+    close = get_close_matches(q_norm, list(faq_loader._q2a.keys()), n=1, cutoff=0.5)
+    if close:
+        session['intentos_fallidos'] = 0
+        resp = faq_loader._q2a[close[0]]
+        return jsonify({'response': resp, 'suggestions': []})
+
+    logger.info(f"No match (score={score:.2f}) for: '{raw}'")
+    session['intentos_fallidos'] = session.get('intentos_fallidos', 0) + 1
+
+    if session['intentos_fallidos'] >= 3:
+        recent = session.get('recent_inputs', [])
+        nouns = extract_nouns(recent)
+        titulo = generar_titulo_ticket(nouns)
+        return jsonify({
+            'response': 'No encontré una solución. ¿Deseas crear un ticket?',
+            'ticket_option': True,
+            'titulo_sugerido': titulo
+        })
+
+    return jsonify({
+        'response': 'Lo siento, no tengo la información suficiente para eso.',
+        'suggestions': [],
+        'ticket_option': False
+    })
+
+@tchat_bp.route('/crear_ticket', methods=['POST'])
+def crear_ticket():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+    titulo = data.get('titulo')
+    descripcion = data.get('descripcion')
+    categoria = data.get('categoria')
+
+    if not all([username, password, titulo, descripcion, categoria]):
+        return jsonify({"status": 400, "msg": "Faltan campos obligatorios."})
+
+    token = login_api(username, password)
+    if not token:
+        return jsonify({"status": 401, "msg": "Credenciales inválidas o error de red."})
+
+    status, msg = enviar_ticket(titulo, descripcion, categoria, token)
+    return jsonify({"status": status, "msg": msg})
 
 @tchat_bp.route('/upload_csv', methods=['POST'])
 def upload_csv():
-    global faq_loader  # usamos el loader que ya inyectaste en app.py
-
+    global faq_loader
     file = request.files.get('file')
     if not file or not file.filename.endswith('.csv'):
         return "Archivo inválido. Debe ser .csv", 400
 
-    # Guardar el archivo en /data
     upload_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
     os.makedirs(upload_dir, exist_ok=True)
     path = os.path.join(upload_dir, file.filename)
     file.save(path)
-
-    # Recargar todos los CSVs del directorio
     faq_loader.reload()
 
     return f'Archivo {file.filename} subido correctamente y FAQs actualizados.', 200
-
 
 @tchat_bp.route('/available_csvs', methods=['GET'])
 def available_csvs():
@@ -72,8 +183,6 @@ def available_csvs():
 @tchat_bp.route('/delete_csv', methods=['DELETE'])
 def delete_csv():
     global faq_loader
-
-    # Verifica faq_loader y data_dir
     if not faq_loader:
         return jsonify({'success': False, 'error': 'Servicio no inicializado.'}), 500
 
@@ -86,63 +195,18 @@ def delete_csv():
         return jsonify({'success': False, 'error': 'Falta el nombre del archivo.'}), 400
 
     filename = data['filename']
-
-    # Seguridad básica contra path traversal
     if '/' in filename or '\\' in filename or '..' in filename:
         return jsonify({'success': False, 'error': 'Nombre de archivo inválido.'}), 400
-
     if not filename.endswith('.csv'):
         return jsonify({'success': False, 'error': 'Archivo debe ser .csv'}), 400
 
     file_path = os.path.join(data_dir, filename)
-
     if not os.path.isfile(file_path):
         return jsonify({'success': False, 'error': 'Archivo no existe.'}), 404
 
     try:
         os.remove(file_path)
-        faq_loader.reload()  # Recarga los datos para que refleje el cambio
+        faq_loader.reload()
         return jsonify({'success': True})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
-
-
-@tchat_bp.errorhandler(Exception)
-def handle_exception(e):
-    # Aquí puedes loguear la excepción e
-    return jsonify({'success': False, 'error': str(e)}), 500
-
-@tchat_bp.route('/chat', methods=['POST'])
-def chat():
-    raw = request.json.get('message', '') or ''
-    q_norm = normalize_text(raw)
-
-    # 1) Filtros previos…
-    if contains_disallowed_topic(q_norm) or contains_profanity(q_norm):
-        return jsonify({'response':'Lo siento, no puedo ayudar con esa solicitud.','suggestions':[]})
-    if not q_norm:
-        return jsonify({'response':'Por favor, escribe una pregunta válida.','suggestions':[]})
-
-    # 2) Exact match directo
-    if q_norm in faq_loader._q2a:
-        # sugerencias semánticas
-        answer, suggestions, _ = (*matcher.find(q_norm), 1.0)[:3]
-        return jsonify({'response':faq_loader._q2a[q_norm],'suggestions':suggestions})
-
-    # 3) EmbeddingMatcher
-    answer, suggestions, score = matcher.find(q_norm)
-
-    # 4) Si el embedding es suficiente
-    if score >= EMBED_THRESHOLD:
-        return jsonify({'response':answer,'suggestions':suggestions})
-
-    # 5) **Fallback difflib**: buscar la clave más parecida
-    # Aquí bajamos el cutoff un poco para capturar "nutricion" ↔ "nutricional"
-    close = get_close_matches(q_norm, list(faq_loader._q2a.keys()), n=1, cutoff=0.5)
-    if close:
-        resp = faq_loader._q2a[close[0]]
-        return jsonify({'response':resp,'suggestions':[]})
-
-    # 6) Si nada funciona, mensaje de “no info”
-    logger.info(f"No match (score={score:.2f}) for: '{raw}'")
-    return jsonify({'response':'Lo siento, no tengo la información suficiente para eso.','suggestions':[]})

@@ -6,6 +6,7 @@ import routes
 
 def create_app():
     app = Flask(__name__)
+    app.secret_key = 'supersecretkey123'
 
     # 1) Ruta absoluta al directorio 'data' (donde estarán los CSVs)
     base_dir = os.path.dirname(os.path.abspath(__file__))  # .../Service_Center_PH/bot
@@ -25,4 +26,4 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(debug=False)
+    app.run(debug=True)

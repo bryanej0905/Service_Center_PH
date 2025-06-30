@@ -732,3 +732,412 @@ ModuleNotFoundError: No module named 'sentence_transformers'
 2025-06-04 20:14:26,684 127.0.0.1 - - [04/Jun/2025 20:14:26] "POST /chat HTTP/1.1" 200 -
 2025-06-04 20:15:29,604 127.0.0.1 - - [04/Jun/2025 20:15:29] "POST /chat HTTP/1.1" 200 -
 2025-06-04 20:15:43,899 127.0.0.1 - - [04/Jun/2025 20:15:43] "POST /chat HTTP/1.1" 200 -
+2025-06-17 17:16:01,895 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-17 17:16:01,896 [33mPress CTRL+C to quit[0m
+2025-06-17 17:18:14,420 127.0.0.1 - - [17/Jun/2025 17:18:14] "GET / HTTP/1.1" 200 -
+2025-06-17 17:18:14,477 127.0.0.1 - - [17/Jun/2025 17:18:14] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-17 17:18:14,598 127.0.0.1 - - [17/Jun/2025 17:18:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-17 18:07:12,068 Use pytorch device_name: cpu
+2025-06-17 18:07:12,069 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-17 18:07:18,096 127.0.0.1 - - [17/Jun/2025 18:07:18] "POST /chat HTTP/1.1" 200 -
+2025-06-17 19:43:41,640 127.0.0.1 - - [17/Jun/2025 19:43:41] "POST /upload_csv HTTP/1.1" 200 -
+2025-06-17 19:43:42,641 127.0.0.1 - - [17/Jun/2025 19:43:42] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-17 19:43:47,291 127.0.0.1 - - [17/Jun/2025 19:43:47] "DELETE /delete_csv HTTP/1.1" 200 -
+2025-06-17 19:43:48,429 127.0.0.1 - - [17/Jun/2025 19:43:48] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-17 19:46:39,348 127.0.0.1 - - [17/Jun/2025 19:46:39] "POST /chat HTTP/1.1" 200 -
+2025-06-17 19:47:13,945 127.0.0.1 - - [17/Jun/2025 19:47:13] "POST /upload_csv HTTP/1.1" 200 -
+2025-06-17 19:47:15,315 127.0.0.1 - - [17/Jun/2025 19:47:15] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-17 19:47:46,363 127.0.0.1 - - [17/Jun/2025 19:47:46] "POST /chat HTTP/1.1" 200 -
+2025-06-24 19:21:52,528 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-24 19:21:52,529 [33mPress CTRL+C to quit[0m
+2025-06-24 19:22:11,190 127.0.0.1 - - [24/Jun/2025 19:22:11] "GET / HTTP/1.1" 200 -
+2025-06-24 19:22:11,258 127.0.0.1 - - [24/Jun/2025 19:22:11] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-24 19:22:11,380 127.0.0.1 - - [24/Jun/2025 19:22:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-24 19:22:37,414 Use pytorch device_name: cpu
+2025-06-24 19:22:37,414 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-24 19:22:42,341 127.0.0.1 - - [24/Jun/2025 19:22:42] "POST /chat HTTP/1.1" 200 -
+2025-06-24 19:22:56,928 127.0.0.1 - - [24/Jun/2025 19:22:56] "POST /chat HTTP/1.1" 200 -
+2025-06-24 19:23:42,166 No match (score=0.32) for: 'lluvia'
+2025-06-24 19:23:42,166 127.0.0.1 - - [24/Jun/2025 19:23:42] "POST /chat HTTP/1.1" 200 -
+2025-06-24 19:28:24,388 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-24 19:28:24,389 [33mPress CTRL+C to quit[0m
+2025-06-24 19:28:45,066 127.0.0.1 - - [24/Jun/2025 19:28:45] "GET / HTTP/1.1" 200 -
+2025-06-24 19:28:45,122 127.0.0.1 - - [24/Jun/2025 19:28:45] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-24 19:29:05,460 Use pytorch device_name: cpu
+2025-06-24 19:29:05,460 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-24 19:29:09,365 127.0.0.1 - - [24/Jun/2025 19:29:09] "POST /chat HTTP/1.1" 200 -
+2025-06-24 19:29:16,493 No match (score=0.32) for: 'lluvia'
+2025-06-24 19:29:16,494 127.0.0.1 - - [24/Jun/2025 19:29:16] "POST /chat HTTP/1.1" 200 -
+2025-06-24 19:38:22,956 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-24 19:38:22,957 [33mPress CTRL+C to quit[0m
+2025-06-24 19:38:38,840 127.0.0.1 - - [24/Jun/2025 19:38:38] "GET / HTTP/1.1" 200 -
+2025-06-24 19:38:38,860 127.0.0.1 - - [24/Jun/2025 19:38:38] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-24 19:38:53,887 Use pytorch device_name: cpu
+2025-06-24 19:38:53,888 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-24 19:38:57,877 127.0.0.1 - - [24/Jun/2025 19:38:57] "POST /chat HTTP/1.1" 200 -
+2025-06-24 19:39:04,588 No match (score=0.32) for: 'lluvia'
+2025-06-24 19:39:04,588 127.0.0.1 - - [24/Jun/2025 19:39:04] "POST /chat HTTP/1.1" 200 -
+2025-06-29 00:57:19,348 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 00:57:19,349 [33mPress CTRL+C to quit[0m
+2025-06-29 00:57:47,630 127.0.0.1 - - [29/Jun/2025 00:57:47] "GET / HTTP/1.1" 200 -
+2025-06-29 00:57:47,811 127.0.0.1 - - [29/Jun/2025 00:57:47] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 00:57:48,053 127.0.0.1 - - [29/Jun/2025 00:57:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-29 00:58:55,124 127.0.0.1 - - [29/Jun/2025 00:58:55] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 00:59:32,785 127.0.0.1 - - [29/Jun/2025 00:59:32] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 01:41:44,712 127.0.0.1 - - [29/Jun/2025 01:41:44] "GET / HTTP/1.1" 200 -
+2025-06-29 01:41:44,966 127.0.0.1 - - [29/Jun/2025 01:41:44] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 01:42:08,285 Use pytorch device_name: cpu
+2025-06-29 01:42:08,286 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-29 01:42:13,354 127.0.0.1 - - [29/Jun/2025 01:42:13] "POST /chat HTTP/1.1" 200 -
+2025-06-29 01:42:16,782 127.0.0.1 - - [29/Jun/2025 01:42:16] "POST /chat HTTP/1.1" 200 -
+2025-06-29 01:42:27,467 No match (score=0.32) for: 'lluvia'
+2025-06-29 01:42:27,467 127.0.0.1 - - [29/Jun/2025 01:42:27] "POST /chat HTTP/1.1" 200 -
+2025-06-29 02:06:45,412 127.0.0.1 - - [29/Jun/2025 02:06:45] "GET / HTTP/1.1" 200 -
+2025-06-29 02:06:45,664 127.0.0.1 - - [29/Jun/2025 02:06:45] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:06:50,319 127.0.0.1 - - [29/Jun/2025 02:06:50] "POST /chat HTTP/1.1" 200 -
+2025-06-29 02:06:58,294 No match (score=0.32) for: 'lluvia'
+2025-06-29 02:06:58,294 127.0.0.1 - - [29/Jun/2025 02:06:58] "POST /chat HTTP/1.1" 200 -
+2025-06-29 02:11:41,174 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 02:11:41,174 [33mPress CTRL+C to quit[0m
+2025-06-29 02:11:56,497 127.0.0.1 - - [29/Jun/2025 02:11:56] "GET / HTTP/1.1" 200 -
+2025-06-29 02:11:56,671 127.0.0.1 - - [29/Jun/2025 02:11:56] "[33mGET /available_csvs HTTP/1.1[0m" 404 -
+2025-06-29 02:17:16,836 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 02:17:16,836 [33mPress CTRL+C to quit[0m
+2025-06-29 02:17:27,525 127.0.0.1 - - [29/Jun/2025 02:17:27] "GET / HTTP/1.1" 200 -
+2025-06-29 02:17:27,769 127.0.0.1 - - [29/Jun/2025 02:17:27] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:17:34,020 127.0.0.1 - - [29/Jun/2025 02:17:34] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 02:18:27,818 127.0.0.1 - - [29/Jun/2025 02:18:27] "POST /upload_csv HTTP/1.1" 200 -
+2025-06-29 02:18:29,795 127.0.0.1 - - [29/Jun/2025 02:18:29] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:18:34,283 127.0.0.1 - - [29/Jun/2025 02:18:34] "DELETE /delete_csv HTTP/1.1" 200 -
+2025-06-29 02:18:36,357 127.0.0.1 - - [29/Jun/2025 02:18:36] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:18:42,291 127.0.0.1 - - [29/Jun/2025 02:18:42] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 02:18:45,077 127.0.0.1 - - [29/Jun/2025 02:18:45] "GET / HTTP/1.1" 200 -
+2025-06-29 02:18:45,426 127.0.0.1 - - [29/Jun/2025 02:18:45] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:18:46,181 127.0.0.1 - - [29/Jun/2025 02:18:46] "GET / HTTP/1.1" 200 -
+2025-06-29 02:18:46,527 127.0.0.1 - - [29/Jun/2025 02:18:46] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:18:46,836 127.0.0.1 - - [29/Jun/2025 02:18:46] "GET / HTTP/1.1" 200 -
+2025-06-29 02:18:47,184 127.0.0.1 - - [29/Jun/2025 02:18:47] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:21:09,110 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 02:21:09,110 [33mPress CTRL+C to quit[0m
+2025-06-29 02:21:42,364 127.0.0.1 - - [29/Jun/2025 02:21:42] "GET / HTTP/1.1" 200 -
+2025-06-29 02:21:42,612 127.0.0.1 - - [29/Jun/2025 02:21:42] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:21:46,357 127.0.0.1 - - [29/Jun/2025 02:21:46] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 02:22:16,581 127.0.0.1 - - [29/Jun/2025 02:22:16] "GET / HTTP/1.1" 200 -
+2025-06-29 02:22:16,831 127.0.0.1 - - [29/Jun/2025 02:22:16] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:22:17,079 127.0.0.1 - - [29/Jun/2025 02:22:17] "GET / HTTP/1.1" 200 -
+2025-06-29 02:22:17,434 127.0.0.1 - - [29/Jun/2025 02:22:17] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:22:18,537 127.0.0.1 - - [29/Jun/2025 02:22:18] "GET / HTTP/1.1" 200 -
+2025-06-29 02:22:18,884 127.0.0.1 - - [29/Jun/2025 02:22:18] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:23:20,339 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 02:23:20,339 [33mPress CTRL+C to quit[0m
+2025-06-29 02:23:34,704 127.0.0.1 - - [29/Jun/2025 02:23:34] "GET / HTTP/1.1" 200 -
+2025-06-29 02:23:34,793 127.0.0.1 - - [29/Jun/2025 02:23:34] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:23:34,949 127.0.0.1 - - [29/Jun/2025 02:23:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-29 02:23:51,681 Use pytorch device_name: cpu
+2025-06-29 02:23:51,681 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-29 02:23:56,386 127.0.0.1 - - [29/Jun/2025 02:23:56] "POST /chat HTTP/1.1" 200 -
+2025-06-29 02:24:41,630 No match (score=0.32) for: 'lluvia'
+2025-06-29 02:24:41,631 127.0.0.1 - - [29/Jun/2025 02:24:41] "POST /chat HTTP/1.1" 200 -
+2025-06-29 02:37:16,537 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 02:37:16,537 [33mPress CTRL+C to quit[0m
+2025-06-29 02:37:22,467 127.0.0.1 - - [29/Jun/2025 02:37:22] "GET / HTTP/1.1" 200 -
+2025-06-29 02:37:22,490 127.0.0.1 - - [29/Jun/2025 02:37:22] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:37:31,473 127.0.0.1 - - [29/Jun/2025 02:37:31] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-29 02:37:47,572 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 89, in chat
+    session.setdefault('recent_inputs', [])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+    ...<3 lines>...
+    )
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-29 02:37:47,578 127.0.0.1 - - [29/Jun/2025 02:37:47] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 02:37:59,170 127.0.0.1 - - [29/Jun/2025 02:37:59] "GET / HTTP/1.1" 200 -
+2025-06-29 02:37:59,491 127.0.0.1 - - [29/Jun/2025 02:37:59] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:37:59,493 127.0.0.1 - - [29/Jun/2025 02:37:59] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-29 02:38:03,707 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 89, in chat
+    session.setdefault('recent_inputs', [])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+    ...<3 lines>...
+    )
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-29 02:38:03,710 127.0.0.1 - - [29/Jun/2025 02:38:03] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 02:38:16,336 127.0.0.1 - - [29/Jun/2025 02:38:16] "GET / HTTP/1.1" 200 -
+2025-06-29 02:38:16,396 127.0.0.1 - - [29/Jun/2025 02:38:16] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:38:20,078 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 89, in chat
+    session.setdefault('recent_inputs', [])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+    ...<3 lines>...
+    )
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-29 02:38:20,080 127.0.0.1 - - [29/Jun/2025 02:38:20] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 02:38:52,266 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 02:38:52,266 [33mPress CTRL+C to quit[0m
+2025-06-29 02:39:01,868 127.0.0.1 - - [29/Jun/2025 02:39:01] "GET / HTTP/1.1" 200 -
+2025-06-29 02:39:01,917 127.0.0.1 - - [29/Jun/2025 02:39:01] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:39:08,392 127.0.0.1 - - [29/Jun/2025 02:39:08] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-29 02:39:12,267 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 89, in chat
+    session.setdefault('recent_inputs', [])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+    ...<3 lines>...
+    )
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-29 02:39:12,272 127.0.0.1 - - [29/Jun/2025 02:39:12] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 02:44:50,915 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 02:44:50,915 [33mPress CTRL+C to quit[0m
+2025-06-29 02:44:59,035 127.0.0.1 - - [29/Jun/2025 02:44:59] "GET / HTTP/1.1" 200 -
+2025-06-29 02:44:59,121 127.0.0.1 - - [29/Jun/2025 02:44:59] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:45:03,285 127.0.0.1 - - [29/Jun/2025 02:45:03] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-29 02:45:10,194 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 89, in chat
+    session.setdefault('recent_inputs', [])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+    ...<3 lines>...
+    )
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-29 02:45:10,200 127.0.0.1 - - [29/Jun/2025 02:45:10] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 02:55:23,406 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 02:55:23,407 [33mPress CTRL+C to quit[0m
+2025-06-29 02:55:31,590 127.0.0.1 - - [29/Jun/2025 02:55:31] "GET / HTTP/1.1" 200 -
+2025-06-29 02:55:31,648 127.0.0.1 - - [29/Jun/2025 02:55:31] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 02:55:35,577 127.0.0.1 - - [29/Jun/2025 02:55:35] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-29 02:55:45,141 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 96, in chat
+    session.setdefault('recent_inputs', [])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+    ...<3 lines>...
+    )
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-29 02:55:45,146 127.0.0.1 - - [29/Jun/2025 02:55:45] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 03:01:29,408 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 03:01:29,409 [33mPress CTRL+C to quit[0m
+2025-06-29 03:01:50,151 127.0.0.1 - - [29/Jun/2025 03:01:50] "GET / HTTP/1.1" 200 -
+2025-06-29 03:01:50,224 127.0.0.1 - - [29/Jun/2025 03:01:50] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 03:01:54,081 127.0.0.1 - - [29/Jun/2025 03:01:54] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-29 03:01:58,521 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 97, in chat
+    session.setdefault('recent_inputs', [])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+    ...<3 lines>...
+    )
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-29 03:01:58,529 127.0.0.1 - - [29/Jun/2025 03:01:58] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 03:10:18,687 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 03:10:18,687 [33mPress CTRL+C to quit[0m
+2025-06-29 03:13:17,274 127.0.0.1 - - [29/Jun/2025 03:13:17] "GET / HTTP/1.1" 200 -
+2025-06-29 03:13:17,514 127.0.0.1 - - [29/Jun/2025 03:13:17] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 03:13:34,160 Use pytorch device_name: cpu
+2025-06-29 03:13:34,161 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-29 03:13:39,052 127.0.0.1 - - [29/Jun/2025 03:13:39] "POST /chat HTTP/1.1" 200 -
+2025-06-29 03:20:51,925 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 03:20:51,925 [33mPress CTRL+C to quit[0m
+2025-06-29 03:21:01,567 127.0.0.1 - - [29/Jun/2025 03:21:01] "GET / HTTP/1.1" 200 -
+2025-06-29 03:21:01,636 127.0.0.1 - - [29/Jun/2025 03:21:01] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 03:21:05,623 127.0.0.1 - - [29/Jun/2025 03:21:05] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-29 03:21:13,416 Exception on /chat [POST]
+Traceback (most recent call last):
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\andro\Documents\GitHub\Service_Center_PH\bot\routes.py", line 96, in chat
+    session.setdefault('recent_inputs', [])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\andro\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\sessions.py", line 104, in _fail
+    raise RuntimeError(
+    ...<3 lines>...
+    )
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2025-06-29 03:21:13,420 127.0.0.1 - - [29/Jun/2025 03:21:13] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 03:23:41,504 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 03:23:41,505 [33mPress CTRL+C to quit[0m
+2025-06-29 03:23:41,510  * Restarting with stat
+2025-06-29 03:23:51,335  * Debugger is active!
+2025-06-29 03:23:51,340  * Debugger PIN: 120-591-984
+2025-06-29 03:24:08,326 127.0.0.1 - - [29/Jun/2025 03:24:08] "GET / HTTP/1.1" 200 -
+2025-06-29 03:24:08,400 127.0.0.1 - - [29/Jun/2025 03:24:08] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 03:24:46,701 127.0.0.1 - - [29/Jun/2025 03:24:46] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-29 03:24:52,255 127.0.0.1 - - [29/Jun/2025 03:24:52] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-06-29 03:26:25,657  * Detected change in 'c:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\bot\\app.py', reloading
+2025-06-29 03:26:26,766  * Restarting with stat
+2025-06-29 03:26:36,850  * Debugger is active!
+2025-06-29 03:26:36,855  * Debugger PIN: 120-591-984
+2025-06-29 03:26:55,013  * Detected change in 'c:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\bot\\app.py', reloading
+2025-06-29 03:26:56,042  * Restarting with stat
+2025-06-29 03:27:06,425  * Debugger is active!
+2025-06-29 03:27:06,430  * Debugger PIN: 120-591-984
+2025-06-29 03:27:59,747 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 03:27:59,748 [33mPress CTRL+C to quit[0m
+2025-06-29 03:27:59,751  * Restarting with stat
+2025-06-29 03:28:11,560  * Debugger is active!
+2025-06-29 03:28:11,565  * Debugger PIN: 120-591-984
+2025-06-29 03:28:11,599 127.0.0.1 - - [29/Jun/2025 03:28:11] "GET / HTTP/1.1" 200 -
+2025-06-29 03:28:11,660 127.0.0.1 - - [29/Jun/2025 03:28:11] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 03:28:17,703 127.0.0.1 - - [29/Jun/2025 03:28:17] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-29 03:28:33,236 Use pytorch device_name: cpu
+2025-06-29 03:28:33,237 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-29 03:28:37,846 127.0.0.1 - - [29/Jun/2025 03:28:37] "POST /chat HTTP/1.1" 200 -
+2025-06-29 03:28:41,577 127.0.0.1 - - [29/Jun/2025 03:28:41] "POST /chat HTTP/1.1" 200 -
+2025-06-29 03:28:46,192 No match (score=0.32) for: 'lluvia'
+2025-06-29 03:28:46,193 127.0.0.1 - - [29/Jun/2025 03:28:46] "POST /chat HTTP/1.1" 200 -
+2025-06-29 03:28:52,907 No match (score=0.37) for: 'arroz'
+2025-06-29 03:28:52,908 127.0.0.1 - - [29/Jun/2025 03:28:52] "POST /chat HTTP/1.1" 200 -
+2025-06-29 03:29:00,879 No match (score=0.28) for: 'cereal'
+2025-06-29 03:29:00,927 127.0.0.1 - - [29/Jun/2025 03:29:00] "POST /chat HTTP/1.1" 200 -
+2025-06-29 12:23:43,761 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 12:23:43,761 [33mPress CTRL+C to quit[0m
+2025-06-29 12:23:43,764  * Restarting with stat
+2025-06-29 12:23:57,664  * Debugger is active!
+2025-06-29 12:23:57,671  * Debugger PIN: 120-591-984
+2025-06-29 12:24:07,823 127.0.0.1 - - [29/Jun/2025 12:24:07] "GET / HTTP/1.1" 200 -
+2025-06-29 12:24:08,013 127.0.0.1 - - [29/Jun/2025 12:24:08] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 12:24:50,134 Use pytorch device_name: cpu
+2025-06-29 12:24:50,134 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-29 12:24:55,120 127.0.0.1 - - [29/Jun/2025 12:24:55] "POST /chat HTTP/1.1" 200 -
+2025-06-29 12:25:00,457 No match (score=0.32) for: 'lluvia'
+2025-06-29 12:25:00,459 127.0.0.1 - - [29/Jun/2025 12:25:00] "POST /chat HTTP/1.1" 200 -
+2025-06-29 12:25:03,661 No match (score=0.37) for: 'arroz'
+2025-06-29 12:25:03,663 127.0.0.1 - - [29/Jun/2025 12:25:03] "POST /chat HTTP/1.1" 200 -
+2025-06-29 12:25:08,529 No match (score=0.30) for: 'frijoles'
+2025-06-29 12:25:08,572 127.0.0.1 - - [29/Jun/2025 12:25:08] "POST /chat HTTP/1.1" 200 -
+2025-06-29 12:28:17,118 127.0.0.1 - - [29/Jun/2025 12:28:17] "POST /crear_ticket HTTP/1.1" 200 -
+2025-06-29 12:28:23,715 127.0.0.1 - - [29/Jun/2025 12:28:23] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-29 12:28:30,979 127.0.0.1 - - [29/Jun/2025 12:28:30] "POST /crear_ticket HTTP/1.1" 200 -
+2025-06-29 12:46:57,712  * Detected change in 'c:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\bot\\routes.py', reloading
+2025-06-29 12:46:59,032  * Restarting with stat
+2025-06-29 12:47:09,234  * Debugger is active!
+2025-06-29 12:47:09,240  * Debugger PIN: 120-591-984
+2025-06-29 12:48:00,719 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-29 12:48:00,719 [33mPress CTRL+C to quit[0m
+2025-06-29 12:48:00,725  * Restarting with stat
+2025-06-29 12:48:12,519  * Debugger is active!
+2025-06-29 12:48:12,526  * Debugger PIN: 120-591-984
+2025-06-29 12:48:12,629 127.0.0.1 - - [29/Jun/2025 12:48:12] "GET / HTTP/1.1" 200 -
+2025-06-29 12:48:12,697 127.0.0.1 - - [29/Jun/2025 12:48:12] "GET /available_csvs HTTP/1.1" 200 -
+2025-06-29 12:48:26,906 127.0.0.1 - - [29/Jun/2025 12:48:26] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-06-29 12:48:38,396 Use pytorch device_name: cpu
+2025-06-29 12:48:38,397 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-06-29 12:48:43,126 127.0.0.1 - - [29/Jun/2025 12:48:43] "POST /chat HTTP/1.1" 200 -
+2025-06-29 12:48:48,884 No match (score=0.32) for: 'lluvia'
+2025-06-29 12:48:48,885 127.0.0.1 - - [29/Jun/2025 12:48:48] "POST /chat HTTP/1.1" 200 -
+2025-06-29 12:49:01,869 No match (score=0.33) for: 'pizza'
+2025-06-29 12:49:01,870 127.0.0.1 - - [29/Jun/2025 12:49:01] "POST /chat HTTP/1.1" 200 -
+2025-06-29 12:49:15,103 127.0.0.1 - - [29/Jun/2025 12:49:15] "POST /chat HTTP/1.1" 200 -
+2025-06-29 12:49:36,071 No match (score=0.32) for: 'lluvia'
+2025-06-29 12:49:36,072 127.0.0.1 - - [29/Jun/2025 12:49:36] "POST /chat HTTP/1.1" 200 -
+2025-06-29 12:49:40,368 No match (score=0.33) for: 'pizza'
+2025-06-29 12:49:40,369 127.0.0.1 - - [29/Jun/2025 12:49:40] "POST /chat HTTP/1.1" 200 -
+2025-06-29 12:49:44,597 No match (score=0.27) for: 'spaguetti'
+2025-06-29 12:49:44,654 127.0.0.1 - - [29/Jun/2025 12:49:44] "POST /chat HTTP/1.1" 200 -
+2025-06-29 12:50:29,793 127.0.0.1 - - [29/Jun/2025 12:50:29] "POST /crear_ticket HTTP/1.1" 200 -

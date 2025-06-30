@@ -152,6 +152,38 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       border-radius: 8px;
     }
+
+.ticket-btn {
+  margin-top: 10px;
+  background-color: #ff9800;
+  color: white;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.ticket-form {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f4f4f4;
+  border-radius: 5px;
+}
+
+.ticket-form .form-group {
+  margin-bottom: 10px;
+}
+
+.ticket-form label {
+  display: block;
+  font-weight: bold;
+}
+
+.ticket-form input {
+  width: 100%;
+  padding: 5px;
+}
+
+
   </style>
 </head>
 <body>
@@ -213,7 +245,7 @@
         body: JSON.stringify({ message: text })
       });
       const data = await res.json();
-      appendMessage('bot', data.response, data.suggestions);
+     appendMessage('bot', data.response, data.suggestions, data.ticket_option || false, data.titulo_sugerido || "");
     } catch {
       appendMessage('bot', 'Error: no se pudo conectar con el servidor.');
     } finally {
@@ -315,6 +347,90 @@ async function deleteCSV(filename) {
   }
 }
 
+function appendMessage(sender, text, suggestions = [], ticketOption = false, titulo_sugerido = "") {
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'message ' + sender;
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+  bubble.textContent = text;
+  msgDiv.appendChild(bubble);
+  chatbox.appendChild(msgDiv);
+
+  // Sugerencias semánticas
+  if (sender === 'bot' && suggestions.length > 0) {
+    const sugContainer = document.createElement('div');
+    sugContainer.className = 'suggestions';
+    suggestions.forEach(s => {
+      const btn = document.createElement('div');
+      btn.className = 'suggestion';
+      btn.textContent = s;
+      btn.onclick = () => sendMessage(s);
+      sugContainer.appendChild(btn);
+    });
+    chatbox.appendChild(sugContainer);
+  }
+
+  // Botón de crear ticket si no hubo respuesta útil
+  if (sender === 'bot' && ticketOption) {
+    const ticketBtn = document.createElement('button');
+    ticketBtn.textContent = '¿Deseas crear un ticket?';
+    ticketBtn.className = 'ticket-btn';
+    ticketBtn.onclick = () => showTicketForm(titulo_sugerido); 
+    chatbox.appendChild(ticketBtn);
+  }
+
+  chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+
+function showTicketForm() {
+  // Limpia input del usuario
+  input.value = '';
+
+  // Crea formulario dentro del chat
+  const formDiv = document.createElement('div');
+  formDiv.className = 'ticket-form';
+
+  formDiv.innerHTML = `
+    <div class="form-group">
+      <label>Nombre:</label>
+      <input type="text" id="ticketName" />
+    </div>
+    <div class="form-group">
+      <label>Descripción del problema:</label>
+      <input type="text" id="ticketDesc" />
+    </div>
+    <button onclick="submitTicket()">Enviar ticket</button>
+  `;
+
+  chatbox.appendChild(formDiv);
+  chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+async function submitTicket() {
+  const name = document.getElementById('ticketName').value.trim();
+  const desc = document.getElementById('ticketDesc').value.trim();
+
+  if (!name || !desc) {
+    alert('Por favor, completa todos los campos.');
+    return;
+  }
+
+  // Aquí puedes hacer un POST a tu servidor para guardar el ticket
+  try {
+    const res = await fetch('/create_ticket', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, description: desc })
+    });
+    const data = await res.json();
+    appendMessage('bot', data.message || 'Ticket enviado con éxito.');
+  } catch {
+    appendMessage('bot', 'Hubo un error al enviar el ticket.');
+  }
+}
+
+
 
   // Subida CSV
   const uploadForm = document.getElementById('uploadForm');
@@ -346,6 +462,67 @@ async function deleteCSV(filename) {
   window.onload = () => {
     loadCSVList();
   };
+
+function showTicketForm(titulo_sugerido = "") {
+  input.value = '';
+
+  const formDiv = document.createElement('div');
+  formDiv.className = 'ticket-form';
+
+  formDiv.innerHTML = `
+    <div class="form-group">
+      <label>Usuario:</label>
+      <input type="text" id="ticketUsername" />
+    </div>
+    <div class="form-group">
+      <label>Contraseña:</label>
+      <input type="password" id="ticketPassword" />
+    </div>
+    <div class="form-group">
+      <label>Título:</label>
+      <input type="text" id="ticketTitle" value="${titulo_sugerido}" readonly />
+    </div>
+    <div class="form-group">
+      <label>Descripción:</label>
+      <input type="text" id="ticketDesc" />
+    </div>
+    <div class="form-group">
+      <label>Categoría:</label>
+      <input type="text" id="ticketCat" />
+    </div>
+    <button onclick="submitTicket()">Enviar ticket</button>
+  `;
+
+  chatbox.appendChild(formDiv);
+  chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+async function submitTicket() {
+  const username = document.getElementById('ticketUsername').value.trim();
+  const password = document.getElementById('ticketPassword').value.trim();
+  const titulo = document.getElementById('ticketTitle').value.trim();
+  const descripcion = document.getElementById('ticketDesc').value.trim();
+  const categoria = document.getElementById('ticketCat').value.trim();
+
+  if (!username || !password || !titulo || !descripcion || !categoria) {
+    alert('Por favor completa todos los campos.');
+    return;
+  }
+
+  try {
+    const res = await fetch('/crear_ticket', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password, titulo, descripcion, categoria })
+    });
+
+    const data = await res.json();
+    appendMessage('bot', data.msg || 'Ticket enviado con éxito.');
+  } catch {
+    appendMessage('bot', 'Hubo un error al enviar el ticket.');
+  }
+}
+
 </script>
 
 </body>
