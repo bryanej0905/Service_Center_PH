@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 import os
 from flask import Flask
 from faq_loader import FAQLoader
@@ -5,6 +6,7 @@ from embedding_matcher import EmbeddingMatcher
 import routes
 
 def create_app():
+    load_dotenv()
     app = Flask(__name__)
     app.secret_key = 'supersecretkey123'
 

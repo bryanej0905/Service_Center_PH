@@ -383,11 +383,9 @@ function appendMessage(sender, text, suggestions = [], ticketOption = false, tit
 }
 
 
-function showTicketForm() {
-  // Limpia input del usuario
+function showTicketForm(titulo_sugerido = "") {
   input.value = '';
 
-  // Crea formulario dentro del chat
   const formDiv = document.createElement('div');
   formDiv.className = 'ticket-form';
 
@@ -397,7 +395,11 @@ function showTicketForm() {
       <input type="text" id="ticketName" />
     </div>
     <div class="form-group">
-      <label>Descripción del problema:</label>
+      <label>Título:</label>
+      <input type="text" id="ticketTitle" value="${titulo_sugerido}" readonly />
+    </div>
+    <div class="form-group">
+      <label>Descripción:</label>
       <input type="text" id="ticketDesc" />
     </div>
     <button onclick="submitTicket()">Enviar ticket</button>
@@ -408,28 +410,28 @@ function showTicketForm() {
 }
 
 async function submitTicket() {
-  const name = document.getElementById('ticketName').value.trim();
-  const desc = document.getElementById('ticketDesc').value.trim();
+  const nombre = document.getElementById('ticketName').value.trim();
+  const titulo = document.getElementById('ticketTitle').value.trim();
+  const descripcion = document.getElementById('ticketDesc').value.trim();
 
-  if (!name || !desc) {
-    alert('Por favor, completa todos los campos.');
+  if (!nombre || !titulo || !descripcion) {
+    alert('Por favor completa todos los campos.');
     return;
   }
 
-  // Aquí puedes hacer un POST a tu servidor para guardar el ticket
   try {
-    const res = await fetch('/create_ticket', {
+    const res = await fetch('/crear_ticket', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, description: desc })
+      body: JSON.stringify({ nombre, titulo, descripcion })
     });
+
     const data = await res.json();
-    appendMessage('bot', data.message || 'Ticket enviado con éxito.');
+    appendMessage('bot', data.msg || 'Ticket enviado con éxito.');
   } catch {
     appendMessage('bot', 'Hubo un error al enviar el ticket.');
   }
 }
-
 
 
   // Subida CSV
@@ -471,12 +473,8 @@ function showTicketForm(titulo_sugerido = "") {
 
   formDiv.innerHTML = `
     <div class="form-group">
-      <label>Usuario:</label>
-      <input type="text" id="ticketUsername" />
-    </div>
-    <div class="form-group">
-      <label>Contraseña:</label>
-      <input type="password" id="ticketPassword" />
+      <label>Nombre:</label>
+      <input type="text" id="ticketName" />
     </div>
     <div class="form-group">
       <label>Título:</label>
@@ -486,10 +484,6 @@ function showTicketForm(titulo_sugerido = "") {
       <label>Descripción:</label>
       <input type="text" id="ticketDesc" />
     </div>
-    <div class="form-group">
-      <label>Categoría:</label>
-      <input type="text" id="ticketCat" />
-    </div>
     <button onclick="submitTicket()">Enviar ticket</button>
   `;
 
@@ -498,13 +492,11 @@ function showTicketForm(titulo_sugerido = "") {
 }
 
 async function submitTicket() {
-  const username = document.getElementById('ticketUsername').value.trim();
-  const password = document.getElementById('ticketPassword').value.trim();
+  const nombre = document.getElementById('ticketName').value.trim();
   const titulo = document.getElementById('ticketTitle').value.trim();
   const descripcion = document.getElementById('ticketDesc').value.trim();
-  const categoria = document.getElementById('ticketCat').value.trim();
 
-  if (!username || !password || !titulo || !descripcion || !categoria) {
+  if (!nombre || !titulo || !descripcion) {
     alert('Por favor completa todos los campos.');
     return;
   }
@@ -513,7 +505,7 @@ async function submitTicket() {
     const res = await fetch('/crear_ticket', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password, titulo, descripcion, categoria })
+      body: JSON.stringify({ nombre, titulo, descripcion })
     });
 
     const data = await res.json();
@@ -522,6 +514,7 @@ async function submitTicket() {
     appendMessage('bot', 'Hubo un error al enviar el ticket.');
   }
 }
+
 
 </script>
 

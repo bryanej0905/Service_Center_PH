@@ -1141,3 +1141,61 @@ RuntimeError: The session is unavailable because no secret key was set.  Set the
 2025-06-29 12:49:44,597 No match (score=0.27) for: 'spaguetti'
 2025-06-29 12:49:44,654 127.0.0.1 - - [29/Jun/2025 12:49:44] "POST /chat HTTP/1.1" 200 -
 2025-06-29 12:50:29,793 127.0.0.1 - - [29/Jun/2025 12:50:29] "POST /crear_ticket HTTP/1.1" 200 -
+2025-07-01 00:03:14,646 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-01 00:03:14,648 [33mPress CTRL+C to quit[0m
+2025-07-01 00:03:14,652  * Restarting with stat
+2025-07-01 00:03:26,230  * Debugger is active!
+2025-07-01 00:03:26,239  * Debugger PIN: 120-591-984
+2025-07-01 00:03:26,329 127.0.0.1 - - [01/Jul/2025 00:03:26] "GET / HTTP/1.1" 200 -
+2025-07-01 00:03:26,425 127.0.0.1 - - [01/Jul/2025 00:03:26] "GET /available_csvs HTTP/1.1" 200 -
+2025-07-01 00:03:26,441 127.0.0.1 - - [01/Jul/2025 00:03:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-01 00:04:08,064 Use pytorch device_name: cpu
+2025-07-01 00:04:08,064 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-07-01 00:04:13,074 127.0.0.1 - - [01/Jul/2025 00:04:13] "POST /chat HTTP/1.1" 200 -
+2025-07-01 00:04:23,797 No match (score=0.39) for: 'bicicleta'
+2025-07-01 00:04:23,798 127.0.0.1 - - [01/Jul/2025 00:04:23] "POST /chat HTTP/1.1" 200 -
+2025-07-01 00:04:36,200 No match (score=0.32) for: 'lluvia'
+2025-07-01 00:04:36,202 127.0.0.1 - - [01/Jul/2025 00:04:36] "POST /chat HTTP/1.1" 200 -
+2025-07-01 00:04:51,878 No match (score=0.30) for: 'almacen'
+2025-07-01 00:04:51,956 127.0.0.1 - - [01/Jul/2025 00:04:51] "POST /chat HTTP/1.1" 200 -
+2025-07-01 00:11:14,433 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-01 00:11:14,433 [33mPress CTRL+C to quit[0m
+2025-07-01 00:11:14,436  * Restarting with stat
+2025-07-01 00:11:24,314  * Debugger is active!
+2025-07-01 00:11:24,320  * Debugger PIN: 120-591-984
+2025-07-01 00:11:39,216 127.0.0.1 - - [01/Jul/2025 00:11:39] "GET / HTTP/1.1" 200 -
+2025-07-01 00:11:39,278 127.0.0.1 - - [01/Jul/2025 00:11:39] "GET /available_csvs HTTP/1.1" 200 -
+2025-07-01 00:12:15,800 Use pytorch device_name: cpu
+2025-07-01 00:12:15,800 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-07-01 00:12:20,521 127.0.0.1 - - [01/Jul/2025 00:12:20] "POST /chat HTTP/1.1" 200 -
+2025-07-01 00:13:04,712 No match (score=0.39) for: 'bicicleta'
+2025-07-01 00:13:04,713 127.0.0.1 - - [01/Jul/2025 00:13:04] "POST /chat HTTP/1.1" 200 -
+2025-07-01 00:13:13,316 No match (score=0.46) for: 'paraguas'
+2025-07-01 00:13:13,318 127.0.0.1 - - [01/Jul/2025 00:13:13] "POST /chat HTTP/1.1" 200 -
+2025-07-01 00:13:21,946 No match (score=0.44) for: 'supermercado'
+2025-07-01 00:13:21,980 127.0.0.1 - - [01/Jul/2025 00:13:21] "POST /chat HTTP/1.1" 200 -
+2025-07-01 00:13:51,855 127.0.0.1 - - [01/Jul/2025 00:13:51] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-01 00:14:03,043 127.0.0.1 - - [01/Jul/2025 00:14:03] "POST /crear_ticket HTTP/1.1" 200 -
+2025-07-01 00:26:39,676 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-01 00:26:39,676 [33mPress CTRL+C to quit[0m
+2025-07-01 00:26:39,679  * Restarting with stat
+2025-07-01 00:26:50,303  * Debugger is active!
+2025-07-01 00:26:50,309  * Debugger PIN: 120-591-984
+2025-07-01 00:26:58,228 127.0.0.1 - - [01/Jul/2025 00:26:58] "GET / HTTP/1.1" 200 -
+2025-07-01 00:26:58,294 127.0.0.1 - - [01/Jul/2025 00:26:58] "GET /available_csvs HTTP/1.1" 200 -
+2025-07-01 00:27:21,702 Use pytorch device_name: cpu
+2025-07-01 00:27:21,702 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-07-01 00:27:25,939 127.0.0.1 - - [01/Jul/2025 00:27:25] "POST /chat HTTP/1.1" 200 -
+2025-07-01 00:27:36,315 No match (score=0.46) for: 'paraguas'
+2025-07-01 00:27:36,316 127.0.0.1 - - [01/Jul/2025 00:27:36] "POST /chat HTTP/1.1" 200 -
+2025-07-01 00:27:40,192 No match (score=0.44) for: 'supermercado'
+2025-07-01 00:27:40,193 127.0.0.1 - - [01/Jul/2025 00:27:40] "POST /chat HTTP/1.1" 200 -
+2025-07-01 00:27:43,891 No match (score=0.32) for: 'lluvia'
+2025-07-01 00:27:43,920 127.0.0.1 - - [01/Jul/2025 00:27:43] "POST /chat HTTP/1.1" 200 -
+2025-07-01 00:28:04,375 127.0.0.1 - - [01/Jul/2025 00:28:04] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-07-01 00:28:13,928 127.0.0.1 - - [01/Jul/2025 00:28:13] "POST /crear_ticket HTTP/1.1" 200 -
+2025-07-01 00:49:37,800  * Detected change in 'c:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\bot\\app.py', reloading
+2025-07-01 00:49:39,211  * Restarting with stat

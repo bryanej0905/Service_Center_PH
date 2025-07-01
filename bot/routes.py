@@ -6,6 +6,7 @@ from flask import Blueprint, request, jsonify, render_template, session
 from utils import normalize_text
 from difflib import get_close_matches
 import spacy
+import base64
 
 # ======================= Configuración inicial =========================
 
@@ -52,6 +53,7 @@ def extract_nouns(texts):
         nouns.extend([token.text.capitalize() for token in doc if token.pos_ == "NOUN"])
     return list(dict.fromkeys(nouns))
 
+
 def generar_titulo_ticket(nouns):
     return ", ".join(nouns)
 
@@ -68,9 +70,10 @@ def login_api(username, password):
         logger.error(f"Error al hacer login: {e}")
         return None
 
-def enviar_ticket(titulo, descripcion, categoria, token):
+def enviar_ticket(nombre, titulo, descripcion, categoria, token):
     headers = {"Authorization": f"Bearer {token}"}
     payload = {
+        "nombre": nombre,
         "titulo": titulo,
         "descripcion": descripcion,
         "categoria": categoria
@@ -143,20 +146,28 @@ def chat():
 @tchat_bp.route('/crear_ticket', methods=['POST'])
 def crear_ticket():
     data = request.get_json()
-    username = data.get('username')
-    password = data.get('password')
+    nombre = data.get('nombre')
     titulo = data.get('titulo')
     descripcion = data.get('descripcion')
-    categoria = data.get('categoria')
 
-    if not all([username, password, titulo, descripcion, categoria]):
+    if not all([nombre, titulo, descripcion]):
         return jsonify({"status": 400, "msg": "Faltan campos obligatorios."})
+
+    # Load encoded credentials from environment variables or set them here
+    ENCODED_USER = os.environ.get('ENCODED_USER', '')
+    ENCODED_PASS = os.environ.get('ENCODED_PASS', '')
+    if not ENCODED_USER or not ENCODED_PASS:
+        return jsonify({"status": 500, "msg": "Credenciales codificadas no configuradas."})
+
+    username = base64.b64decode(ENCODED_USER).decode()
+    password = base64.b64decode(ENCODED_PASS).decode()
+    categoria = "Chatbot ticket"
 
     token = login_api(username, password)
     if not token:
         return jsonify({"status": 401, "msg": "Credenciales inválidas o error de red."})
 
-    status, msg = enviar_ticket(titulo, descripcion, categoria, token)
+    status, msg = enviar_ticket(nombre, titulo, descripcion, categoria, token)
     return jsonify({"status": status, "msg": msg})
 
 @tchat_bp.route('/upload_csv', methods=['POST'])
