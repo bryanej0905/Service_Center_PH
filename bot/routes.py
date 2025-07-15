@@ -7,6 +7,7 @@ from utils import normalize_text
 from difflib import get_close_matches
 import spacy
 import base64
+from embedding_matcher import EmbeddingMatcher  # Asegúrate de que la ruta y el nombre del archivo sean correctos
 
 # ======================= Configuración inicial =========================
 
@@ -93,6 +94,12 @@ def index():
 
 @tchat_bp.route('/chat', methods=['POST'])
 def chat():
+    global faq_loader, matcher  # Asegura que usamos los objetos globales
+
+    # Recarga los datos y el matcher (con nuevos embeddings)
+    faq_loader.reload()
+    matcher = EmbeddingMatcher(faq_loader.questions, faq_loader.get_answer)
+
     raw = request.json.get('message', '') or ''
     q_norm = normalize_text(raw)
 
@@ -143,6 +150,7 @@ def chat():
         'ticket_option': False
     })
 
+
 @tchat_bp.route('/crear_ticket', methods=['POST'])
 def crear_ticket():
     data = request.get_json()
@@ -169,6 +177,12 @@ def crear_ticket():
 
     status, msg = enviar_ticket(nombre, titulo, descripcion, categoria, token)
     return jsonify({"status": status, "msg": msg})
+
+
+
+
+#Solo admin -------------------------------------------------------------------------------------
+
 
 @tchat_bp.route('/upload_csv', methods=['POST'])
 def upload_csv():
@@ -221,3 +235,67 @@ def delete_csv():
         return jsonify({'success': True})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
+
+
+
+
+#  Leer Get al CSV
+
+ # [pregunta]:          
+ # [respuesta]:;
+ # [pregunta]:          
+ # [respuesta]:;
+
+# Escribir  Post que reciba pregunta y respuesta y lo agregue al csv actual 
+
+@tchat_bp.route('/get_faq_raw', methods=['GET'])
+def get_faq_raw():
+    csv_path = os.path.join(faq_loader.data_dir, 'faqs.csv')
+    if not os.path.isfile(csv_path):
+        return "No se encontró el archivo.", 404
+
+    try:
+        import pandas as pd
+        df = pd.read_csv(csv_path)
+        lines = []
+        for _, row in df.iterrows():
+            pregunta = row['pregunta'].strip()
+            respuesta = row['respuesta'].strip()
+            lines.append(f"Pregunta: {pregunta}\nRespuesta: {respuesta};\n")
+        return "\n".join(lines), 200, {'Content-Type': 'text/plain; charset=utf-8'}
+    except Exception as e:
+        return f"Error al leer el CSV: {str(e)}", 500
+
+
+
+@tchat_bp.route('/add_faq', methods=['POST'])
+def add_faq():
+    global faq_loader, matcher
+
+    data = request.get_json()
+    pregunta = data.get('pregunta', '').strip()
+    respuesta = data.get('respuesta', '').strip()
+
+    if not pregunta or not respuesta:
+        return jsonify({'success': False, 'error': 'Faltan pregunta o respuesta.'}), 400
+
+    try:
+        import pandas as pd
+        csv_path = os.path.join(faq_loader.data_dir, 'faqs.csv')
+        df = pd.DataFrame([{'pregunta': pregunta, 'respuesta': respuesta}])
+
+        # Agrega la fila al final
+        if not os.path.isfile(csv_path):
+            df.to_csv(csv_path, index=False)
+        else:
+            df.to_csv(csv_path, mode='a', header=False, index=False)
+
+        # Recargar en caliente
+        faq_loader.reload()
+        matcher = EmbeddingMatcher(faq_loader.questions, faq_loader.get_answer)
+
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+

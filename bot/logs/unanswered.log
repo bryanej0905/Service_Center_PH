@@ -1256,3 +1256,70 @@ RuntimeError: The session is unavailable because no secret key was set.  Set the
 2025-07-08 18:59:25,895 No match (score=0.32) for: 'Negro?'
 2025-07-08 18:59:25,935 127.0.0.1 - - [08/Jul/2025 18:59:25] "POST /chat HTTP/1.1" 200 -
 2025-07-08 19:12:36,011 127.0.0.1 - - [08/Jul/2025 19:12:36] "POST /chat HTTP/1.1" 200 -
+2025-07-10 18:16:11,167 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-10 18:16:11,168 [33mPress CTRL+C to quit[0m
+2025-07-10 18:16:11,172  * Restarting with stat
+2025-07-10 18:16:21,763  * Debugger is active!
+2025-07-10 18:16:21,774  * Debugger PIN: 120-591-984
+2025-07-10 18:18:42,966 127.0.0.1 - - [10/Jul/2025 18:18:42] "[33mGET /get_faq_raw%0A HTTP/1.1[0m" 404 -
+2025-07-10 18:18:57,164 127.0.0.1 - - [10/Jul/2025 18:18:57] "GET / HTTP/1.1" 200 -
+2025-07-10 18:18:57,342 127.0.0.1 - - [10/Jul/2025 18:18:57] "GET /available_csvs HTTP/1.1" 200 -
+2025-07-10 18:18:57,576 127.0.0.1 - - [10/Jul/2025 18:18:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-10 18:19:41,354 Use pytorch device_name: cpu
+2025-07-10 18:19:41,355 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-07-10 18:19:46,997 127.0.0.1 - - [10/Jul/2025 18:19:46] "POST /chat HTTP/1.1" 200 -
+2025-07-10 18:19:51,726 127.0.0.1 - - [10/Jul/2025 18:19:51] "[33mGET /get_faq_raw%0A HTTP/1.1[0m" 404 -
+2025-07-10 18:21:44,651 127.0.0.1 - - [10/Jul/2025 18:21:44] "[33mGET /get_faq_raw%0A HTTP/1.1[0m" 404 -
+2025-07-10 18:22:00,858 127.0.0.1 - - [10/Jul/2025 18:22:00] "[33mGET /get_faq_raw%0A HTTP/1.1[0m" 404 -
+2025-07-10 18:23:04,228 127.0.0.1 - - [10/Jul/2025 18:23:04] "[33mGET /get_faq_raw%0A HTTP/1.1[0m" 404 -
+2025-07-10 18:45:27,979  * Detected change in 'c:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\bot\\routes.py', reloading
+2025-07-10 18:45:29,557  * Restarting with stat
+2025-07-10 18:45:40,750  * Debugger is active!
+2025-07-10 18:45:40,757  * Debugger PIN: 120-591-984
+2025-07-10 18:46:08,370 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-10 18:46:08,370 [33mPress CTRL+C to quit[0m
+2025-07-10 18:46:08,373  * Restarting with stat
+2025-07-10 18:46:19,546  * Debugger is active!
+2025-07-10 18:46:19,554  * Debugger PIN: 120-591-984
+2025-07-10 18:46:19,583 127.0.0.1 - - [10/Jul/2025 18:46:19] "[33mGET /get_faq_raw%0A HTTP/1.1[0m" 404 -
+2025-07-10 18:46:23,043 127.0.0.1 - - [10/Jul/2025 18:46:23] "[33mGET /get_faq_raw%0A HTTP/1.1[0m" 404 -
+2025-07-10 18:46:49,930 127.0.0.1 - - [10/Jul/2025 18:46:49] "[33mGET /get_faq_raw%0A HTTP/1.1[0m" 404 -
+2025-07-10 18:48:45,703  * Detected change in 'c:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\bot\\app.py', reloading
+2025-07-10 18:48:46,637  * Restarting with stat
+2025-07-10 18:48:58,102  * Debugger is active!
+2025-07-10 18:48:58,110  * Debugger PIN: 120-591-984
+2025-07-10 18:49:46,510 127.0.0.1 - - [10/Jul/2025 18:49:46] code 400, message Bad request version ('À\x13À')
+2025-07-10 18:49:46,510 127.0.0.1 - - [10/Jul/2025 18:49:46] "[31m[1m\x16\x03\x01\x00÷\x01\x00\x00ó\x03\x03\x9d\x08\x8c¾\x7f¨6\x7f\x89½m£\x8f\x9c£×þ\x9e±\x163Þ\x99f~\x836qVê0Ø j\x96«+à\x07Uø0\x18\x8cÛu_ÿ7Lé°ù@×6í®¬\x840üÙÔ\x12\x00$\x13\x01\x13\x02\x13\x03À/À+À0À,À'Ì©Ì¨À\x09À\x13À[0m" 400 -
+2025-07-10 18:49:51,567 127.0.0.1 - - [10/Jul/2025 18:49:51] "[33mGET /get_faq_raw%0A HTTP/1.1[0m" 404 -
+2025-07-10 18:51:02,688 127.0.0.1 - - [10/Jul/2025 18:51:02] "GET /get_faq_raw HTTP/1.1" 200 -
+2025-07-10 18:54:27,643  * Detected change in 'c:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\bot\\routes.py', reloading
+2025-07-10 18:54:28,534  * Restarting with stat
+2025-07-10 18:54:39,717  * Debugger is active!
+2025-07-10 18:54:39,723  * Debugger PIN: 120-591-984
+2025-07-10 19:46:55,714  * Detected change in 'c:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\bot\\routes.py', reloading
+2025-07-10 19:46:56,671  * Restarting with stat
+2025-07-10 19:47:09,379  * Debugger is active!
+2025-07-10 19:47:09,388  * Debugger PIN: 120-591-984
+2025-07-10 19:49:27,575  * Detected change in 'c:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\bot\\routes.py', reloading
+2025-07-10 19:49:28,529  * Restarting with stat
+2025-07-10 19:49:40,073  * Debugger is active!
+2025-07-10 19:49:40,081  * Debugger PIN: 120-591-984
+2025-07-10 19:55:18,893  * Detected change in 'c:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\bot\\routes.py', reloading
+2025-07-10 19:55:19,902  * Restarting with stat
+2025-07-10 19:55:31,812  * Debugger is active!
+2025-07-10 19:55:31,818  * Debugger PIN: 120-591-984
+2025-07-10 21:26:27,628  * Detected change in 'c:\\Users\\andro\\Documents\\GitHub\\Service_Center_PH\\bot\\routes.py', reloading
+2025-07-10 21:26:28,808  * Restarting with stat
+2025-07-10 21:26:40,643  * Debugger is active!
+2025-07-10 21:26:40,650  * Debugger PIN: 120-591-984
+2025-07-10 21:27:55,432 127.0.0.1 - - [10/Jul/2025 21:27:55] "GET / HTTP/1.1" 200 -
+2025-07-10 21:27:55,674 127.0.0.1 - - [10/Jul/2025 21:27:55] "GET /available_csvs HTTP/1.1" 200 -
+2025-07-14 19:47:37,821 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-14 19:47:37,821 [33mPress CTRL+C to quit[0m
+2025-07-14 19:47:37,826  * Restarting with stat
+2025-07-14 19:47:48,860  * Debugger is active!
+2025-07-14 19:47:48,869  * Debugger PIN: 120-591-984
+2025-07-14 19:48:24,589 127.0.0.1 - - [14/Jul/2025 19:48:24] "GET /get_faq_raw HTTP/1.1" 200 -

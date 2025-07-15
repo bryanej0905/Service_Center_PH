@@ -24,6 +24,8 @@ def create_app():
 
     # 4) Registra el blueprint
     app.register_blueprint(routes.tchat_bp)
+    print("RUTAS REGISTRADAS:")
+    print(app.url_map)
     return app
 
 if __name__ == '__main__':
