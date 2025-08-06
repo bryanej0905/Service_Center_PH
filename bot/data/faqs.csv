@@ -1,58 +1,162 @@
 pregunta,respuesta
 ¿Dónde están ubicados?,"Estamos en la Av. Principal 123, cerca del parque central."
+¿En qué lugar se encuentran?,"Nuestra dirección es Av. Principal 123, justo al lado del parque central."
+¿Me puedes decir la dirección?,"Claro, nos ubicamos en la Av. Principal 123, frente al parque central."
 ¿Cuáles son los horarios?,"Atendemos de 8 AM a 10 PM todos los días."
+¿En qué horario están abiertos?,"Nuestro horario es de 8 de la mañana a 10 de la noche, todos los días."
+¿De qué hora a qué hora abren?,"Abrimos todos los días desde las 8 AM hasta las 10 PM."
 ¿Qué métodos de pago aceptan?,"Aceptamos efectivo, tarjetas de crédito y débito, y pagos móviles."
+¿Con qué formas de pago trabajan?,"Puedes pagar con tarjeta, efectivo o servicios de pago móvil como SINPE."
+¿Puedo pagar con tarjeta o efectivo?,"Sí, aceptamos pagos en efectivo, tarjetas y también pagos electrónicos."
 ¿Tienen promociones?,"Sí, consulta nuestras redes sociales para conocer las promociones del día."
+¿Están dando alguna promoción hoy?,"Tenemos promociones diarias, te invitamos a revisar nuestras redes para conocerlas."
+¿Dónde veo las ofertas?,"Puedes ver las promociones actuales en nuestras páginas de redes sociales."
 ¿Cuál es el menú?,"Tenemos pizza, pasta, ensaladas, hamburguesas, bebidas, etc., ¡y postres!"
+¿Me muestras el menú?,"Claro, contamos con una gran variedad: pizzas, pastas, ensaladas, hamburguesas, bebidas y postres."
+¿Qué platos ofrecen?,"Nuestro menú incluye pizzas, pastas, ensaladas, hamburguesas, postres y mucho más."
 ¿Ofrecen entregas a domicilio?,"Sí, puedes hacer pedidos desde nuestra web o por teléfono."
+¿Hacen delivery?,"Claro que sí, hacemos entregas a domicilio, solo haz tu pedido en línea o llámanos."
+¿Puedo pedir comida a mi casa?,"Sí, contamos con servicio a domicilio por web o llamada telefónica."
 ¿Cómo contacto con soporte?,"Puedes escribirnos al correo soporte@ejemplo.com o llamar al 123-456-7890."
+¿Dónde pido ayuda si tengo un problema?,"Puedes contactarnos a soporte@ejemplo.com o al número 123-456-7890."
+¿Tienen atención al cliente?,"Sí, puedes comunicarte con nuestro equipo de soporte al correo o teléfono indicados."
 ¿Hay opciones vegetarianas?,"Sí, ofrecemos varias opciones vegetarianas en nuestro menú."
+¿Tienen comidas sin carne?,"Claro, tenemos varias comidas vegetarianas disponibles."
+¿Ofrecen platos para vegetarianos?,"Sí, en el menú encontrarás varias alternativas vegetarianas."
 Hola,"¡Hola! ¿En qué puedo ayudarte hoy?"
-¿Cómo puedo hacer un pedido online?,"Visita nuestra web o descarga la app de Pizza Hut, elige tus productos y paga de forma segura con tarjeta o PayPal."
-¿Tienen aplicación móvil?,"Sí, está disponible gratis para iOS y Android. Busca “Pizza Hut” en tu tienda de apps y disfruta de pedidos rápidos."
 ¿Ofrecen opciones sin gluten?,"Contamos con masa e ingredientes sin gluten certificados. Indica tu preferencia al hacer el pedido."
-¿Cómo puedo cancelar o modificar un pedido?,"Llámanos lo antes posible al 123-456-7890 o usa la opción “Mis pedidos” en la app para gestionar cambios."
-¿Cuál es el tiempo de entrega estimado?,"Nuestro promedio de entrega es de 30–45 minutos según zona y hora del pedido."
-¿Cómo puedo rastrear mi pedido?,"Tras confirmar tu compra recibirás un enlace de seguimiento en tiempo real por SMS o notificación en la app."
-¿Tienen tarjetas de regalo?,"Sí, puedes adquirir tarjetas físicas o electrónicas desde $10 hasta $100 en nuestra web y tiendas físicas."
-¿Cómo funciona el programa de recompensas?,"Por cada dólar gastado acumulas puntos que luego puedes canjear por productos gratis o descuentos exclusivos."
-¿Ofrecen servicio de catering para eventos?,"Sí, tenemos menús especiales para grupos y eventos. Consulta nuestras opciones en la sección “Catering” de la web."
-¿Dónde puedo ver la información nutricional de los productos?,"Entra en la sección “Nutrición” de nuestra web, donde encontrarás datos de calorías, alérgenos y más."
-¿Dónde están ubicados?,"Estamos en la Av. Principal 123, cerca del parque central."
-¿Cuáles son los horarios?,"Atendemos de 8 AM a 10 PM todos los días."
-¿Qué métodos de pago aceptan?,"Aceptamos efectivo, tarjetas de crédito y débito, y pagos móviles."
-¿Tienen promociones?,"Sí, consulta nuestras redes sociales para conocer las promociones del día."
-¿Cuál es el menú?,"Tenemos pizza, pasta, ensaladas, hamburguesas, bebidas, etc., ¡y postres!"
-¿Ofrecen entregas a domicilio?,"Sí, puedes hacer pedidos desde nuestra web o por teléfono."
-¿Cómo contacto con soporte?,"Puedes escribirnos al correo soporte@ejemplo.com o llamar al 123-456-7890."
-¿Hay opciones vegetarianas?,"Sí, ofrecemos varias opciones vegetarianas en nuestro menú."
-Hola,"¡Hola! ¿En qué puedo ayudarte hoy?"
-¿Cómo puedo hacer un pedido online?,"Visita nuestra web o descarga la app de Pizza Hut, elige tus productos y paga de forma segura con tarjeta o PayPal."
-¿Tienen aplicación móvil?,"Sí, está disponible gratis para iOS y Android. Busca “Pizza Hut” en tu tienda de apps y disfruta de pedidos rápidos."
-¿Ofrecen opciones sin gluten?,"Contamos con masa e ingredientes sin gluten certificados. Indica tu preferencia al hacer el pedido."
-¿Cómo puedo cancelar o modificar un pedido?,"Llámanos lo antes posible al 123-456-7890 o usa la opción “Mis pedidos” en la app para gestionar cambios."
-¿Cuál es el tiempo de entrega estimado?,"Nuestro promedio de entrega es de 30–45 minutos según zona y hora del pedido."
-¿Cómo puedo rastrear mi pedido?,"Tras confirmar tu compra recibirás un enlace de seguimiento en tiempo real por SMS o notificación en la app."
-¿Tienen tarjetas de regalo?,"Sí, puedes adquirir tarjetas físicas o electrónicas desde $10 hasta $100 en nuestra web y tiendas físicas."
-¿Cómo funciona el programa de recompensas?,"Por cada dólar gastado acumulas puntos que luego puedes canjear por productos gratis o descuentos exclusivos."
-¿Ofrecen servicio de catering para eventos?,"Sí, tenemos menús especiales para grupos y eventos. Consulta nuestras opciones en la sección “Catering” de la web."
-¿Dónde puedo ver la información nutricional de los productos?,"Entra en la sección “Nutrición” de nuestra web, donde encontrarás datos de calorías, alérgenos y más."
-¿Dónde están ubicados?,"Estamos en la Av. Principal 123, cerca del parque central."
-¿Cuáles son los horarios?,"Atendemos de 8 AM a 10 PM todos los días."
-¿Qué métodos de pago aceptan?,"Aceptamos efectivo, tarjetas de crédito y débito, y pagos móviles."
-¿Tienen promociones?,"Sí, consulta nuestras redes sociales para conocer las promociones del día."
-¿Cuál es el menú?,"Tenemos pizza, pasta, ensaladas, hamburguesas, bebidas, etc., ¡y postres!"
-¿Ofrecen entregas a domicilio?,"Sí, puedes hacer pedidos desde nuestra web o por teléfono."
-¿Cómo contacto con soporte?,"Puedes escribirnos al correo soporte@ejemplo.com o llamar al 123-456-7890."
-¿Hay opciones vegetarianas?,"Sí, ofrecemos varias opciones vegetarianas en nuestro menú."
-Hola,"¡Hola! ¿En qué puedo ayudarte hoy?"
-¿Cómo puedo hacer un pedido online?,"Visita nuestra web o descarga la app de Pizza Hut, elige tus productos y paga de forma segura con tarjeta o PayPal."
-¿Tienen aplicación móvil?,"Sí, está disponible gratis para iOS y Android. Busca “Pizza Hut” en tu tienda de apps y disfruta de pedidos rápidos."
-¿Ofrecen opciones sin gluten?,"Contamos con masa e ingredientes sin gluten certificados. Indica tu preferencia al hacer el pedido."
-¿Cómo puedo cancelar o modificar un pedido?,"Llámanos lo antes posible al 123-456-7890 o usa la opción “Mis pedidos” en la app para gestionar cambios."
-¿Cuál es el tiempo de entrega estimado?,"Nuestro promedio de entrega es de 30–45 minutos según zona y hora del pedido."
-¿Cómo puedo rastrear mi pedido?,"Tras confirmar tu compra recibirás un enlace de seguimiento en tiempo real por SMS o notificación en la app."
-¿Tienen tarjetas de regalo?,"Sí, puedes adquirir tarjetas físicas o electrónicas desde $10 hasta $100 en nuestra web y tiendas físicas."
-¿Cómo funciona el programa de recompensas?,"Por cada dólar gastado acumulas puntos que luego puedes canjear por productos gratis o descuentos exclusivos."
-¿Ofrecen servicio de catering para eventos?,"Sí, tenemos menús especiales para grupos y eventos. Consulta nuestras opciones en la sección “Catering” de la web."
-¿Dónde puedo ver la información nutricional de los productos?,"Entra en la sección “Nutrición” de nuestra web, donde encontrarás datos de calorías, alérgenos y más."
+Hola ¿me puedes ayudar?,"¡Hola! Claro, dime en qué necesitas ayuda."
+Buenos días,"¡Buenos días! ¿Cómo puedo ayudarte?"
+¿Cómo realizo un pedido por la web?,Haz tu pedido fácilmente desde nuestra web oficial o usando la app de Pizza Hut.
+¿Qué pasos sigo para pedir en línea?,Puedes hacer tu orden online en nuestra app o sitio web y pagar con tu método favorito.
+¿Cuál es el proceso para ordenar por internet?,Entra a la app o web de Pizza Hut elige lo que te gusta y paga de forma segura.
+¿Cuentan con una app para hacer pedidos?,Nuestra app está disponible tanto en Android como iOS.
+¿Disponen de aplicación para celulares?,Puedes descargar la app de Pizza Hut en tu tienda de aplicaciones favorita.
+¿Puedo usar una app para ordenar en Pizza Hut?,Disponible gratis en Google Play y App Store como 'Pizza Hut'.
+¿Tienen alimentos aptos para personas con intolerancia al gluten?,Sí ofrecemos opciones sin gluten solo debes indicarlo al ordenar.
+¿Puedo pedir una pizza sin gluten en Pizza Hut?,Tenemos disponibles productos sin gluten certificados.
+¿Se puede pedir comida sin gluten?,Contamos con alternativas aptas para personas con intolerancia al gluten.
+¿Qué hago si quiero cambiar o anular mi pedido?,Puedes cancelar o modificar tu pedido desde la app o llamándonos cuanto antes.
+¿Puedo editar un pedido luego de hacerlo?,Para hacer cambios en tu pedido comunícate por teléfono o usa la opción en la app.
+¿Cómo gestiono una cancelación de pedido?,Llámanos de inmediato o revisa la sección de pedidos en la app para editarlo.
+¿En cuánto tiempo llega el pedido a mi casa?,Generalmente entregamos entre 30 y 45 minutos según tu ubicación.
+¿Cuánto demoran en traer la comida?,El tiempo varía pero suele estar entre 30 y 45 minutos.
+¿Cuál es la demora habitual en las entregas?,Depende de la zona pero normalmente es menos de 45 minutos.
+¿Dónde reviso el estado de mi pedido?,Recibirás un link con el seguimiento del pedido en tu celular.
+¿Cómo hago seguimiento a mi orden?,El estado del pedido se puede seguir en tiempo real desde la app o SMS.
+¿Tienen rastreo en tiempo real de los pedidos?,Te enviamos un enlace para rastrear tu pedido después de confirmarlo.
+¿Se pueden comprar tarjetas de regalo en Pizza Hut?,Sí tenemos tarjetas de regalo desde $10 físicas y digitales.
+¿Ofrecen algún tipo de gift card?,Puedes comprar gift cards en tiendas o en nuestra página web.
+¿Dónde adquiero una tarjeta para regalar?,Ofrecemos tarjetas prepagadas que puedes regalar desde nuestra web.
+¿Cómo se ganan puntos con las compras?,Cada compra suma puntos que luego se canjean por beneficios.
+¿Qué obtengo al unirme al sistema de recompensas?,Acumulas puntos al comprar y los usas para obtener productos gratis.
+¿Cómo operan las recompensas de Pizza Hut?,Nuestro programa te premia con puntos por cada dólar gastado.
+¿Puedo contratar a Pizza Hut para un evento?,Sí contamos con servicio especial para eventos y reuniones.
+¿Cuentan con opciones para reuniones o fiestas?,Tenemos menús grupales ideales para fiestas o eventos corporativos.
+¿Tienen servicio de comidas para eventos grandes?,Ofrecemos opciones de catering para cualquier tipo de evento.
+¿Dónde consulto las calorías de los productos?,Consulta todos los valores nutricionales en nuestra web sección de nutrición.
+¿Existe una sección con datos nutricionales?,En nuestra página verás información de calorías ingredientes y más.
+¿Dónde encuentro los ingredientes y alérgenos?,Visita la sección de Nutrición en el sitio web para todos los detalles.
+¿Cuál es la ubicación de su local?,Nos ubicamos en Av. Principal 123 a un costado del parque central.
+¿En qué dirección se encuentran?,Nuestra dirección es Avenida Principal 123 cerca del parque.
+¿Dónde puedo visitar una sucursal?,Puedes encontrarnos en Av. Principal 123 junto al parque central.
+¿A qué hora abren y cierran?,Nuestro horario de atención es de 8:00 a.m. a 10:00 p.m. todos los días.
+¿En qué momento están disponibles?,Estamos disponibles todos los días entre 8 de la mañana y 10 de la noche.
+¿Puedo visitarlos en la noche?,Sí abrimos diariamente desde las 8 a.m. hasta las 10 p.m.
+¿Qué formas de pago puedo usar?,Recibimos pagos en efectivo tarjetas de débito y crédito además de opciones móviles.
+¿Aceptan pagos móviles?,Sí puedes pagar con SINPE móvil tarjetas o efectivo sin problema.
+¿Tienen diferentes métodos de pago?,Claro aceptamos tarjetas pagos electrónicos y efectivo.
+¿Están ofreciendo descuentos?,Sí tenemos promociones activas. Puedes verlas en nuestras redes sociales.
+¿Dónde veo las ofertas del día?,Consulta nuestras promociones del día en Instagram y Facebook.
+¿Tienen alguna promo vigente?,Sí revisa nuestras redes sociales para conocer las promociones actuales.
+¿Dónde puedo ver lo que venden?,Puedes consultar nuestro menú completo en la página web.
+¿Tienen variedad en el menú?,Sí contamos con pizzas pastas ensaladas hamburguesas bebidas y deliciosos postres.
+¿Ofrecen postres también?,Claro además de platillos principales tenemos opciones dulces para el cierre perfecto.
+¿Puedo pedir comida a mi casa?,Sí tenemos servicio de entrega a domicilio desde la web o por teléfono.
+¿Hacen envíos a domicilio?,Claro que sí realizamos entregas directamente a tu casa.
+¿Ofrecen delivery?,Sí puedes pedir a domicilio usando nuestra web o contactándonos por teléfono.
+¿A quién contacto si tengo un problema?,Puedes comunicarte a soporte@ejemplo.com o llamarnos al 123-456-7890.
+¿Tienen un canal de atención?,Sí brindamos atención al cliente por correo y vía telefónica.
+¿Dónde puedo escribir si tengo dudas?,Puedes escribirnos a soporte@ejemplo.com o llamarnos directamente.
+¿Tienen comidas sin carne?,Sí ofrecemos platillos vegetarianos deliciosos en nuestro menú.
+¿Hay opciones para vegetarianos?,Claro contamos con varias comidas sin carne en la carta.
+¿Ofrecen alternativas sin carne?,Sí tenemos opciones especialmente pensadas para quienes no consumen carne.
+¡Hola!,¡Hola! ¿En qué te puedo colaborar hoy?
+Buenos días,¡Buenos días! ¿Cómo puedo ayudarte?
+¿Me podrías ayudar?,¡Por supuesto! Dime qué necesitas y con gusto te ayudo.
+¿Cómo realizo un pedido por internet?,Haz tu pedido desde nuestra página web o app paga fácil con tarjeta o PayPal.
+¿Qué pasos sigo para pedir en línea?,Elige tus productos en la app o web agrégalos al carrito y paga seguro.
+¿Dónde pido desde internet?,Solo entra a nuestra web o app selecciona tus platos y realiza el pago online.
+¿Cuentan con una app para celulares?,Sí tenemos una app oficial gratis para Android e iOS.
+¿Dónde descargo la aplicación?,Busca "Pizza Hut" en la App Store o Google Play y descárgala gratis.
+¿Puedo usar una app para pedir?,Sí puedes hacer pedidos fácilmente desde nuestra aplicación móvil.
+¿Tienen comida apta para celíacos?,Sí tenemos opciones sin gluten certificadas solo indícalo al ordenar.
+¿Hay pizzas sin gluten?,Contamos con masa sin gluten y otros ingredientes aptos para intolerancias.
+¿Ofrecen platillos sin gluten?,Sí puedes pedir comida sin gluten especificándolo al momento de hacer el pedido.
+¿Puedo modificar mi orden?,Sí si necesitas cambiar tu pedido llámanos o usa la sección “Mis pedidos” en la app.
+¿Hay forma de cancelar un pedido?,Llámanos de inmediato al 123-456-7890 para cancelar o modificar tu orden.
+¿Se puede cambiar un pedido ya hecho?,Sí puedes gestionarlo por la app o con nuestro equipo de soporte telefónico.
+¿En cuánto tiempo llega el pedido?,Generalmente entregamos entre 30 y 45 minutos dependiendo de tu zona.
+¿Demoran mucho en la entrega?,No usualmente el pedido llega en menos de 45 minutos.
+¿Tienen entrega rápida?,Sí procuramos entregar en un rango de 30 a 45 minutos tras confirmar tu orden.
+¿Dónde reviso mi pedido?,Recibirás un mensaje con un enlace para rastrear tu pedido en tiempo real.
+¿Puedo seguir el estado de mi pedido?,Sí puedes ver la ubicación de tu orden desde la app o SMS.
+¿Cómo sé si ya viene mi pedido?,Te mandaremos un enlace por notificación o SMS para que lo sigas en vivo.¿Tienen tarjetas de regalo?,"Sí, puedes adquirir tarjetas físicas o electrónicas desde $10 hasta $100 en nuestra web y tiendas físicas."
+pregunta,respuesta
+¿Cómo obtengo recompensas por comprar?,Cada vez que compras acumulas puntos que puedes canjear por productos gratis o descuentos.
+¿En qué consiste su sistema de puntos?,Ganas puntos por cada dólar gastado y luego puedes usarlos en futuras compras.
+¿Tienen algún beneficio por ser cliente frecuente?,Sí tenemos un programa de recompensas que te da descuentos y productos sin costo.
+¿Brindan atención para eventos especiales?,Sí ofrecemos menús diseñados para grupos y celebraciones.
+¿Puedo pedir comida para una fiesta?,Claro tenemos servicio de catering ideal para reuniones y eventos.
+¿Cuentan con opciones de catering?,Sí consulta nuestra sección de catering en la web para ver los menús disponibles.
+¿Dónde veo los valores nutricionales?,En nuestra página web hay una sección dedicada a la información nutricional de cada producto.
+¿Tienen detalles sobre calorías o alérgenos?,Sí en el apartado “Nutrición” de la web puedes revisar calorías ingredientes y más.
+¿Dónde encuentro los datos de los ingredientes?,Toda la información nutricional está disponible en línea en la sección correspondiente.
+¿En qué lugar están ubicados?,Estamos en la Av. Principal 123 muy cerca del parque central.
+¿Dónde queda su restaurante?,Nos encuentras en la Avenida Principal 123 frente al parque.
+¿Dónde puedo visitarlos?,Puedes visitarnos en Av. Principal 123 justo al lado del parque central.
+¿A qué hora están abiertos?,Nuestro horario va desde las 8:00 a.m. hasta las 10:00 p.m. todos los días.
+¿En qué horario atienden?,Estamos disponibles diariamente entre 8 AM y 10 PM.
+¿Hasta qué hora trabajan?,Abrimos todos los días desde la mañana hasta las 10 de la noche.
+¿Con qué puedo pagar?,Aceptamos distintos métodos: efectivo tarjetas bancarias y pagos desde el móvil.
+¿Reciben pagos electrónicos?,Sí puedes pagar con tarjeta móvil o efectivo según prefieras.
+¿Tienen diferentes formas de pago?,Claro puedes usar tarjeta de crédito débito o efectivo.
+¿Hay descuentos u ofertas?,Sí revisa nuestras redes sociales para conocer las promociones actuales.
+¿Están ofreciendo promociones?,Sí todos los días tenemos promociones que publicamos en nuestras redes.
+¿Dónde consulto las promociones?,Visita nuestras redes sociales y entérate de las ofertas del día.
+¿Me pueden decir qué ofrecen en el menú?,Nuestro menú incluye pizzas pastas hamburguesas ensaladas postres y más.
+¿Qué tipo de comidas venden?,Tenemos variedad: desde pizzas y pastas hasta postres y bebidas.
+¿Tienen opciones variadas en el menú?,Sí ofrecemos una amplia selección de comidas incluyendo opciones dulces.
+¿Tienen servicio a domicilio?,Sí puedes pedir desde casa usando la web o llamando por teléfono.
+¿Puedo hacer pedidos a mi casa?,Claro realizamos entregas a domicilio con solo un clic o una llamada.
+¿Ofrecen entregas?,Sí contamos con servicio de entrega a domicilio para tu comodidad.
+¿Dónde puedo pedir ayuda?,Puedes contactar soporte llamando al 123-456-7890 o escribiendo a soporte@ejemplo.com.
+¿Tienen atención al cliente?,Sí puedes comunicarte con nuestro equipo por correo o vía telefónica.
+¿A quién recurro si tengo un problema?,Puedes escribirnos o llamarnos siempre estamos listos para ayudarte.
+¿Tienen platos vegetarianos?,Sí tenemos varias opciones sin carne en el menú.
+¿Ofrecen alternativas vegetarianas?,Claro contamos con comidas aptas para personas vegetarianas.
+¿Hay comida sin carne?,Sí puedes elegir entre varias alternativas vegetarianas disponibles.
+¡Hola!,¡Hola! ¿En qué puedo ayudarte hoy?
+¡Buenas!,¡Buenas! ¿Qué puedo hacer por ti?
+Hola, ¿me ayudas?¡Claro! Dime en qué necesitas asistencia.
+¿Cómo puedo ordenar online?,Haz tu pedido desde la web o app selecciona tus productos y paga con tarjeta o PayPal.
+¿Dónde realizo un pedido por internet?,Puedes usar nuestra app o visitar la web oficial para hacer tu pedido en minutos.
+¿Puedo comprar desde la web?,Sí elige lo que deseas agrégalo al carrito y paga desde la comodidad de tu casa.
+¿Dónde descargo la app de Pizza Hut?,La app está disponible gratis en iOS y Android solo búscala como “Pizza Hut”.
+¿La app es gratuita?,Sí nuestra aplicación se puede descargar sin costo desde cualquier tienda de apps.
+¿Hay una aplicación móvil?,Sí tenemos una app para que hagas pedidos fácilmente desde tu celular.
+¿Cuentan con productos sin gluten?,Sí tenemos masas e ingredientes certificados sin gluten.
+¿Hay comida sin gluten disponible?,Sí puedes pedir sin gluten solo indícalo al realizar el pedido.
+¿Ofrecen opciones para celíacos?,Sí tenemos comida pensada para personas con intolerancia al gluten.
+¿Puedo cancelar mi pedido?,Sí comunícate de inmediato por teléfono o usa la app en la sección de pedidos.
+¿Se puede modificar un pedido ya hecho?,Sí entra a “Mis pedidos” en la app o llámanos para ayudarte.
+¿Cómo edito mi orden?,Llámanos o usa la app si necesitas modificar tu pedido antes de ser entregado.
+¿En cuánto tiempo llega mi orden?,El tiempo de entrega varía entre 30 y 45 minutos según tu zona.
+¿Demora mucho la entrega?,No normalmente recibirás tu pedido en menos de 45 minutos.
+¿Cuánto tardan en entregar?,El promedio es de 30-45 minutos dependiendo del tráfico y la ubicación.
+¿Puedo rastrear mi pedido?,Sí te enviamos un enlace por SMS o app para que lo sigas en tiempo real.
+¿Dónde veo el estado de mi pedido?,Después de confirmar tu orden recibirás un link de seguimiento.
+¿La app permite seguimiento?,Sí puedes ver por dónde va tu pedido desde la app o mensaje recibido.
+¿Venden tarjetas para regalar?,Sí ofrecemos gift cards físicas y electrónicas desde $10 hasta $100.
+¿Dónde compro una tarjeta de regalo?,Puedes adquirir tarjetas prepagadas en línea o en tiendas físicas.
+¿Tienen gift cards?,Sí están disponibles para compra en nuestra web o directamente en el restaurante.
