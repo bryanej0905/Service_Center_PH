@@ -32,24 +32,25 @@ class EmbeddingMatcher:
         )
 
     def find(self, q_norm: str):
-        # Primera llamada: cargamos el modelo y generamos embeddings del corpus
         if self.model is None:
             self._load_model()
 
-        # 1) Embedding de la consulta
         q_emb = self.model.encode([q_norm], convert_to_numpy=True)
-
-        # 2) Similitud coseno
         sims = cosine_similarity(q_emb, self.q_embeddings).ravel()
-
-        # 3) Top-k
         idx_sorted = np.argsort(-sims)
         top_idxs = idx_sorted[:self.top_k]
 
-        # 4) Resultado
-        best_q     = self.questions[top_idxs[0]]
-        resp       = self.lookup(best_q)
-        suggestions= [self.questions[i] for i in top_idxs[1:]]
-        score      = float(sims[top_idxs[0]])
+        best_q = self.questions[top_idxs[0]]
+        resp = self.lookup(best_q)
+        suggestions = [self.questions[i] for i in top_idxs[1:]]
+        score = float(sims[top_idxs[0]])
+
+        #  Nueva lógica: forzamos precisión al filtrar respuestas poco confiables
+        if score < 0.88:
+            # Puedes devolver una respuesta genérica si la similitud es baja,
+            # o dejar la respuesta pero influenciar el frontend (como haces ahora).
+            resp = "Lo siento, no tengo información suficiente para eso"
+            suggestions = []
 
         return resp, suggestions, score
+

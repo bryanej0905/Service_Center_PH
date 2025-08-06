@@ -1323,3 +1323,19 @@ RuntimeError: The session is unavailable because no secret key was set.  Set the
 2025-07-14 19:47:48,860  * Debugger is active!
 2025-07-14 19:47:48,869  * Debugger PIN: 120-591-984
 2025-07-14 19:48:24,589 127.0.0.1 - - [14/Jul/2025 19:48:24] "GET /get_faq_raw HTTP/1.1" 200 -
+2025-08-05 17:44:56,085 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-05 17:44:56,085 [33mPress CTRL+C to quit[0m
+2025-08-05 17:44:56,088  * Restarting with stat
+2025-08-05 17:45:03,369  * Debugger is active!
+2025-08-05 17:45:03,373  * Debugger PIN: 137-958-362
+2025-08-05 17:46:07,940 127.0.0.1 - - [05/Aug/2025 17:46:07] "GET / HTTP/1.1" 200 -
+2025-08-05 17:46:08,189 127.0.0.1 - - [05/Aug/2025 17:46:08] "GET /available_csvs HTTP/1.1" 200 -
+2025-08-05 17:46:08,298 127.0.0.1 - - [05/Aug/2025 17:46:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-05 17:46:19,134 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-05 17:46:22,973 Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-08-05 17:46:33,318 Use pytorch device_name: cpu
+2025-08-05 17:46:33,546 127.0.0.1 - - [05/Aug/2025 17:46:33] "POST /chat HTTP/1.1" 200 -
+2025-08-05 17:46:48,948 Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-05 17:46:50,405 Use pytorch device_name: cpu
+2025-08-05 17:46:50,559 127.0.0.1 - - [05/Aug/2025 17:46:50] "POST /chat HTTP/1.1" 200 -
