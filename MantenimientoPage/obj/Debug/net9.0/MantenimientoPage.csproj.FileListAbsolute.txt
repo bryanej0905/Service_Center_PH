@@ -1,0 +1,108 @@
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\favicon.ico
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\Index.html
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\MantenimientoPage.csproj
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.AssemblyInfo.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.AssemblyInfoInputs.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.assets.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.csproj.FileListAbsolute.txt
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.GeneratedMSBuildEditorConfig.editorconfig
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\obj\MantenimientoPage.csproj.nuget.dgspec.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\obj\MantenimientoPage.csproj.nuget.g.props
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\obj\MantenimientoPage.csproj.nuget.g.targets
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\obj\project.assets.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\obj\project.nuget.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\Program.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\Properties\launchSettings.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\Resourses\Image\Fondo.jpg
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\Resourses\Image\LOGO-PH.png
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\Resourses\Image\logo.jpg
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\Resourses\Image\mobile.png
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\MantenimientoPage.exe
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\MantenimientoPage.deps.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\MantenimientoPage.runtimeconfig.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\MantenimientoPage.dll
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\bin\Debug\net9.0\MantenimientoPage.pdb
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.GeneratedMSBuildEditorConfig.editorconfig
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.AssemblyInfoInputs.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.AssemblyInfo.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.csproj.CoreCompileInputs.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.sourcelink.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.dll
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\obj\Debug\net9.0\refint\MantenimientoPage.dll
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.pdb
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.genruntimeconfig.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Prube Service Center chat\MantenimientoPage\obj\Debug\net9.0\ref\MantenimientoPage.dll
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\favicon.ico
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\Index.html
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\MantenimientoPage.csproj
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.AssemblyInfo.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.AssemblyInfoInputs.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\MantenimientoPage.csproj.nuget.g.props
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\MantenimientoPage.csproj.nuget.g.targets
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\Program.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\Properties\launchSettings.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\Resourses\Image\Fondo.jpg
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\Resourses\Image\LOGO-PH.png
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\Resourses\Image\logo.jpg
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\Resourses\Image\mobile.png
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\favicon.ico
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\Index.html
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\MantenimientoPage.csproj
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\MantenimientoPage.deps.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\MantenimientoPage.dll
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\MantenimientoPage.exe
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\MantenimientoPage.pdb
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\MantenimientoPage.runtimeconfig.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\obj\Debug\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.AssemblyInfo.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.AssemblyInfoInputs.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.assets.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.csproj.FileListAbsolute.txt
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.GeneratedMSBuildEditorConfig.editorconfig
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\obj\MantenimientoPage.csproj.nuget.dgspec.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\obj\MantenimientoPage.csproj.nuget.g.props
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\obj\MantenimientoPage.csproj.nuget.g.targets
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\obj\project.assets.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\obj\project.nuget.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\Program.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\Properties\launchSettings.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\Resourses\Image\Fondo.jpg
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\Resourses\Image\LOGO-PH.png
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\Resourses\Image\logo.jpg
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\bin\Debug\net9.0\Resourses\Image\mobile.png
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\apphost.exe
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.assets.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.csproj.CoreCompileInputs.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.csproj.FileListAbsolute.txt
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.dll
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.GeneratedMSBuildEditorConfig.editorconfig
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.genruntimeconfig.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.pdb
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\MantenimientoPage.sourcelink.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\refint\MantenimientoPage.dll
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Debug\net9.0\ref\MantenimientoPage.dll
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\MantenimientoPage.csproj.nuget.dgspec.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\project.assets.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\project.nuget.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Release\net9.0\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Release\net9.0\MantenimientoPage.AssemblyInfo.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Release\net9.0\MantenimientoPage.AssemblyInfoInputs.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Release\net9.0\MantenimientoPage.assets.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\obj\Release\net9.0\MantenimientoPage.GeneratedMSBuildEditorConfig.editorconfig
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\MantenimientoPage.exe
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\MantenimientoPage.deps.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\MantenimientoPage.runtimeconfig.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\MantenimientoPage.dll
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\bin\Debug\net9.0\MantenimientoPage.pdb
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.GeneratedMSBuildEditorConfig.editorconfig
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.AssemblyInfoInputs.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.AssemblyInfo.cs
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.csproj.CoreCompileInputs.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.sourcelink.json
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.dll
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\obj\Debug\net9.0\refint\MantenimientoPage.dll
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.pdb
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\obj\Debug\net9.0\MantenimientoPage.genruntimeconfig.cache
+J:\Proyecto Final PH\Service Center  Final\Prube Service Center Chat\Service Center\MantenimientoPage\obj\Debug\net9.0\ref\MantenimientoPage.dll

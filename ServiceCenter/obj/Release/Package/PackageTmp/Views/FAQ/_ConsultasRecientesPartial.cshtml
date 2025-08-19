@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ServiceCenter.Models.ConsultaRecienteViewModel>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var consulta in Model)
+    {
+        <li class="list-group-item">
+            <a href="javascript:void(0);" class="consulta-reciente-link text-dark" data-faqid="@consulta.PreguntaFAQId" style="text-decoration:none;">
+                @consulta.Titulo
+            </a>
+        </li>
+    }
+}
+else
+{
+    <li class="list-group-item text-muted" style="font-size:0.99rem;">No hay consultas recientes.</li>
+}

@@ -1,0 +1,305 @@
+﻿@model ServiceCenter.Models.EmailServerConfig
+
+@{
+    ViewBag.Title = "Editar Configuración de Email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ph-page">
+    <div class="ph-header">
+        <h2 style="color: white" class="ph-title">Configuración del Servidor de Correo</h2>
+    </div>
+
+    <div class="ph-card">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @autocomplete = "off" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Id)
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
+            <div class="row g-3">
+                <!-- Host -->
+                <div class="col-lg-6">
+                    <label class="form-label ph-label">@Html.DisplayNameFor(m => m.Host)</label>
+                    @Html.TextBoxFor(m => m.Host, new { @class = "form-control ph-input", placeholder = "smtp.tudominio.com" })
+                    @Html.ValidationMessageFor(m => m.Host, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- Puerto -->
+                <div class="col-lg-3">
+                    <label class="form-label ph-label">@Html.DisplayNameFor(m => m.Puerto)</label>
+                    @Html.TextBoxFor(m => m.Puerto, new { @class = "form-control ph-input", type = "number", min = "1", max = "65535", placeholder = "587" })
+                    @Html.ValidationMessageFor(m => m.Puerto, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- SSL Switch -->
+                <div class="col-lg-3 d-flex align-items-end">
+                    <div class="ph-switch-wrap">
+                        <span class="ph-label me-2">SSL/TLS</span>
+                        <label class="ph-switch">
+                            @Html.CheckBoxFor(m => m.HabilitarSSL, new { @class = "ph-switch-input" })
+                            <span class="ph-switch-slider"></span>
+                        </label>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.HabilitarSSL, "", new { @class = "text-danger ms-2" })
+                </div>
+
+                <!-- Usuario -->
+                <div class="col-lg-6">
+                    <label class="form-label ph-label">@Html.DisplayNameFor(m => m.Usuario)</label>
+                    @Html.TextBoxFor(m => m.Usuario, new { @class = "form-control ph-input", placeholder = "usuario@tudominio.com" })
+                    @Html.ValidationMessageFor(m => m.Usuario, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- Contraseña con toggle -->
+                <div class="col-lg-6">                
+                    <label class="form-label ph-label">Contraseña</label>
+                    <div class="ph-input-group">
+                        @Html.TextBoxFor(m => m.Contrasena, new { @class = "form-control ph-input", @type = "password", @id = "Contrasena" })
+                        <button type="button" class="btn btn-ph-icon" data-toggle-eye="#Contrasena" title="Mostrar/Ocultar">
+                            <span class="ph-eye">👁</span>
+                        </button>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Contrasena, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- From Name -->
+                <div class="col-lg-6">
+                    <label class="form-label ph-label">Nombre del Remitente</label>
+                    @Html.TextBoxFor(m => m.FromName, new { @class = "form-control ph-input", placeholder = "Service Center" })
+                    @Html.ValidationMessageFor(m => m.FromName, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- From Email -->
+                <div class="col-lg-6">
+                    <label class="form-label ph-label">Correo</label>
+                    @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control ph-input", placeholder = "no-reply@tudominio.com", type = "email" })
+                    @Html.ValidationMessageFor(m => m.FromEmail, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- Provider -->
+                <div class="col-lg-6"><label class="form-label ph-label">Proveedor</label>
+                    @Html.DropDownListFor(m => m.Provider, new SelectList(
+                          new[] {
+                              new { Value = "SendGrid", Text = "SendGrid" },
+                              new { Value = "Outlook SMTP", Text = "Outlook SMTP" }
+                          },
+                          "Value", "Text", Model.Provider), new { @class = "form-control ph-input-lg" })
+
+                </div>
+
+                <!-- ApiKey con toggle -->
+                <div class="col-lg-6">
+                    <label class="form-label ph-label">ApiKey (Solo para SendGrid)</label>
+                    <div class="ph-input-group">
+                        @Html.TextBoxFor(m => m.ApiKey, new { @class = "form-control ph-input", @type = "password", @id = "ApiKey" })
+                        <button type="button" class="btn btn-ph-icon" data-toggle-eye="#ApiKey" title="Mostrar/Ocultar">
+                            <span class="ph-eye">🔑</span>
+                        </button>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.ApiKey, "", new { @class = "text-danger" })
+                </div>
+
+                <!-- FechaCreacion (solo lectura) -->
+                <div class="col-lg-6">
+                    <label class="form-label ph-label">Ultima Actualización</label>
+                    <input class="form-control ph-input-lg readonly" value="@Model.FechaCreacion.ToString("dd/MM/yyyy HH:mm")" readonly />
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 mt-4">            
+                <button type="submit" class="btn btn-ph">Guardar cambios</button>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+/* ===== Paleta y base (a juego con la vista anterior) ===== */
+:root{
+    --ph-red:#e31837;
+    --ph-red-600:#c91530;
+    --ph-bg:#0f0f12;
+    --ph-panel: rgba(255,255,255,0.04);
+    --ph-panel-strong: rgba(255,255,255,0.08);
+    --ph-text:#e9e9ea;
+    --ph-muted:#a9a9ae;
+    --ph-border: rgba(255,255,255,0.12);
+}
+
+    .ph-label-lg {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .ph-input-lg {
+        background: #15161a;
+        border: 1px solid var(--ph-border);
+        color: #fff;
+        border-radius: 12px;
+        padding: .8rem 1rem;
+        font-size: 1rem;
+    }
+
+        .ph-input-lg:focus {
+            outline: none;
+            border-color: var(--ph-red);
+            box-shadow: 0 0 0 .2rem rgba(227,24,55,.15);
+        }
+
+    .readonly {
+        background-color: rgba(255,255,255,0.05) !important;
+        color: #ccc !important;
+        cursor: not-allowed;
+    }
+.ph-page{ padding: 1.25rem 1rem 2rem; }
+@@media (min-width: 992px){ .ph-page{ padding: 2rem 2rem 3rem; } }
+
+.ph-header{
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    margin-bottom:1rem; border-left:4px solid var(--ph-red); padding-left:.85rem;
+}
+.ph-title{ margin:0; font-weight:700; letter-spacing:.3px; }
+
+.ph-card{
+    background:linear-gradient(180deg, var(--ph-panel), var(--ph-panel-strong));
+    border:1px solid var(--ph-border);
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding:1.25rem;
+}
+
+.ph-label{
+    font-weight:600; color:var(--ph-text); letter-spacing:.02em;
+}
+.ph-input{
+    background:#15161a; border:1px solid var(--ph-border); color:var(--ph-text);
+    border-radius:12px; padding:.6rem .75rem;
+}
+.ph-input:focus{ outline:none; border-color:var(--ph-red); box-shadow:0 0 0 .2rem rgba(227,24,55,.15); }
+
+.btn-ph{
+    background: var(--ph-red); color:#fff !important; border:1px solid var(--ph-red);
+    border-radius:12px; padding:.55rem 1rem; font-weight:700; letter-spacing:.02em;
+}
+.btn-ph:hover{ background:var(--ph-red-600); }
+
+.btn-ph-outline{
+    background:transparent; color:#fff !important; border:1px solid var(--ph-red);
+    border-radius:12px; padding:.45rem .9rem; font-weight:700;
+}
+.btn-ph-outline:hover{ background:rgba(227,24,55,.1); }
+
+/* Input group para botones de ojo */
+.ph-input-group{ display:flex; gap:.5rem; align-items:center; }
+.ph-input-group .ph-input{ flex:1; }
+.btn-ph-icon{
+    border-radius:12px; border:1px solid var(--ph-border); background:#1a1b1f; color:#fff;
+    padding:.55rem .8rem; line-height:1;
+}
+.btn-ph-icon:hover{ background:#22242a; }
+
+/* Switch SSL */
+    /* Switch SSL */
+    .ph-switch-wrap {
+        display: flex;
+        align-items: center;
+        gap: .6rem;
+    }
+
+    .ph-switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 26px;
+    }
+
+    .ph-switch-input {
+        position: absolute;
+        inset: 0; /* ocupa todo el switch */
+        opacity: 0;
+        cursor: pointer;
+        margin: 0; /* clic en toda el área */
+        z-index: 2;
+    }
+
+    .ph-switch-slider {
+        position: absolute;
+        inset: 0;
+        background: #2a2c33;
+        border: 1px solid var(--ph-border);
+        transition: background .2s, border-color .2s;
+        border-radius: 999px;
+        z-index: 1;
+    }
+
+        .ph-switch-slider:before {
+            content: "";
+            position: absolute;
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            top: 3px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform .2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,.35);
+        }
+
+    /* ¡Clave!: usa ~ por el input hidden que agrega MVC */
+    .ph-switch-input:checked ~ .ph-switch-slider {
+        background: var(--ph-red);
+        border-color: var(--ph-red);
+    }
+
+        .ph-switch-input:checked ~ .ph-switch-slider:before {
+            /* 50 (ancho) - 18 (knob) - 4 - 4 = 24 */
+            transform: translateX(24px);
+        }
+
+    /* Opcionales: focus/disabled */
+    .ph-switch-input:focus-visible ~ .ph-switch-slider {
+        box-shadow: 0 0 0 .2rem rgba(227,24,55,.25);
+    }
+
+    .ph-switch-input:disabled {
+        cursor: not-allowed;
+    }
+
+        .ph-switch-input:disabled ~ .ph-switch-slider {
+            opacity: .6;
+        }
+
+
+/* Grid helpers (si Bootstrap no está) */
+.row{ display:flex; flex-wrap:wrap; margin-left:-.5rem; margin-right:-.5rem; }
+.g-3 > [class*='col-']{ padding:.5rem; }
+.col-lg-6{ width:100%; } .col-lg-3{ width:100%; }
+@@media (min-width:992px){
+    .col-lg-6{ width:50%; } .col-lg-3{ width:25%; }
+}
+
+/* Validación */
+.text-danger{ color:#ff9aa2 !important; }
+</style>
+
+<script>
+    // Toggle mostrar/ocultar inputs tipo password
+    (function () {
+        function toggleEye(btn) {
+            var target = btn.getAttribute('data-toggle-eye');
+            var input = document.querySelector(target);
+            if (!input) return;
+            input.type = (input.type === 'password') ? 'text' : 'password';
+            input.focus();
+        }
+        document.addEventListener('click', function (e) {
+            var btn = e.target.closest('[data-toggle-eye]');
+            if (btn) { toggleEye(btn); }
+        }, false);
+    })();
+</script>

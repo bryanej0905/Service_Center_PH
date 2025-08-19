@@ -1,0 +1,39 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Cuenta Bloqueada";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-danger shadow">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="mb-0"><i class="fas fa-lock me-2"></i>Cuenta Bloqueada</h3>
+                </div>
+                <div class="card-body">
+                    <p class="lead text-center text-danger">
+                        Lo sentimos, tu cuenta ha sido bloqueada.
+                    </p>
+                    <p class="text-center">
+                        Por seguridad, no podrás iniciar sesión por el momento.
+                    </p>
+                    <hr />
+                    <p class="text-center">
+                        Si crees que esto es un error o necesitas asistencia, por favor
+                        <strong>contacta al administrador</strong>.
+                    </p>
+                    <div class="text-center mt-4">
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-secondary me-2">
+                            <i class="fas fa-home me-1"></i> Volver al inicio
+                        </a>
+                        <a href="mailto:reportesservicecenterph@hotmail.com" class="btn btn-danger">
+                            <i class="fas fa-envelope me-1"></i> Contactar Soporte
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

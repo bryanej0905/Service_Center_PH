@@ -1,0 +1,64 @@
+﻿@using Microsoft.AspNet.Identity
+@using ServiceCenter.Models
+
+<style>
+    .btn-outline-primary:hover {
+        background: #0d6efd;
+        color: #fff;
+    }
+</style>
+@if (Request.IsAuthenticated)
+{
+    var userId = User.Identity.GetUserId();
+    string fullName = User.Identity.GetUserName();
+    string photoUrl = Url.Content("~/Content/Photos/default-avatar.png");
+
+    using (var db = new ApplicationDbContext())
+    {
+        var u = db.Users.Find(userId);
+        if (u != null)
+        {
+            fullName = string.IsNullOrWhiteSpace(u.Nombre) ? u.UserName : u.Nombre;
+
+            if (!string.IsNullOrEmpty(u.PhotoPath))
+            {
+                photoUrl = Url.Content(u.PhotoPath);
+            }
+        }
+    }
+
+    <div class="d-flex align-items-center gap-2">
+        <!-- Versión completa para pantallas medianas y grandes -->
+        <a href="@Url.Action("Index", "Manage")"
+           class="btn rounded-pill d-none d-md-flex align-items-center gap-2"
+           style="background: linear-gradient(135deg,#6a11cb,#2575fc); color: #fff; border: none; padding: .25rem .75rem;">
+            <img src="@photoUrl"
+                 alt="Avatar"
+                 class="rounded-circle"
+                 style="width:32px;height:32px;object-fit:cover; border:2px solid rgba(255,255,255,0.6)" />
+            <span>@($"Hola! {fullName}")</span>
+        </a>
+
+        <!-- Solo imagen en móviles, con borde degradado -->
+        <a href="@Url.Action("Index", "Manage")"
+           class="d-md-none"
+           style="display: inline-block; padding: 2px; border-radius: 50%; background: linear-gradient(135deg,#6a11cb,#2575fc);">
+            <img src="@photoUrl"
+                 alt="Avatar"
+                 class="rounded-circle"
+                 style="width:36px; height:36px; object-fit:cover; display:block; border-radius:50%;" />
+        </a>
+    </div>
+}
+else
+{
+    @*<a href="@Url.Action("Login", "Account")"
+       class="btn btn-outline-primary rounded-pill d-flex align-items-center px-4 py-2"
+       style="gap: .5rem; transition: background .2s, color .2s;">
+        <i class="far fa-user"></i>
+        <span class="d-none d-sm-inline">Iniciar sesión</span>
+    </a>*@
+
+}
+
+

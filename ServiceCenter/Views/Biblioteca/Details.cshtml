@@ -1,0 +1,175 @@
+﻿@model ServiceCenter.Models.Guia
+@{
+    ViewBag.Title = Model.Titulo;
+}
+
+
+
+<div style="position: absolute; top: 150px; right: 38px; z-index: 1050;">
+    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalReporteError">
+        <i class="fas fa-exclamation-triangle me-2"></i> Reportar error
+    </button>
+</div>
+
+<div class="faq-container">
+    <h2 class="text-white mt-5 mb-3">@Model.Titulo</h2>
+    <p class="text-secondary mb-4">
+        Categoría: <strong>@(Model.Categoria?.Nombre ?? "Sin Categoría")</strong>
+    </p>
+
+    <div class="card bg-dark text-white mb-4">
+        <div class="card-body">
+            @Html.Raw(Model.Contenido.Replace("\r\n", "<br/>"))
+        </div>
+    </div>
+
+    <div class="mb-4">
+        @if (ViewBag.InteraccionUsuario == null)
+        {
+            <text>
+                <div class="d-flex">
+                    @using (Html.BeginForm("Rate", "Biblioteca", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("id", Model.Id)
+                        @Html.Hidden("isUseful", "true")
+                        <button type="submit" class="btn btn-success me-2">
+                            <i class="fas fa-thumbs-up"></i> Útil (@ViewBag.UtilCount)
+                        </button>
+                    }
+                    @using (Html.BeginForm("Rate", "Biblioteca", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("id", Model.Id)
+                        @Html.Hidden("isUseful", "false")
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-thumbs-down"></i> No útil (@ViewBag.NoUtilCount)
+                        </button>
+                    }
+                </div>
+            </text>
+        }
+        else
+        {
+            <p class="text-success">
+                <strong>Ya votaste esta guía como @(ViewBag.InteraccionUsuario.EsUtil ? "Útil" : "No útil").</strong>
+            </p>
+        }
+    </div>
+
+    <a href="@Url.Action("DescargarPDF", "Biblioteca", new { id = Model.Id })" class="btn btn-danger">Descargar PDF</a>
+    <a href="@Url.Action("Index","Biblioteca")" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Volver a la lista
+    </a>
+</div>
+
+<!-- MODAL DE REPORTE DE ERROR -->
+<div class="modal fade" id="modalReporteError" tabindex="-1" aria-labelledby="modalReporteErrorLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="formReporteError"
+                  method="post"
+                  action="@Url.Action("ReportarError", "Biblioteca")">
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" name="guiaId" value="@Model.Id" />
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalReporteErrorLabel">
+                        Reportar error o información desactualizada
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="descripcionError" class="form-label">Describe el problema:</label>
+                        <textarea class="form-control"
+                                  id="descripcionError"
+                                  name="descripcion"
+                                  required
+                                  rows="4"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Enviar reporte</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DE EXITO DE REPORTE -->
+<div class="modal fade" id="modalReporteExito" tabindex="-1" aria-labelledby="modalReporteExitoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalReporteExitoLabel">Reporte enviado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                ¡Gracias! Tu reporte ha sido enviado correctamente.
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnExitoAceptar" class="btn btn-primary" data-bs-dismiss="modal">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Styles {
+    <style>
+        .card.bg-dark {
+            background: rgba(0,0,0,0.6) !important;
+            border: none;
+        }
+
+            .card.bg-dark .card-body {
+                color: #fff;
+            }
+
+        .text-secondary {
+            color: #ccc !important;
+        }
+
+        .btn-success, .btn-danger {
+            min-width: 120px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('#formReporteError').on('submit', function (e) {
+                e.preventDefault();
+                var $form = $(this);
+
+                $.ajax({
+                    url: $form.attr('action'),
+                    type: $form.attr('method'),
+                    data: $form.serialize(),
+                    success: function (response) {
+                        $('#modalReporteError').modal('hide');
+                        if (response.success) {
+                            $('#modalReporteExito').modal('show');
+                        } else {
+                            alert('Ocurrió un error: ' + (response.error || 'desconocido'));
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Error al enviar el reporte: ' + error);
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+}

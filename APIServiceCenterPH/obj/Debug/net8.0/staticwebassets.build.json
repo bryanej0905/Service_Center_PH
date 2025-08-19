@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "V3CgQSrz5ugj3PqYOOKXuOc8McBBP2zzL9LclnUMjzc=",
+  "Source": "APIServiceCenterPH",
+  "BasePath": "_content/APIServiceCenterPH",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

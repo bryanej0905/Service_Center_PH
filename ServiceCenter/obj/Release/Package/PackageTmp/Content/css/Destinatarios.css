@@ -1,0 +1,202 @@
+﻿/* ====== Paleta & base ====== */
+:root {
+    --ph-red: #e31837;
+    --ph-red-600: #c91530;
+    --ph-bg: #0f0f12;
+    --ph-panel: rgba(255,255,255,0.04);
+    --ph-panel-strong: rgba(255,255,255,0.08);
+    --ph-text: #e9e9ea;
+    --ph-muted: #a9a9ae;
+    --ph-border: rgba(255,255,255,0.12);
+    --ph-success: #2ecc71;
+    --ph-off: #6b7280;
+}
+
+body {
+    color: var(--ph-text);
+}
+
+.ph-page {
+    padding: 1.25rem 1rem 2rem;
+}
+
+@media (min-width: 992px) {
+    .ph-page {
+        padding: 2rem 2rem 3rem;
+    }
+}
+
+/* ====== Header ====== */
+.ph-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--ph-red);
+    padding-left: 0.85rem;
+}
+
+.ph-title {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+/* ====== Cards (glass) ====== */
+.ph-card {
+    background: linear-gradient(180deg, var(--ph-panel), var(--ph-panel-strong));
+    border: 1px solid var(--ph-border);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 1rem;
+}
+
+/* ====== Tabla ====== */
+.table.ph-table {
+    margin-bottom: 0;
+    color: var(--ph-text);
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.ph-table thead th {
+    background: #1a1b1f;
+    color: var(--ph-text);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    border: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+    .ph-table thead th:first-child {
+        border-top-left-radius: 12px;
+    }
+
+    .ph-table thead th:last-child {
+        border-top-right-radius: 12px;
+    }
+
+.ph-table tbody tr {
+    transition: transform .06s ease, background .2s ease, box-shadow .2s ease;
+}
+
+    .ph-table tbody tr:hover {
+        background: rgba(255,255,255,0.04);
+        transform: translateY(-1px);
+        box-shadow: inset 0 0 0 1px var(--ph-border);
+    }
+
+.ph-table td, .ph-table th {
+    border-color: transparent !important;
+    vertical-align: middle;
+}
+
+.ph-table tbody td {
+    border-top: 1px solid var(--ph-border) !important;
+}
+
+.ph-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+.ph-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+/* ====== Badges Activo ====== */
+.ph-badge {
+    display: inline-block;
+    font-size: .78rem;
+    line-height: 1;
+    padding: .45rem .6rem;
+    border-radius: 999px;
+    border: 1px solid var(--ph-border);
+    background: rgba(255,255,255,.03);
+    color: var(--ph-muted);
+}
+
+    .ph-badge.ok {
+        border-color: rgba(46, 204, 113, .35);
+        color: #d7ffe9;
+        background: rgba(46, 204, 113, .12);
+    }
+
+    .ph-badge.off {
+        border-color: rgba(107, 114, 128, .35);
+        color: #e5e7eb;
+        background: rgba(107, 114, 128, .12);
+    }
+
+/* ====== Botones ====== */
+.btn-ph {
+    background: var(--ph-red);
+    color: #fff !important;
+    border: 1px solid var(--ph-red);
+    border-radius: 12px;
+    padding: .55rem 1rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+    transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+}
+
+    .btn-ph:hover {
+        background: var(--ph-red-600);
+        transform: translateY(-1px);
+    }
+
+    .btn-ph:active {
+        transform: translateY(0);
+    }
+
+.btn-ph-outline {
+    background: transparent;
+    color: #fff !important;
+    border: 1px solid var(--ph-red);
+    border-radius: 12px;
+    padding: .45rem .8rem;
+}
+
+    .btn-ph-outline:hover {
+        background: rgba(227,24,55,.1);
+    }
+
+.btn-danger {
+    border-radius: 12px;
+}
+
+.no-click {
+    pointer-events: none;
+}
+
+
+/* ====== Modals ====== */
+.ph-modal {
+    background: linear-gradient(180deg, #141518, #0f1013);
+    border: 1px solid var(--ph-border);
+    color: var(--ph-text);
+    border-radius: 16px;
+}
+
+    .ph-modal .modal-header {
+        border-bottom: 1px solid var(--ph-border);
+    }
+
+    .ph-modal .modal-footer {
+        border-top: 1px solid var(--ph-border);
+    }
+
+/* ====== Helpers ====== */
+.text-end {
+    text-align: right;
+}
+
+.table-responsive {
+    border-radius: 16px;
+    overflow: hidden;
+}

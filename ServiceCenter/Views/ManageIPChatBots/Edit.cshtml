@@ -1,0 +1,142 @@
+﻿@model ServiceCenter.Models.ManageIPChatBot
+
+@{
+    ViewBag.Title = "Editar Configuración del Bot";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-dark text-white d-flex align-items-center">
+            <i class="fas fa-robot fa-lg me-2"></i>
+            <h4 class="mb-0">Editar Configuración del Bot</h4>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="card-body">
+                @Html.ValidationSummary(true, "⚠️ Error al guardar los datos", new { @class = "alert alert-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.Ip, htmlAttributes: new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.Ip, new { @class = "form-control", placeholder = "Dirección IP del bot" })
+                        @Html.ValidationMessageFor(m => m.Ip, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.Puerto, htmlAttributes: new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.Puerto, new { @class = "form-control", placeholder = "Puerto de conexión" })
+                        @Html.ValidationMessageFor(m => m.Puerto, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.CreadoPor, "Actualizado por", new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.CreadoPor, new { @class = "form-control", @readonly = "readonly", style = "background-color:#e9ecef;" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.FechaCreacion, "Fecha de actualizacion", new { @class = "form-label fw-semibold" })
+                        @Html.TextBoxFor(m => m.FechaCreacion, "{0:yyyy-MM-dd HH:mm}", new { @class = "form-control", @readonly = "readonly", style = "background-color:#e9ecef;" })
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 justify-content-end mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-1"></i> Guardar Cambios
+                    </button>
+
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary">
+                        <i class="far fa-arrow-alt-circle-left me-1"></i> Volver al Inicio
+                    </a>
+
+                    <button type="button" class="btn btn-outline-success" onclick="testConexion()" id="btnTest">
+                        <i class="fas fa-plug me-1"></i> Probar Conexión
+                    </button>
+                    <button type="button" class="btn btn-outline-dark" onclick="probarYRedirigir('@Model.UrlBase')">
+                        <i class="fas fa-robot me-1"></i> Ir al Manage Bot
+                    </button>
+
+
+                </div>
+
+                <div id="testResult" class="mt-3"></div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function testConexion() {
+            const ip = document.getElementById("Ip").value;
+            const puerto = document.getElementById("Puerto").value;
+            const btn = document.getElementById("btnTest");
+            const resultDiv = document.getElementById("testResult");
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin me-1"></i> Probando...`;
+            resultDiv.innerHTML = "";
+
+            fetch(`/ManageIPChatBots/TestConnection?ip=${encodeURIComponent(ip)}&puerto=${encodeURIComponent(puerto)}`)
+                .then(response => response.ok ? response.text() : "Error de conexión")
+                .then(result => {
+                    const success = result.toLowerCase().includes("éxito") || result.toLowerCase().includes("exitosa");
+                    resultDiv.innerHTML = `<div class="alert alert-${success ? 'success' : 'danger'}">
+                            <i class="fas fa-${success ? 'check-circle' : 'times-circle'} me-2"></i>${result}
+                        </div>`;
+                })
+                .catch(() => {
+                    resultDiv.innerHTML = `<div class="alert alert-danger">
+                            <i class="fas fa-times-circle me-2"></i>Error al intentar conectarse.
+                        </div>`;
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = `<i class="fas fa-plug me-1"></i> Probar Conexión`;
+                });
+        }
+
+        function probarYRedirigir(urlBase) {
+            const btn = event.currentTarget;
+            const resultDiv = document.getElementById("testResult");
+            btn.disabled = true;
+            const originalHtml = btn.innerHTML;
+
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin me-1"></i> Verificando...`;
+            resultDiv.innerHTML = "";
+
+            const url = new URL(urlBase);
+            const ip = url.hostname;
+            const puerto = url.port;
+
+            fetch(`/ManageIPChatBots/TestConnection?ip=${encodeURIComponent(ip)}&puerto=${encodeURIComponent(puerto)}`)
+                .then(response => response.ok ? response.text() : "Error")
+                .then(result => {
+                    const success = result.toLowerCase().includes("éxito") || result.toLowerCase().includes("exitosa");
+
+                    if (success) {
+                        window.open(urlBase, '_blank');
+                    } else {
+                        resultDiv.innerHTML = `
+                        <div class="alert alert-danger">
+                            <i class="fas fa-times-circle me-2"></i> ${result}
+                        </div>`;
+                    }
+                })
+                .catch(() => {
+                    resultDiv.innerHTML = `
+                    <div class="alert alert-danger">
+                        <i class="fas fa-times-circle me-2"></i> No se pudo establecer conexión con el bot.
+                    </div>`;
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = originalHtml;
+                });
+        }
+    </script>
+}

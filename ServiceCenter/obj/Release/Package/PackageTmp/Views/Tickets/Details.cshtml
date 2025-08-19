@@ -1,0 +1,367 @@
+﻿@model ServiceCenter.ViewModels.TicketDetalleViewModel
+@using ServiceCenter.Models
+@using ServiceCenter.ViewModels
+
+@{
+    ViewBag.Title = "Detalle del Ticket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    // Determinar si el ticket está cerrado
+    bool estaCerrado = Model.Estado == EnumEstadoTicket.Cerrado.ToString()
+                    || Model.Estado == EnumEstadoTicket.Cerrado_por_Usuario.ToString();
+
+    // Mensaje de error al agregar comentario (via TempData)
+    string errorComentario = TempData["ErrorComentario"] as string;
+
+    // Ordenar comentarios de más nuevo a más antiguo
+    var comentariosOrdenados = Model.Comentarios?
+        .OrderByDescending(c => c.Fecha)
+        .ToList()
+        ?? new List<ComentarioViewModel>();
+}
+
+<style>
+    .detalle-wrapper {
+        padding: 3rem 0;
+    }
+
+    .card-detalle, .card-comentarios {
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+    }
+
+        .card-detalle .card-header {
+            background-color: #c00;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .card-comentarios .card-header {
+            background-color: transparent;
+            color: #c00;
+            text-align: center;
+            font-weight: bold;
+        }
+
+    .comentario-item {
+        background-color: #f8f9fa;
+        border-radius: .75rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+        .comentario-item .meta {
+            font-size: .9rem;
+            color: #666;
+        }
+
+    .comentario-cierre {
+        border-left: 4px solid #ffc107;
+        background-color: #fff9e6;
+    }
+
+    .badge-cierre {
+        background-color: #ffc107;
+        color: #212529;
+        font-weight: 600;
+        margin-left: .5rem;
+    }
+</style>
+@if (!Model.Calificado && Model.UsuarioCreadorUserName == @User.Identity.Name && Model.Estado == EnumEstadoTicket.Cerrado.ToString())
+{
+   <div class="text-end mt-3">
+       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalCalificacion">
+           ⭐ Calificar atención
+       </button>
+   </div>
+}
+<div class="container detalle-wrapper">
+    <div class="row">
+
+
+        <!-- COLUMNA IZQUIERDA: Detalle del Ticket -->
+        <div class="col-lg-6 mb-4">
+            <div class="card card-detalle h-100">
+                <div class="card-header">Detalle del Ticket</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>N° Ticket</strong><span>@Model.NumTicket</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Título</strong><span>@Model.Titulo</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Descripción</strong><span>@Model.Descripcion</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Estado</strong><span>@Model.Estado</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Prioridad</strong><span>@Model.Prioridad</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Categoría</strong><span>@Model.Categoria</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Departamento</strong><span>@Model.DepartamentoNombre</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Creado por</strong><span>@Model.UsuarioCreadorUserName</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Técnico asignado</strong>
+                        <span>@Model.TecnicoAsignadoNombre</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Fecha de Creación</strong>
+                        <span>@Model.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</span>
+                    </li>
+                </ul>
+
+                @if (Model.Adjuntos?.Any() == true)
+                {
+                    <div class="card-body">
+                        <hr />
+                        <h6>Archivos Adjuntos</h6>
+                        <ul class="list-unstyled mb-0">
+                            @foreach (var adj in Model.Adjuntos)
+                            {
+                                <li class="d-flex justify-content-between mb-2">
+                                    <a href="@Url.Action("Descargar", "Adjuntos", new { id = adj.Id })" target="_blank">
+                                        📎 @adj.NombreArchivo
+                                    </a>
+                                    <small class="text-muted">
+                                        @adj.FechaSubida.ToString("dd/MM/yyyy HH:mm")
+                                    </small>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: Comentarios + Formulario / Cierre -->
+        <div class="col-lg-6 mb-4">
+            <div class="card card-comentarios h-100">
+                <div class="card-header">Comentarios</div>
+                <div class="card-body d-flex flex-column">
+
+                    <!-- LISTADO DE COMENTARIOS -->
+                    <div class="flex-grow-1 overflow-auto mb-3" style="max-height:400px;">
+                        @if (comentariosOrdenados.Any())
+                        {
+                            foreach (var com in comentariosOrdenados)
+                            {
+                                var isCierre = com.Texto.StartsWith("[Cierre por el usuario]");
+                                <div class="comentario-item @(isCierre ? "comentario-cierre" : "")">
+                                    <div class="meta mb-2">
+                                        <strong>@com.UsuarioNombre</strong>
+                                        <span>· @com.Fecha.ToString("dd/MM/yyyy HH:mm")</span>
+                                        @if (isCierre)
+                                        {
+                                            <span class="badge badge-cierre">Cierre usuario</span>
+                                        }
+                                    </div>
+                                    <p class="mb-0">
+                                        @(isCierre
+                       ? com.Texto.Replace("[Cierre por el usuario]", "").Trim()
+                       : com.Texto)
+                                    </p>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <p class="text-muted">Aún no hay comentarios.</p>
+                        }
+                    </div>
+
+                    <!-- FORMULARIO AGREGAR COMENTARIO -->
+                    @if (!estaCerrado)
+                    {
+                        if (!string.IsNullOrEmpty(errorComentario))
+                        {
+                            <div class="alert alert-danger text-center">@errorComentario</div>
+                        }
+                        using (Html.BeginForm("AddComment", "Tickets", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("ticketId", Model.Id)
+
+                            <div class="form-group mb-2">
+                                <textarea class="form-control form-control-lg rounded"
+                                          name="textoComentario"
+                                          rows="3"
+                                          placeholder="Escribe tu comentario..."
+                                          required></textarea>
+                            </div>
+                            <div class="row g-2 mb-2">
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-danger w-100">
+                                        📩 Agregar comentario
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button"
+                                            class="btn btn-warning w-100"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#closeModal">
+                                        🔒 Cerrar ticket
+                                    </button>
+                                </div>
+                            </div>
+
+                        }
+
+
+
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-4">
+        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary px-4" })
+    </div>
+</div>
+
+<!-- MODAL DE CALIFICACIÓN -->
+<div class="modal fade" id="modalCalificacion" tabindex="-1" aria-labelledby="modalCalificacionLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="formCalificacion"
+                  method="post"
+                  action="@Url.Action("Calificar", "Tickets")">
+
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="ticketId" value="@Model.Id" />
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCalificacionLabel">Calificar atención</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="calificacion" class="form-label">Selecciona una calificación:</label>
+                        <select class="form-control" id="calificacion" name="calificacion" required>
+                            <option value="">-- Selecciona --</option>
+                            <option value="Excelente">Excelente</option>
+                            <option value="Buena">Buena</option>
+                            <option value="Regular">Regular</option>
+                            <option value="Mala">Mala</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comentario" class="form-label">Comentario (opcional):</label>
+                        <textarea class="form-control"
+                                  id="comentario"
+                                  name="comentario"
+                                  rows="3"
+                                  placeholder="Escribe tu opinión..."></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Enviar calificación</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DE ÉXITO DE CALIFICACIÓN -->
+<div class="modal fade" id="modalCalificacionExito" tabindex="-1" aria-labelledby="modalCalificacionExitoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalCalificacionExitoLabel">¡Gracias!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                Tu calificación ha sido registrada correctamente.
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnCalificacionExito" class="btn btn-primary" data-bs-dismiss="modal">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL PARA PEDIR MOTIVO DE CIERRE -->
+<div class="modal fade" id="closeModal" tabindex="-1" role="dialog" aria-labelledby="closeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        @using (Html.BeginForm("CloseWithReason", "Tickets", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("ticketId", Model.Id)
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="closeModalLabel">Cerrar Ticket</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="motivoCierre">Motivo de cierre:</label>
+                        <textarea class="form-control"
+                                  id="motivoCierre"
+                                  name="motivoCierre"
+                                  rows="4"
+                                  placeholder="Explica por qué quieres cerrar el ticket"
+                                  required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-warning">Confirmar cierre</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(function () {
+            $('#formCalificacion').on('submit', function (e) {
+                e.preventDefault();
+                var $form = $(this);
+
+                $.ajax({
+                    url: $form.attr('action'),
+                    type: $form.attr('method'),
+                    data: $form.serialize(),
+                    success: function (response) {
+                        $('#modalCalificacion').modal('hide');
+                        if (response.success) {
+                            $('#modalCalificacionExito').modal('show');
+                        } else {
+                            alert('Error: ' + (response.error || 'desconocido'));
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('AJAX Error:', status, error, xhr.responseText);
+                        alert('Error al enviar la calificación.');
+                    }
+                });
+            });
+
+            $('#btnCalificacionExito').on('click', function () {
+                location.reload();
+            });
+        });
+    </script>
+}

@@ -1,0 +1,361 @@
+﻿@model IEnumerable<ServiceCenter.Models.EmailDestinatario>
+@{
+    ViewBag.Title = "Email Destinatarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.13.6/sorting/datetime-moment.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.13.4/sorting/datetime-moment.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" href="~/Content/css/Destinatarios.css" asp-append-version="true" />
+
+}
+
+<div class="ph-page">
+    <div class="ph-header">
+        <h2 class="ph-title">Email Destinatarios</h2>
+        <button type="button" id="btnAddNew" class="btn btn-ph">
+            &#x2795; Agregar nuevo
+        </button>
+    </div>
+
+    <div class="ph-card">
+        <div class="table-responsive">
+            <table class="table ph-table" id="destinatariosTable">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(m => m.Nombre)</th>
+                        <th>@Html.DisplayNameFor(m => m.Correo)</th>
+                        <th>@Html.DisplayNameFor(m => m.Activo)</th>
+                        <th>@Html.DisplayNameFor(m => m.FechaCreacion)</th>
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr data-id="@item.Id">
+                            <td class="nombre">@item.Nombre</td>
+                            <td class="correo">@item.Correo</td>
+                            <td class="activo">
+                                <input type="checkbox"
+                                       class="form-check-input no-click"
+                                       data-id="@item.Id"
+                                       @(item.Activo ? "checked" : "") />
+                            </td>
+                            @Html.AntiForgeryToken()
+                            <td>@item.FechaCreacion.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm gap-1">
+                                    <button type="button" class="btn btn-ph-outline btn-edit">Editar</button>
+                                    <button type="button" class="btn btn-success btn-save d-none">Guardar</button>
+                                    <button type="button" class="btn btn-secondary btn-cancel d-none">Cancelar</button>
+                                    <button type="button" class="btn btn-danger btn-delete"
+                                            data-id="@item.Id"
+                                            data-name="@item.Nombre">
+                                        Eliminar
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@* Modal de confirmación *@
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ph-modal">
+            @using (Html.BeginForm("", "", FormMethod.Post, new { id = "deleteForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Seguro que deseas eliminar a <strong id="delName"></strong>?</p>
+                    <input type="hidden" id="delId" name="id" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="btnConfirmDelete">Eliminar</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Modal de alertas -->
+<div class="modal fade" id="alertModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ph-modal">
+            <div class="modal-header">
+                <h5 class="modal-title" id="alertModalTitle">Aviso</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div id="alertModalBody" class="mb-2"></div>
+                <div id="alertModalFeedback" class="alert d-none mb-0" role="alert"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-ph" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+$(function () {
+
+    // Editar
+    $('#destinatariosTable').on('click', '.btn-edit', function () {
+        var $row = $(this).closest('tr');
+        var nombre = $row.find('.nombre').text().trim();
+        var correo = $row.find('.correo').text().trim();
+        var activo = $row.find('.activo input').is(':checked');
+
+        $row.find('.nombre').html('<input type="text" class="form-control form-control-sm" value="' + nombre + '"/>');
+        $row.find('.correo').html('<input type="email" class="form-control form-control-sm" value="' + correo + '"/>');
+        $row.find('.activo').html('<input type="checkbox" class="form-check-input" ' + (activo ? 'checked' : '') + ' />');
+
+        $row.find('.btn-edit').addClass('d-none');
+        $row.find('.btn-save, .btn-cancel').removeClass('d-none');
+    });
+
+    // Cancelar
+    $('#destinatariosTable').on('click', '.btn-cancel', function () {
+        location.reload();
+    });
+
+    // Guardar
+    $('#destinatariosTable').on('click', '.btn-save', function () {
+        var $row = $(this).closest('tr');
+        var id = $row.data('id');
+        var nombre = $row.find('.nombre input').val();
+        var correo = $row.find('.correo input').val();
+        var activo = $row.find('.activo input').is(':checked');
+
+        $.ajax({
+            url: '@Url.Action("EditInline", "EmailDestinatarios")',
+            type: 'POST',
+            data: {
+                id: id,
+                Nombre: nombre,
+                Correo: correo,
+                Activo: activo
+            },
+            success: function (res) {
+                if (res.success) {
+                    $row.find('.nombre').text(nombre);
+                    $row.find('.correo').text(correo);
+                    $row.find('.activo').html('<input type="checkbox" disabled ' + (activo ? 'checked' : '') + ' />');
+
+                    $row.find('.btn-edit').removeClass('d-none');
+                    $row.find('.btn-save, .btn-cancel').addClass('d-none');
+                    //showAlertModal('Cambios guardados correctamente.', 'Éxito', 'success');
+                    location.reload();
+                } else {
+                    showAlertModal(res.message || 'Error al guardar.', 'Error', 'danger');
+                }
+            },
+            error: function () {
+                showAlertModal('Error en servidor al guardar.', 'Error', 'danger');
+            }
+        });
+    });
+
+});
+</script>
+<script>
+    $(function () {
+      var deleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+
+      // Abrir modal y setear datos
+      $('#destinatariosTable').on('click', '.btn-delete', function () {
+        var id = $(this).data('id');
+        var name = $(this).data('name');
+        $('#delId').val(id);
+        $('#delName').text(name);
+        deleteModal.show();
+      });
+
+      // Confirmar eliminación
+$('#btnConfirmDelete').on('click', function () {
+  var id = $('#delId').val();
+  var token = $('#deleteForm input[name="__RequestVerificationToken"]').val();
+
+  $.ajax({
+    url: '@Url.Action("DeleteInline", "EmailDestinatarios")',
+    type: 'POST',
+    data: {
+      id: id,
+      __RequestVerificationToken: token // <-- enviar en el body (MVC lo capta seguro)
+    },
+    // headers: { 'RequestVerificationToken': token }, // opcional
+      success: function (res) {
+          if (res && res.success) {
+              $('tr[data-id="' + id + '"]').remove();
+              deleteModal.hide();
+              showAlertModal('Registro eliminado correctamente.', 'Éxito', 'success');
+
+          } else {
+              showAlertModal(res.message || 'No se pudo eliminar.', 'Error', 'danger');
+
+          }
+      },
+      error: function (xhr) {
+          console.error(xhr.responseText);
+          showAlertModal('Error en servidor al eliminar.', 'Error', 'danger');
+      }
+  });
+});
+
+    });
+
+$(function () {
+    var token = $('#deleteForm input[name="__RequestVerificationToken"]').val();
+
+    // Agregar nueva fila
+    $('#btnAddNew').on('click', function () {
+        // Evitar agregar más de una fila nueva a la vez
+        if ($('#destinatariosTable tbody tr.new-row').length > 0) return;
+
+        var newRow = `
+            <tr class="new-row">
+                <td class="nombre"><input type="text" class="form-control form-control-sm" placeholder="Nombre" /></td>
+                <td class="correo"><input type="email" class="form-control form-control-sm" placeholder="Correo" /></td>
+                <td class="activo text-center"><input type="checkbox" class="form-check-input" /></td>
+                <td>-</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-success btn-save-new">Guardar</button>
+                    <button type="button" class="btn btn-sm btn-secondary btn-cancel-new">Cancelar</button>
+                </td>
+            </tr>
+        `;
+        $('#destinatariosTable tbody').prepend(newRow);
+    });
+
+    // Cancelar nueva fila
+    $('#destinatariosTable').on('click', '.btn-cancel-new', function () {
+        $(this).closest('tr').remove();
+    });
+
+    // Guardar nueva fila
+// Guardar nueva fila
+    $('#destinatariosTable').on('click', '.btn-save-new', function () {
+        var $row = $(this).closest('tr');
+        var nombre = $row.find('.nombre input').val().trim();
+        var correo = $row.find('.correo input').val().trim();
+        var activo = $row.find('.activo input').is(':checked');
+
+        // Validar nombre
+        if (!nombre) {
+            showAlertModal('El nombre es obligatorio.', 'Error', 'danger');
+            return;
+        }
+
+        // Validar correo
+       var emailRegex = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+
+        if (!emailRegex.test(correo)) {
+            showAlertModal('Ingrese un correo válido', 'Error', 'danger');
+            return;
+        }
+
+        $.ajax({
+            url: '@Url.Action("CreateInline", "EmailDestinatarios")',
+            type: 'POST',
+            data: {
+                Nombre: nombre,
+                Correo: correo,
+                Activo: activo,
+                __RequestVerificationToken: token
+            },
+            success: function (res) {
+                if (res.success) {
+
+                    //showAlertModal('Registro creado correctamente.', 'Éxito', 'success');
+                    location.reload();
+                } else {
+                    showAlertModal(res.message || 'Error al agregar.', 'Error', 'danger');
+                }
+            },
+            error: function () {
+                showAlertModal('Error de red al agregar.', 'Error', 'danger');
+            }
+        });
+    });
+
+});
+
+</script>
+
+
+<script>
+    // type: success | info | warning | danger
+    function showAlertModal(message, title = 'Aviso', type = 'info') {
+        const titleEl = document.getElementById('alertModalTitle');
+        const bodyEl = document.getElementById('alertModalBody');
+        const fbEl = document.getElementById('alertModalFeedback');
+
+        titleEl.textContent = title;
+        bodyEl.innerHTML = 'Pizza Hut';
+        fbEl.className = 'alert mb-0 alert-' + type;
+        fbEl.textContent = message;
+        fbEl.classList.remove('d-none');
+
+        const modal = new bootstrap.Modal(document.getElementById('alertModal'));
+        modal.show();
+    }
+</script>
+<script>
+    $(document).on('change', '.toggle-activo', function () {
+        const $cb = $(this);
+        const id = $cb.data('id');
+        const nuevo = $cb.is(':checked');
+        const token = $('input[name="__RequestVerificationToken"]').val();
+
+        $cb.prop('disabled', true);
+
+        $.ajax({
+            url: '/EmailDestinatarios/ToggleActivo',
+            data: { id: id, activo: nuevo, __RequestVerificationToken: token },
+            success: function (res) {
+                if (!res || res.ok !== true) {
+                    $cb.prop('checked', !nuevo);
+                    mostrarAlerta('No se pudo actualizar', res?.message || 'Intenta de nuevo.');
+                }
+            },
+            error: function () {
+                $cb.prop('checked', !nuevo);
+                mostrarAlerta('Error', 'Ocurrió un error al guardar el estado.');
+            },
+            complete: function () {
+                $cb.prop('disabled', false);
+            }
+        });
+    });
+
+    function mostrarAlerta(titulo, mensaje) {
+        $('#alertModalTitle').text(titulo);
+        $('#alertModalBody').text(mensaje);
+        $('#alertModal').modal('show');
+    }
+</script>

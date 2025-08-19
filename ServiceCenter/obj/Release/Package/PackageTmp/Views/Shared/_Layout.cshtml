@@ -1,0 +1,180 @@
+﻿@using Microsoft.AspNet.Identity
+@inherits System.Web.Mvc.WebViewPage<dynamic>
+@{
+    var isLoggedIn = User.Identity.IsAuthenticated;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - PH_ServiceCenter</title>
+    <link href="@Url.Content("~/Content/lib/bootstrap/dist/css/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/css/site.css")" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>window.usuarioId = '@User.Identity.GetUserId()';</script>
+    <script src="~/Content/js/chatbot.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="~/Content/css/chatbot.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Content/css/Layout.css" asp-append-version="true" />
+
+</head>
+
+
+
+<body class="d-flex flex-column min-vh-100">
+
+    <div id="overlay-blur"></div>
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            @if (isLoggedIn)
+            {
+                <button id="sidebarToggle" class="btn-toggle"><i class="fas fa-bars"></i></button>
+            }
+        </div>
+
+        <a href="@(Url.Action("Index", "Home"))"
+           style="border: none; background: transparent;">
+            <img src="@(Url.Content("~/Content/lib/img/pizza-hut-logo.png"))"
+                 alt="Pizza Hut Logo"
+                 style="height: 170px; width: auto;" />
+        </a>
+
+
+        <div class="navbar-right">
+            @Html.Partial("_LoginPartial")
+        </div>
+    </nav>
+
+    <div class="main-layout-wrapper">
+        @if (isLoggedIn)
+        {
+            <aside class="sidebar d-flex flex-column justify-content-between" style="height: 100vh;" id="sidebar">
+
+
+                <div class="p-3 flex-grow-1">
+                    <h4 class="text-white mb-4">
+                        <img src="@Url.Content("~/Content/lib/img/icono.png")" style="height:40px; margin-right:10px;" />
+                        Service Desk
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li><a href="@Url.Action("Index", "Home")" class="text-white d-block py-2"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="@Url.Action("Index", "Tickets")" class="text-white d-block py-2"><i class="fas fa-headset"></i> Tickets</a></li>
+                        <li><a href="@Url.Action("Index", "FAQ")" class="text-white d-block py-2"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                        <li><a href="@Url.Action("Index", "Biblioteca")" class="text-white d-block py-2"><i class="fas fa-book"></i> Biblioteca</a></li>
+                        <li><a href="@Url.Action("PanelAdmin", "SugerenciasFAQ")" class="text-white d-block py-2"><i class="fas fa-tasks"></i> Sugerencias</a></li>
+                        <li><a href="@Url.Action("Reportes", "FAQ")" class="text-white d-block py-2"><i class="fas fa-chart-bar me-2"></i> Reportes</a></li>
+
+
+                        @{
+                            bool esMovil = Request.Browser.IsMobileDevice;
+                        }
+
+                        @if (!esMovil && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li><a href="@Url.Action("Edit", "ManageIPChatBots", new { id = 1 })" class="text-white d-block py-2"><i class="fa-solid fa-gear"></i> Configurar Bot</a></li>
+                            <li><a href="@Url.Action("Index", "AdminUsers")" class="text-white d-block py-2"><i class="fa-solid fa-user"></i> Usuarios</a></li>
+                            <li><a href="@Url.Action("Index", "EmailDestinatarios")" class="text-white d-block py-2"><i class="fa-solid fa-envelope"></i> Correos de Notificados</a></li>
+                            <li><a href="@Url.Action("Edit", "EmailServerConfigs", new { id = 1 })" class="text-white d-block py-2"><i class="fa-solid fa-envelopes-bulk"></i> Configurar Servidor de Correo</a></li>
+                        }
+
+
+                    </ul>
+                    </div>
+                <div class="p-3">
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @class = "w-100" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-danger w-100 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión
+                        </button>
+                    }
+                </div>
+
+            </aside>
+        }
+
+        <div class="main-content-area" id="mainContentArea">
+            <main class="main-content" id="mainContent">
+                @RenderBody()
+            </main>
+            <footer class="py-4 bg-dark text-center text-white">
+                <div>
+                    Comidas Centroamericanas S.A<br />
+                    Central Telefónica: (506) 2203-2595 Fax: (506) 2232-7159<br />
+                    Apdo. 3094–1000 San José Costa Rica, Pavas Zona Industrial<br />
+                    Email: info@pizzahutcr.com – www.pizzahutcr.com<br />
+                    <small>&copy; @DateTime.Now.Year</small>
+                </div>
+            </footer>
+        </div>
+
+
+        @if (isLoggedIn)
+        {
+            <!-- Botón flotante -->
+            <button id="chatToggleBtn" style="background: none; border: none; padding: 0;">
+                <img src="~/Content/lib/img/bot.png" alt="Abrir chat" style="width: 70px; height: 70px;" />
+            </button>
+
+
+
+            <!-- Panel flotante del chatbot -->
+            <div id="chatPanel" style="display: none; position: fixed; bottom: 90px; right: 20px; width: 360px; height: 500px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 999; overflow: hidden;">
+                <div class="chat-header" style="background: #dc3545; color: white; padding: 10px; font-weight: bold; border-top-left-radius: 12px; border-top-right-radius: 12px; display: flex; align-items: center; gap: 10px;">
+                    <img src="~/Content/lib/img/bot.png" alt="Bot" style="width: 32px; height: 32px; border-radius: 50%;" />
+                    Pizza Bot
+                </div>
+
+                <div id="chatContainer" style="height: calc(100% - 110px); overflow-y: auto; padding: 10px; background-color: #f8f9fa;">
+
+                </div>
+
+
+                <div class="chat-footer" style="position: absolute; bottom: 0; width: 100%; display: flex; padding: 10px; border-top: 1px solid #ddd; background-color: white;">
+                    <input id="chatInput" class="form-control me-2" placeholder="Escribe tu mensaje…" />
+                    <button id="sendBtn" class="btn btn-danger">Enviar</button>
+                </div>
+            </div>
+        }
+
+    </div>
+
+
+    @RenderSection("Styles", required: false)
+    @RenderSection("Scripts", required: false)
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleBtn = document.getElementById("sidebarToggle");
+            const sidebar = document.getElementById("sidebar");
+            const content = document.getElementById("mainContent");
+
+            // Asegura que todos existen antes de agregar eventos
+            if (!toggleBtn || !sidebar || !content) {
+                console.warn("No se encontró uno o más elementos del DOM requeridos.");
+                return;
+            }
+
+            toggleBtn.addEventListener("click", () => {
+                const open = sidebar.classList.toggle("open");
+                content.classList.toggle("blurred", open);
+            });
+
+            document.addEventListener("click", function (e) {
+                if (
+                    sidebar.classList.contains("open") &&
+                    !sidebar.contains(e.target) &&
+                    !toggleBtn.contains(e.target)
+                ) {
+                    sidebar.classList.remove("open");
+                    content.classList.remove("blurred");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

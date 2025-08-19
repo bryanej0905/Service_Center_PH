@@ -1,0 +1,97 @@
+﻿@model IEnumerable<ServiceCenter.ViewModels.SugerenciaFAQViewModel>
+@{
+    ViewBag.Title = "Preguntas Sugeridas - Administración FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mx-auto" style="max-width:98vw; margin-top:38px;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2 style="color:white" class="mb-4">Sugerencias de Preguntas Gestionadas</h2>
+        <a href="@Url.Action("Pendientes", "SugerenciasFAQ")" class="btn btn-warning" style="font-weight:500; border-radius:8px; font-size:1.09rem;">
+            Pendientes de revisión
+        </a>
+    </div>
+
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info mt-4">No hay sugerencias gestionadas para mostrar.</div>
+    }
+    else
+    {
+        <table class="table table-dark table-hover table-compact">
+            <thead>
+                <tr>
+                    <th style="width: 36%;">Pregunta</th>
+                    <th style="width: 16%;">Estado</th>
+                    <th style="width: 18%;">Fecha</th>
+                    <th style="width: 30%;">Aprobado por</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Pregunta</td>
+                        <td>@item.Estado</td>
+                        <td>@item.Fecha.ToString("dd/MM/yyyy")</td>
+                        <td>@item.AprobadoPor</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@section Styles {
+    <style>
+        .mx-auto {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            max-width: 100vw !important;
+            margin-bottom: 0 !important;
+        }
+
+        h2 {
+            margin-top: 0.5rem !important;
+            margin-bottom: 1.5rem !important;
+            font-size: 2.1rem;
+            font-weight: 600;
+        }
+
+        table.table {
+            width: 100% !important;
+            background: #24292f !important;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 0 !important;
+            box-shadow: 0 4px 16px 2px rgba(0,0,0,0.15);
+        }
+
+            table.table th {
+                background: #23272b !important;
+                color: #fff !important;
+                padding: 7px 12px !important;
+                border-bottom: 2px solid #333 !important;
+                font-size: 1.07rem !important;
+                font-weight: 500;
+            }
+
+            table.table td {
+                padding: 6px 12px !important;
+                font-size: 1rem !important;
+                color: #e2e2e2 !important;
+                vertical-align: middle !important;
+                background: #24292f !important;
+            }
+
+            table.table tbody tr {
+                border-bottom: 1.5px solid #191919 !important;
+                transition: background 0.12s;
+            }
+
+                table.table tbody tr:hover {
+                    background: #2d3238 !important;
+                }
+    </style>
+}

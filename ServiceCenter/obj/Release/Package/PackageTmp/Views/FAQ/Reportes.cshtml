@@ -1,0 +1,44 @@
+﻿@model List<ServiceCenter.Models.PreguntaInteraccionViewModel>
+
+@{
+    ViewBag.Title = "Reporte de Calificaciones de FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-white">Reporte de Calificaciones de FAQ</h2>
+
+<table class="table table-dark table-striped mt-4">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Pregunta</th>
+            <th>Categoría</th>
+            <th>Usuario</th>
+            <th>¿Fue útil?</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            var item = Model[i];
+            <tr>
+                <td>@(i + 1)</td>
+                <td>@item.PreguntaTitulo</td>
+                <td>@item.Categoria</td>
+                <td>@item.UsuarioNombre</td>
+                <td>
+                    @if (item.EsUtil)
+                    {
+                        <span class="text-success">👍 Sí</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">👎 No</span>
+                    }
+                </td>
+                <td>@item.Fecha.ToString("dd/MM/yyyy HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>

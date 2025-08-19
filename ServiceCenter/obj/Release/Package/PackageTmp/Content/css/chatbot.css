@@ -1,0 +1,139 @@
+﻿#chatToggleBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#chatPanel {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 360px;
+    height: 480px;
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+#chatContainer {
+    background-color: #f8f9fa;
+}
+
+
+.chat-header {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+#chatContainer {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+}
+
+.chat-footer {
+    display: flex;
+    padding: 10px;
+    gap: 8px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.chat-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.chat-message {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+    .chat-message.user {
+        flex-direction: row-reverse;
+    }
+
+.chat-bubble-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+}
+
+.chat-bubble {
+    background-color: #e9ecef;
+    padding: 10px 14px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+    .chat-bubble.user {
+        background-color: #dc3545;
+        color: white;
+    }
+    .chat-bubble.bot {
+        color: black;
+    }
+
+.chat-timestamp {
+    font-size: 10px;
+    color: gray;
+    margin-top: 2px;
+    align-self: flex-end;
+}
+
+.typing-indicator {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.typing-dots div {
+    width: 6px;
+    height: 6px;
+    margin: 2px;
+    background-color: #dc3545;
+    border-radius: 50%;
+    display: inline-block;
+    animation: typing 1s infinite;
+}
+
+    .typing-dots div:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .typing-dots div:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+@keyframes typing {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

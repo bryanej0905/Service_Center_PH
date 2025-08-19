@@ -1,0 +1,70 @@
+﻿@using ServiceCenter.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main aria-labelledby="title" class="py-5 d-flex justify-content-center">
+    <div style="width: 100%; max-width: 600px;">
+        @* Aumentamos el ancho máximo *@
+        <div class="card shadow-lg border-0 bg-dark text-white">
+            <div class="card-header bg-black text-danger d-flex align-items-center">
+                <i class="fas fa-user-lock me-2"></i>
+                <h4 class="mb-0">Inicio de sesión</h4>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+                    <div class="mb-4">
+                        <label class="form-label text-white">Correo electrónico</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-secondary text-white">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "ejemplo@correo.com" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label text-white">Contraseña</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-secondary text-white">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "••••••••" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+
+                    @*<div class="mb-3 form-check">
+                        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input", id = "rememberMe" })
+                        @Html.LabelFor(m => m.RememberMe, new { @class = "form-check-label", @for = "rememberMe" })
+                    </div>*@
+
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-danger btn-lg rounded-pill">
+                            <i class="fas fa-sign-in-alt me-2"></i> Iniciar sesión
+                        </button>
+                    </div>
+
+                    @*<div class="text-center">
+                        <i class="far fa-user"></i>
+                        @Html.ActionLink("¿No tienes cuenta? Regístrate aquí", "Register", "Account", null, new
+                        {
+                            @class = "text-danger fw-bold text-decoration-none"
+                        })
+                    </div>*@
+                }
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

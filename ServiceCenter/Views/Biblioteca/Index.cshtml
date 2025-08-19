@@ -1,0 +1,173 @@
+﻿@model List<ServiceCenter.Models.BibliotecaItemVM>
+@{
+    ViewBag.Title = "Biblioteca Didáctica";
+}
+
+<style>
+    /* ----- TOP BAR ----- */
+    .biblioteca-topbar {
+        margin-top: 2.2rem;
+        margin-bottom: 2.2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.2rem;
+        width: 100%;
+        justify-content: space-between; /* Que el botón quede a la derecha */
+    }
+
+    .topbar-left {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+    }
+
+    .biblioteca-header {
+        color: #fff;
+        font-size: 2.3rem;
+        font-weight: 700;
+        margin: 0 2.2rem 0 0;
+        white-space: nowrap;
+    }
+
+    .buscador-biblioteca {
+        max-width: 340px;
+        width: 100%;
+    }
+
+    .agregar-articulo-btn {
+        background: #ffc107;
+        color: #222;
+        font-weight: bold;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        border: none;
+        border-radius: 8px;
+        padding: 10px 22px;
+        font-size: 1.07rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.2s, color 0.2s;
+    }
+
+        .agregar-articulo-btn:hover {
+            background: #e0a800;
+            color: #111;
+            text-decoration: none;
+        }
+
+    /* ----- CARDS GRID ----- */
+    .guides-grid {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 2rem !important;
+        justify-content: flex-start !important;
+        align-items: stretch;
+        width: 100% !important;
+        background: none !important;
+    }
+
+    .guide-card {
+        background: #222 !important;
+        color: #fff !important;
+        border-radius: 18px !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
+        padding: 1.3rem 1.1rem 1.2rem 1.3rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        width: 315px !important;
+        min-height: 250px !important;
+        max-width: 95vw !important;
+        justify-content: space-between !important;
+        margin-bottom: 1.3rem !important;
+        opacity: 1 !important;
+        z-index: 5 !important;
+    }
+
+        .guide-title, .guide-category, .guide-summary, .guide-card * {
+            color: #fff !important;
+            opacity: 1 !important;
+        }
+
+    /* ----- RESPONSIVE ----- */
+    @@media (max-width: 1100px) {
+        .biblioteca-topbar {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1.2rem;
+        }
+
+        .topbar-left {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .biblioteca-header {
+            margin-bottom: 0.5rem;
+        }
+
+        .agregar-articulo-btn {
+            width: 100%;
+            justify-content: center;
+            margin-left: 0;
+        }
+
+        .guides-grid {
+            gap: 1.2rem !important;
+            justify-content: center !important;
+        }
+
+        .guide-card {
+            width: 95vw !important;
+            max-width: 400px !important;
+        }
+    }
+</style>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="biblioteca-topbar">
+    <div class="topbar-left">
+        <h1 class="biblioteca-header">Todas las Guías</h1>
+        <form class="input-group buscador-biblioteca" method="get" action="@Url.Action("Index", "Biblioteca")">
+            <input type="text" name="searchString" class="form-control" placeholder="Buscar por palabra clave..." value="@(ViewBag.CurrentFilter ?? "")" />
+            <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Buscar</button>
+        </form>
+    </div>
+    <a href="@Url.Action("Create", "Biblioteca_Items_New")" class="agregar-articulo-btn">
+        <i class="fa fa-lightbulb"></i> Agregar artículo
+    </a>
+</div>
+
+<div class="guides-grid">
+    @foreach (var item in Model)
+    {
+        var resumen = (item.Contenido ?? "");
+        resumen = resumen.Length > 120 ? resumen.Substring(0, 120) + "…" : resumen;
+
+        <div class="guide-card">
+            <div>
+                <div class="guide-title">@item.Titulo</div>
+                <div class="guide-category">
+                    <b>Categoría:</b> @item.Categoria
+                </div>
+                <div class="guide-summary">@Html.Raw(resumen.Replace("\r\n", "<br/>"))</div>
+            </div>
+            <div>
+                @if (item.Tipo == "Guia")
+                {
+                    <a href="@Url.Action("Details", "Biblioteca", new { id = item.Id })" class="btn btn-danger btn-sm">Ver Detalles</a>
+                    <a href="@Url.Action("DescargarPDF", "Biblioteca", new { id = item.Id })" class="btn btn-outline-light btn-sm">Descargar PDF</a>
+                }
+                else if (item.Tipo == "Articulo")
+                {
+                    <a href="@Url.Action("Details", "Biblioteca_Items_New", new { id = item.Id })" class="btn btn-danger btn-sm">Ver Detalles</a>
+                    <a href="@Url.Action("DescargarPDF", "Biblioteca_Items_New", new { id = item.Id })" class="btn btn-outline-light btn-sm">Descargar PDF</a>
+                }
+            </div>
+        </div>
+    }
+</div>
+

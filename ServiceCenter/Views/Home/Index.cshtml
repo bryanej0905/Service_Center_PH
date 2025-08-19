@@ -1,0 +1,130 @@
+﻿@using Microsoft.AspNet.Identity
+@using ServiceCenter.Models
+@{
+    ViewBag.Title = "Inicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var userName = User.Identity.IsAuthenticated
+        ? User.Identity.GetUserName()
+        : "Invitado";
+
+    var userId = User.Identity.GetUserId();
+    string fullName = User.Identity.GetUserName();
+    string photoUrl = Url.Content("~/Content/Photos/default-avatar.png");
+
+    using (var db = new ApplicationDbContext())
+    {
+        var u = db.Users.Find(userId);
+        if (u != null)
+        {
+            fullName = string.IsNullOrWhiteSpace(u.Nombre) ? u.UserName : u.Nombre;
+
+            if (!string.IsNullOrEmpty(u.PhotoPath))
+            {
+                photoUrl = Url.Content(u.PhotoPath);
+            }
+        }
+    }
+}
+
+<main class="bg-light">
+
+    <!-- HERO -->
+    <section class="py-5 text-center bg-primary text-white">
+        <div class="container">
+            <h1 class="display-4">¡Bienvenido, @fullName!</h1>
+            <p class="lead mt-3">
+                Gestiona tus tickets, revisa la documentación y mantén tu perfil al día.
+            </p>
+            <a href="@Url.Action("Index","Tickets")" class="btn btn-lg btn-light mt-3">
+                <i class="fas fa-ticket-alt me-1"></i> Mis Tickets
+            </a>
+        </div>
+    </section>
+
+    <!-- ACCESOS RÁPIDOS -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-question-circle fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">Preguntas Frecuentes</h5>
+                            <p class="card-text">
+                                Consulta respuestas rápidas a las dudas más comunes sobre nuestros servicios.
+                            </p>
+                            <a href="@Url.Action("Index","FAQ")" class="btn btn-outline-success">
+                                Ver Preguntas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-book fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Biblioteca</h5>
+                            <p class="card-text">
+                                Consulta guías, manuales y documentación actualizada.
+                            </p>
+                            <a href="@Url.Action("Index","Biblioteca")" class="btn btn-outline-success">
+                                Ver Biblioteca
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-user-circle fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title">Mi Perfil</h5>
+                            <p class="card-text">
+                                Actualiza tu información, cambia tu contraseña o sube tu foto.
+                            </p>
+                            <a href="@Url.Action("Index","Manage")" class="btn btn-outline-warning">
+                                Ver Perfil
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTADÍSTICAS -->
+    <section class="py-5 bg-secondary text-white">
+        <div class="container">
+            <h4 class="mb-4 text-center">Tus estadísticas</h4>
+            <div class="row text-center g-4">
+                <div class="col-sm-4">
+                    <div class="p-4 bg-dark rounded">
+                        <h2 class="display-5">@ViewBag.TotalTickets</h2>
+                        <p>Total de tickets</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="p-4 bg-dark rounded">
+                        <h2 class="display-5">@ViewBag.TicketsAbiertos</h2>
+                        <p>Tickets abiertos</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="p-4 bg-dark rounded">
+                        <h2 class="display-5">@ViewBag.TicketsCerrados</h2>
+                        <p>Tickets cerrados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @*<footer class="py-4 bg-dark text-center text-white">
+            <div class="container">
+                <small>&copy; @DateTime.Now.Year ServiceCenter. Todos los derechos reservados.</small>
+            </div>
+        </footer>*@
+
+</main>

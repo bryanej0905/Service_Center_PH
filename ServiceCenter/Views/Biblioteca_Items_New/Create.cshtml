@@ -1,0 +1,108 @@
+﻿@model ServiceCenter.Models.Biblioteca_Items_New
+@{
+    ViewBag.Title = "Agregar Artículo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .form-articulo-container {
+        max-width: 520px;
+        margin: 40px auto 0 auto;
+        background: #fff; /* Fondo blanco */
+        border-radius: 14px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+        padding: 2.2rem 2rem 2rem 2rem;
+        color: #222; /* Texto oscuro */
+    }
+
+        .form-articulo-container h2 {
+            color: #2348d2;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+    .form-group label {
+        color: #333 !important;
+        font-weight: 500;
+        margin-bottom: 6px;
+        margin-top: 6px;
+    }
+
+    .form-control, select {
+        background: #fff !important;
+        color: #222 !important;
+        border: 1.5px solid #e5e8ec;
+        border-radius: 7px;
+        font-size: 1.09rem;
+        box-shadow: none;
+        margin-bottom: 10px;
+    }
+
+        .form-control:focus, select:focus {
+            border-color: #467bf7;
+            box-shadow: 0 0 0 2px #dbeafe;
+        }
+
+    .btn-primary-articulo {
+        background: #2954f0;
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.15rem;
+        border-radius: 8px;
+        padding: 14px 0;
+        width: 100%;
+        margin-top: 14px;
+        transition: background 0.16s;
+    }
+
+        .btn-primary-articulo:hover {
+            background: #2348d2;
+            color: #fff;
+        }
+
+    .custom-file-input {
+        color: #222;
+        background: #f1f5fa;
+        border: 1.5px solid #e5e8ec;
+        border-radius: 7px;
+    }
+</style>
+
+<div class="form-articulo-container">
+    <h2><i class="fa fa-lightbulb"></i> Agregar nuevo artículo</h2>
+    @using (Html.BeginForm("Create", "Biblioteca_Items_New", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label for="Titulo">Titulo</label>
+            @Html.TextBoxFor(m => m.Titulo, new { @class = "form-control", placeholder = "Ej: Cómo preparar pizza..." })
+            @Html.ValidationMessageFor(m => m.Titulo, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="Contenido">Contenido</label>
+            @Html.TextAreaFor(m => m.Contenido, 5, 50, new { @class = "form-control", placeholder = "Contenido detallado..." })
+            @Html.ValidationMessageFor(m => m.Contenido, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="Categoria">Categoria</label>
+            @Html.TextBoxFor(m => m.Categoria, new { @class = "form-control", placeholder = "Categoría" })
+            @Html.ValidationMessageFor(m => m.Categoria, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="ImagenUpload">Imagen</label>
+            <input type="file" name="ImagenUpload" class="form-control custom-file-input" accept="image/*" />
+            @Html.ValidationMessage("ImagenRuta", null, new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-primary-articulo">Guardar</button>
+    }
+</div>

@@ -1,0 +1,103 @@
+﻿@model IEnumerable<ServiceCenter.ViewModels.TicketListViewModel>
+@using Microsoft.AspNet.Identity
+@using System.Linq
+@using System.Security.Claims
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.13.6/sorting/datetime-moment.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.13.4/sorting/datetime-moment.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css">
+    <script src="~/Content/js/ticket.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="~/Content/css/ticket.css" asp-append-version="true" />
+
+}
+
+@{
+    ViewBag.Title = "Tickets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: -20px;">
+    <h2 style="margin: 0;"></h2>
+    @Html.ActionLink("Crear Nuevo Ticket", "Create", null, new { @class = "btn-create" })
+</div>
+<h2 style="margin: 0;">Tickets</h2>
+
+
+
+<div class="table-wrapper shadow">
+    <table id="ticketTable" class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>N° Ticket</th>
+                <th>Título</th>
+                <th>Estado</th>
+                <th>Prioridad</th>
+                <th>Fecha Creación</th>
+                <th>Departamento</th>
+                <th>Creado por</th>
+                <th>Acciones</th>
+            </tr>
+            <tr>
+                <th><input type="text" placeholder="Buscar N° Ticket" class="form-control form-control-sm" /></th>
+                <th><input type="text" placeholder="Buscar Título" class="form-control form-control-sm" /></th>
+                <th><input type="text" placeholder="Buscar Estado" class="form-control form-control-sm" /></th>
+                <th><input type="text" placeholder="Buscar Prioridad" class="form-control form-control-sm" /></th>
+                <th><input type="text" placeholder="Buscar Fecha" class="form-control form-control-sm" /></th>
+                <th><input type="text" placeholder="Buscar Departamento" class="form-control form-control-sm" /></th>
+                <th><input type="text" placeholder="Buscar Creador" class="form-control form-control-sm" /></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.NumTicket</td>
+                    <td>@item.Titulo</td>
+                    <td>@item.Estado</td>
+                    <td>@item.Prioridad</td>
+                    <td data-order="@item.FechaCreacion.ToString("yyyy-MM-ddTHH:mm:ss")">
+                        @item.FechaCreacion.ToString("dd/MM/yyyy hh:mm:ss tt")
+                    </td>
+                    <td>@item.DepartamentoNombre</td>
+                    <td>@item.UsuarioCreadorNombre</td>
+                    <td class="text-center">
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="ticket-cards-mobile">
+    @foreach (var item in Model)
+    {
+        <div class="ticket-card">
+            <div><span class="card-label">N° Ticket</span><div class="card-value">@item.NumTicket</div></div>
+            <div><span class="card-label">Título</span><div class="card-value">@item.Titulo</div></div>
+            <div><span class="card-label">Estado</span><div class="card-value">@item.Estado</div></div>
+            <div><span class="card-label">Prioridad</span><div class="card-value">@item.Prioridad</div></div>
+            <div><span class="card-label">Fecha</span><div class="card-value">@item.FechaCreacion</div></div>
+            <div><span class="card-label">Departamento</span><div class="card-value">@item.DepartamentoNombre</div></div>
+            <div><span class="card-label">Creado por</span><div class="card-value">@item.UsuarioCreadorNombre</div></div>
+            <div class="actions mt-2">
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-info" })
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,248 @@
+﻿@model ServiceCenter.ViewModels.TicketEditViewModel
+@using ServiceCenter.Models
+@using ServiceCenter.ViewModels
+@using System.Linq
+
+@{
+    ViewBag.Title = "Atender Ticket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+ 
+    // Ordenar comentarios de más nuevo a más antiguo
+    var comentarios = (Model.Comentarios ?? Enumerable.Empty<ComentarioViewModel>())
+.OrderByDescending(c => c.Fecha)
+.ToList();
+
+    // Posible mensaje de error al agregar comentario
+    var errorComentario = TempData["ErrorComentario"] as string;
+}
+
+<style>
+    .detalle-wrapper {
+        padding: 3rem 0;
+    }
+
+    .card-detalle, .card-edit, .card-comentarios {
+        border-radius: 1rem;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,0.1);
+    }
+
+        .card-detalle .card-header {
+            background: #c00;
+            color: #fff;
+            text-align: center;
+        }
+
+        .card-edit .card-header {
+            background: #0066cc;
+            color: #fff;
+            text-align: center;
+        }
+
+        .card-comentarios .card-header {
+            background: transparent;
+            color: #c00;
+            text-align: center;
+            font-weight: bold;
+        }
+
+    .comentario-item {
+        background: #f8f9fa;
+        border-radius: .75rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+        .comentario-item .meta {
+            font-size: .9rem;
+            color: #666;
+        }
+</style>
+
+<div class="container detalle-wrapper">
+    <h2 style="color:white" class="text-center mb-4">Atender Ticket #@Model.NumTicket</h2>
+
+    <div class="row">
+        <!-- DETALLE -->
+        <div class="col-lg-6 mb-4">
+            <div class="card card-detalle h-100">
+                <div class="card-header">Detalle del Ticket</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between"><strong>Título</strong><span>@Model.Titulo</span></li>
+                    <li class="list-group-item d-flex justify-content-between"><strong>Descripción</strong><span>@Model.Descripcion</span></li>
+                    <li class="list-group-item d-flex justify-content-between"><strong>Estado</strong><span>@Model.Estado</span></li>
+                    <li class="list-group-item d-flex justify-content-between"><strong>Prioridad</strong><span>@Model.Prioridad</span></li>
+                    <li class="list-group-item d-flex justify-content-between"><strong>Categoría</strong><span>@Model.Categoria</span></li>
+                    <li class="list-group-item d-flex justify-content-between"><strong>Departamento</strong><span>@Model.DepartamentoNombre</span></li>
+                    <li class="list-group-item d-flex justify-content-between"><strong>Creado por</strong><span>@Model.UsuarioCreadorUserName</span></li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <strong>Técnico asignado</strong>
+                        <span>@Model.TecnicoAsignadoNombre</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between"><strong>Fecha</strong><span>@Model.FechaCreacion</span></li>
+                </ul>
+                @if (Model.Adjuntos?.Any() == true)
+                {
+                    <div class="card-body">
+                        <hr />
+                        <h6>Archivos Adjuntos</h6>
+                        <ul class="list-unstyled mb-0">
+                            @foreach (var adj in Model.Adjuntos)
+                            {
+                                <li class="d-flex justify-content-between mb-2">
+                                    <a href="@Url.Action("Descargar", "Adjuntos", new { id = adj.Id })" target="_blank">
+                                        📎 @adj.NombreArchivo
+                                    </a>
+                                    <small class="text-muted">
+                                        @adj.FechaSubida.ToString("dd/MM/yyyy HH:mm")
+                                    </small>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- EDICIÓN (solo técnicos) -->
+        <div class="col-lg-6 mb-4">
+            @if (User.IsInRole("Tecnico"))
+            {
+                using (Html.BeginForm("Atender", "Tickets", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.Id)
+
+                    <div class="card card-edit h-100">
+                        <div class="card-header">Editar Ticket</div>
+                        <div class="card-body">
+                            <div class="form-group mb-3">
+                                @Html.LabelFor(m => m.Estado, "Estado")
+                                @Html.DropDownListFor(
+                                    m => m.Estado,
+                                    Model.Estados,
+                                    "-- Seleccione estado --",
+                                    new { @class = "form-control", id = "estadoDropdown" }
+                                )
+                            </div>
+
+                            <div id="tecnicoContainer" class="form-group">
+                                @Html.LabelFor(m => m.TecnicoAsignadoId, "Técnico asignado")
+                                @Html.DropDownListFor(
+                                    m => m.TecnicoAsignadoId,
+                                    Model.Tecnicos,
+                                    "-- Seleccione técnico --",
+                                    new { @class = "form-control" }
+                                )
+                            </div>
+
+
+
+
+
+
+                            <div class="form-group mb-3">
+                                @Html.LabelFor(m => m.Prioridad, "Prioridad")
+                                @Html.DropDownListFor(
+                                  m => m.Prioridad,
+                                  Model.Prioridades,
+                                  "-- Seleccione prioridad --",
+                                  new { @class = "form-control" }
+                                )
+                            </div>
+                            <div class="form-group mb-3">
+                                @Html.LabelFor(m => m.DepartamentoNombre, "Departamento")
+                                @Html.DropDownListFor(
+                                  m => m.DepartamentoNombre,
+                                  Model.Departamentos,
+                                  "-- Seleccione departamento --",
+                                  new { @class = "form-control" }
+                                )
+                            </div>
+                        </div>
+                        <div class="card-footer text-end">
+                            <button type="submit" class="btn btn-primary">💾 Guardar cambios</button>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="alert alert-warning">No tienes permisos para modificar este ticket.</div>
+            }
+        </div>
+    </div>
+
+    <!-- COMENTARIOS -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-comentarios mb-4">
+                <div class="card-header">Comentarios</div>
+                <div class="card-body">
+                    @if (comentarios.Any())
+                    {
+                        foreach (var com in comentarios)
+                        {
+                            <div class="comentario-item">
+                                <div class="meta mb-2">
+                                    <strong>@com.UsuarioNombre</strong>
+                                    <span>· @com.Fecha.ToString("dd/MM/yyyy HH:mm")</span>
+                                </div>
+                                <p class="mb-0">@com.Texto</p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-muted">Aún no hay comentarios.</p>
+                    }
+
+                    @if (User.IsInRole("Tecnico"))
+                    {
+                        if (!string.IsNullOrEmpty(errorComentario))
+                        {
+                            <div class="alert alert-danger">@errorComentario</div>
+                        }
+                        using (Html.BeginForm("AddComment", "Tickets", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("ticketId", Model.Id)
+                            <div class="form-group mt-3">
+                                <textarea name="textoComentario" class="form-control" rows="3"
+                                          placeholder="Añade tu comentario..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-danger mt-2">📩 Agregar comentario</button>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary px-4" })
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const estadoDropdown = document.getElementById("estadoDropdown");
+            const tecnicoContainer = document.getElementById("tecnicoContainer");
+
+            if (estadoDropdown && tecnicoContainer) {
+                function toggleTecnicoDropdown() {
+                    tecnicoContainer.style.display = estadoDropdown.value === "Asignado" ? "block" : "none";
+                }
+
+                estadoDropdown.addEventListener("change", toggleTecnicoDropdown);
+
+                // Llamado inmediato para mostrar u ocultar según el valor ya seleccionado
+                toggleTecnicoDropdown();
+            } else {
+                console.warn("No se encontró el elemento estadoDropdown o tecnicoContainer.");
+            }
+        });
+    </script>
+
+
+
+</div>

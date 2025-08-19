@@ -1,0 +1,234 @@
+﻿@model ServiceCenter.ViewModels.FAQIndexViewModel
+
+@{
+    ViewBag.Title = "Preguntas Frecuentes (FAQ)";
+
+    var listaPreguntas = Model.Preguntas;
+    var listaCategorias = Model.Categorias;
+    var currentCategory = Model.CurrentCategory;
+    var currentFilter = Model.CurrentFilter;
+    var consultasRecientes = Model.ConsultasRecientes;
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card mb-4">
+            <div class="card-header bg-dark text-white">
+                <strong>Categorías</strong>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item @(string.IsNullOrEmpty(currentCategory) ? "active" : "")">
+                    <a href="@Url.Action("Index", "FAQ", new { category = "", searchString = currentFilter })"
+                       class="d-block text-decoration-none text-@(string.IsNullOrEmpty(currentCategory) ? "white" : "dark")">
+                        Todas
+                    </a>
+                </li>
+                @foreach (var cat in listaCategorias)
+                {
+                    bool isActive = (cat == currentCategory);
+                    <li class="list-group-item @(isActive ? "active" : "")">
+                        <a href="@Url.Action("Index", "FAQ", new { category = cat, searchString = currentFilter })"
+                           class="d-block text-decoration-none text-@(isActive ? "white" : "dark")">
+                            @cat
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">
+                <i class="fas fa-clock"></i> <strong>Consultas recientes</strong>
+            </div>
+            <ul class="list-group list-group-flush" id="consultasRecientesBox">
+                @Html.Partial("_ConsultasRecientesPartial", Model.ConsultasRecientes)
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+            <h1 class="text-white mb-0">Todas las Preguntas</h1>
+            @if (User?.Identity?.IsAuthenticated ?? false)
+            {
+                <a href="@Url.Action("Sugerir", "SugerenciasFAQ")" class="btn btn-warning">
+                    <i class="fas fa-lightbulb"></i> Sugerir pregunta
+                </a>
+            }
+        </div>
+        @using (Html.BeginForm("Index", "FAQ", FormMethod.Get))
+        {
+            @Html.Hidden("category", currentCategory)
+            <div class="input-group mb-4" style="max-width: 500px;">
+                <input type="text"
+                       name="searchString"
+                       value="@(currentFilter ?? "")"
+                       class="form-control"
+                       placeholder="Buscar por palabra clave…" />
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Buscar
+                </button>
+            </div>
+        }
+
+        @if (!listaPreguntas.Any())
+        {
+            <div class="alert alert-warning">
+                No se encontraron preguntas para la categoría seleccionada.
+            </div>
+        }
+        else
+        {
+            <div class="accordion" id="faqAccordion">
+                @for (int idx = 0; idx < listaPreguntas.Count; idx++)
+                {
+                    var p = listaPreguntas[idx];
+                    var headingId = $"heading{idx}";
+                    var collapseId = $"collapse{idx}";
+
+                    <div class="accordion-item mb-2" id="faq-@p.Id">
+                        <h2 class="accordion-header" id="@headingId">
+                            <button class="accordion-button collapsed faq-titulo"
+                                    type="button"
+                                    data-id="@p.Id"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#@collapseId"
+                                    aria-expanded="false"
+                                    aria-controls="@collapseId">
+                                @p.Titulo
+                            </button>
+                        </h2>
+                        <div id="@collapseId"
+                             class="accordion-collapse collapse"
+                             aria-labelledby="@headingId"
+                             data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                @Html.Raw(p.Respuesta.Replace("\r\n", "<br/>").Replace("\n", "<br/>"))
+                                <hr />
+                                <small class="text-muted">Categoría: @p.Categoria</small>
+                                <div class="text-end mt-3">
+                                    <button class="btn btn-outline-success btn-sm votar-btn me-2" data-id="@p.Id" data-esutil="true">👍 Sí</button>
+                                    <button class="btn btn-outline-danger btn-sm votar-btn" data-id="@p.Id" data-esutil="false">👎 No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .accordion-button {
+            background-color: rgba(40, 40, 40, 0.8);
+            color: #ffffff;
+        }
+
+            .accordion-button:not(.collapsed) {
+                background-color: rgba(30, 30, 30, 0.9);
+                color: #ffffff;
+            }
+
+            .accordion-button::after {
+                filter: invert(1);
+            }
+
+        .accordion-body {
+            background-color: rgba(50, 50, 50, 0.6);
+            color: #eee;
+        }
+
+        .accordion-item {
+            border: none;
+        }
+
+            .accordion-item + .accordion-item {
+                margin-top: 1rem;
+            }
+
+        .list-group-item.active {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+        .list-group-item a {
+            display: block;
+        }
+
+        .card-header.bg-warning {
+            background-color: #ffc107 !important;
+        }
+
+        .faq-recientes-box {
+            background: #232323;
+            color: #ffc107;
+            border-radius: 10px;
+            padding: 8px 13px;
+            margin-bottom: 22px;
+        }
+
+        .votar-btn {
+            min-width: 60px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.faq-titulo').on('click', function () {
+                var faqId = $(this).data('id');
+                $.ajax({
+                    url: '@Url.Action("ConsultarPregunta", "FAQ")',
+                    type: 'POST',
+                    data: { id: faqId },
+                    success: function () {
+                        actualizarConsultasRecientes();
+                    }
+                });
+            });
+
+            function actualizarConsultasRecientes() {
+                $.get('@Url.Action("GetConsultasRecientes", "FAQ")', function (html) {
+                    $('#consultasRecientesBox').html(html);
+                });
+            }
+
+            $(document).on('click', '.consulta-reciente-link', function () {
+                var faqId = $(this).data('faqid');
+                $('.faq-titulo[data-id="' + faqId + '"]').trigger('click');
+                var collapseId = $('.faq-titulo[data-id="' + faqId + '"]').attr('data-bs-target');
+                if (collapseId) {
+                    $(collapseId).collapse('show');
+                }
+                $('html, body').animate({
+                    scrollTop: $('#faq-' + faqId).offset().top - 120
+                }, 400);
+            });
+
+            // ✅ Votación
+            $('.votar-btn').click(function () {
+                var btn = $(this);
+                var preguntaId = btn.data('id');
+                var esUtil = btn.data('esutil');
+
+                $.post('@Url.Action("Votar", "FAQ")', { preguntaId: preguntaId, esUtil: esUtil }, function (data) {
+                    if (data.success) {
+                        btn.closest('.accordion-body').find('.votar-btn').prop('disabled', true);
+                        alert("Gracias por tu calificación.");
+                    } else {
+                        alert("Ya has calificado esta pregunta.");
+                    }
+                });
+            });
+        });
+    </script>
+}

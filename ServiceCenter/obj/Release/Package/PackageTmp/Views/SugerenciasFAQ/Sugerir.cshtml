@@ -1,0 +1,39 @@
+﻿@model ServiceCenter.Models.SugerenciaPreguntasFAQ
+@{
+    ViewBag.Title = "Sugerir Nueva Pregunta FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height:70vh;">
+    <div class="card shadow-lg p-4" style="width:100%; max-width: 450px; background: rgba(34,41,47,0.97);">
+        <h2 class="mb-4 text-white text-center"><i class="fas fa-lightbulb"></i> Sugerir Nueva Pregunta</h2>
+        @if (TempData["Mensaje"] != null)
+        {
+            <div class="alert alert-success text-center">@TempData["Mensaje"]</div>
+        }
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Pregunta, htmlAttributes: new { @class = "form-label text-white" })
+                @Html.TextAreaFor(m => m.Pregunta, new { @class = "form-control", rows = 2, maxlength = 500, placeholder = "Escribe tu pregunta...", required = "required" })
+                @Html.ValidationMessageFor(m => m.Pregunta, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Respuesta, htmlAttributes: new { @class = "form-label text-white" })
+                @Html.TextAreaFor(m => m.Respuesta, new { @class = "form-control", rows = 3, maxlength = 1000, placeholder = "¿Sabes la respuesta? Puedes sugerirla (opcional)..." })
+                @Html.ValidationMessageFor(m => m.Respuesta, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-4">
+                @Html.LabelFor(m => m.CategoriaFAQId, htmlAttributes: new { @class = "form-label text-white" })
+                @Html.DropDownListFor(m => m.CategoriaFAQId, (SelectList)ViewBag.Categorias, "Seleccione una categoría", new { @class = "form-select", required = "required" })
+                @Html.ValidationMessageFor(m => m.CategoriaFAQId, null, new { @class = "text-danger" })
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Enviar Sugerencia</button>
+        }
+    </div>
+</div>

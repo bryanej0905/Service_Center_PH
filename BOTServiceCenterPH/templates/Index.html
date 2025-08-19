@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bot del Service Center PH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("{{ url_for('static', filename='Resourses/Image/Fondo.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            object-fit: contain;
+            margin-bottom: -50px;
+        }
+
+        h1 {
+            color: #00d9ff;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20x;
+            color: green;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button i {
+            margin-right: 8px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .imagen-movil {
+            display: none;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                background-image: url("{{ url_for('static', filename='Resourses/Image/mobile.png') }}");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            .logo {
+                width: 0px;
+                height: 0px;
+                border-radius: 12px;
+                object-fit: contain;
+                margin-bottom: -50px;
+            }
+
+            .container {
+                background: rgba(0, 0, 0, 0.6);
+                /* Opcional: oscurece contenido para mayor legibilidad */
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='Resourses/Image/logo.jpg') }}" alt="Logo Pizza Hut" class="logo">
+        <h1><i class="fas fa-pizza-slice"></i> Bot del Service Center</h1>
+        <p><i class="fas fa-circle-check"></i> El servicio está funcionando correctamente</p>
+        <button onclick="window.location.href='/static/admin_bot.html'">
+            <i class="fas fa-arrow-right-to-bracket"></i> Ir al Panel
+        </button>
+    </div>
+</body>
+
+</html>

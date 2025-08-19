@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>En Mantenimiento - Service Center PH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../favicon.ico">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("../Resourses/Image/Fondo.jpg") no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .logo {
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #ffc107;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #f8f9fa;
+            margin-bottom: 30px;
+        }
+
+        .icon-warning {
+            font-size: 50px;
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+           @media (max-width: 600px) {
+            body {
+                background-image: url("../Resourses/Image/mobile.png");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            .logo {
+                width: 0px;
+                height: 0px;
+                border-radius: 12px;
+                object-fit: contain;
+                margin-bottom: -50px;
+            }
+
+            .container {
+                background: rgba(0, 0, 0, 0.6);
+                /* Opcional: oscurece contenido para mayor legibilidad */
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        
+        <i class="fas fa-tools icon-warning"></i>
+       
+        <h1><i class="fas fa-exclamation-triangle"></i> Mantenimiento en progreso</h1>
+        <p>Actualmente estamos realizando mejoras.<br>Gracias por su comprensión.</p>
+    </div>
+</body>
+
+</html>

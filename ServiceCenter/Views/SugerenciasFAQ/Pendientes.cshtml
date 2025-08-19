@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ServiceCenter.Models.SugerenciaPreguntasFAQ>
+@{
+    ViewBag.Title = "Pendientes de Revisión - FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mx-auto" style="max-width:98vw; margin-top:38px;">
+    <h2 class="mb-4">Preguntas Pendientes de Revisión</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info mt-4">No hay sugerencias pendientes de revisión.</div>
+    }
+    else
+    {
+        <table class="table table-dark table-hover table-compact">
+            <thead>
+                <tr>
+                    <th>Pregunta</th>
+                    <th>Categoría</th>
+                    <th>Fecha</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Pregunta</td>
+                        <td>@(item.CategoriaFAQ != null ? item.CategoriaFAQ.Nombre : "-")</td>
+                        <td>@item.FechaSugerencia.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <a href="@Url.Action("Revisar", "SugerenciasFAQ", new { id = item.Id })" class="btn btn-sm btn-info">
+                                Revisar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

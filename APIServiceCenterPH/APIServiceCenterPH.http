@@ -1,0 +1,6 @@
+@APIServiceCenterPH_HostAddress = http://localhost:5202
+
+GET {{APIServiceCenterPH_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

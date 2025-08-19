@@ -1,0 +1,70 @@
+﻿@model ServiceCenter.Models.SugerenciaPreguntasFAQ
+@{
+    ViewBag.Title = "Revisar Sugerencia FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height:80vh;">
+    <div style="background:rgba(40,40,40,0.96); border-radius:16px; box-shadow:0 4px 16px 2px rgba(0,0,0,0.13); max-width:400px; width:100%; padding:38px 32px 28px 32px; position:relative;">
+        <a href="@Url.Action("PanelAdmin", "SugerenciasFAQ")" class="btn btn-secondary btn-sm" style="position:absolute; top:18px; left:18px; z-index:2;">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h2 class="mb-4 text-center" style="color:#fff; font-weight:600;">Revisar Sugerencia</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Id)
+
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Pregunta, htmlAttributes: new { @class = "form-label text-white" })
+                @Html.TextAreaFor(m => m.Pregunta, new { @class = "form-control", rows = 2, @readonly = "readonly" })
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Respuesta, "Respuesta sugerida", htmlAttributes: new { @class = "form-label text-white" })
+                @Html.TextAreaFor(m => m.Respuesta, new { @class = "form-control", rows = 3 })
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(m => m.CategoriaFAQId, "Categoría", htmlAttributes: new { @class = "form-label text-white" })
+                @Html.TextBoxFor(m => m.CategoriaFAQ.Nombre, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Motivo, "Motivo de rechazo/modificación", htmlAttributes: new { @class = "form-label text-white" })
+                @Html.TextAreaFor(m => m.Motivo, new { @class = "form-control", rows = 2 })
+            </div>
+            <div class="d-flex gap-2 justify-content-center mt-2">
+                <button type="submit" name="accion" value="Aprobar" class="btn btn-success">Aprobar</button>
+                <button type="submit" name="accion" value="Rechazar" class="btn btn-danger ms-2">Rechazar</button>
+            </div>
+        }
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .btn-sm {
+            padding: 2px 10px !important;
+            font-size: 0.98rem !important;
+            border-radius: 6px !important;
+        }
+
+        .form-label {
+            color: #eee !important;
+        }
+
+        .form-control {
+            background: #23262b !important;
+            color: #fff !important;
+            border: 1px solid #353940 !important;
+        }
+
+            .form-control[readonly] {
+                background: #292d33 !important;
+            }
+
+        h2 {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 18px !important;
+        }
+    </style>
+}

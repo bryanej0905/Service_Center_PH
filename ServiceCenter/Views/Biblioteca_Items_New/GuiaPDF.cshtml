@@ -1,0 +1,116 @@
+﻿@model ServiceCenter.Models.Biblioteca_Items_New
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.Titulo</title>
+    <style>
+        /* Configuración de impresión en tamaño Carta */
+        @@page {
+            size: Letter;         /* 8.5in x 11in */
+            margin: 10mm;         /* márgenes de la hoja */
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Cada .page representa UNA hoja */
+        .page {
+            position: relative;
+            width: 216mm;          /* ancho Carta */
+            height: 279mm;         /* alto Carta */
+            margin: 0 auto;        /* centrada en pantalla */
+            padding: 20mm; 
+            box-sizing: border-box;
+            overflow: hidden;      /* evita que se salga el contenido */
+        }
+
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .header-table td, .header-table th {
+            border: 1px solid #222;
+            padding: 5px 7px;
+            font-size: 0.95em;
+        }
+
+        .header-table .center { text-align: center; }
+
+        .doc-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Deja espacio para el footer fijo en la hoja */
+        .content {
+            font-size: 1.08em;
+            padding-bottom: 35mm;   /* reserva para el footer */
+        }
+
+        /* Footer pegado al final de LA HOJA Carta */
+        .footer {
+            position: absolute;
+            left: 20mm;
+            right: 20mm;
+            bottom: 1mm;           /* coincide con margen inferior */
+            font-size: 0.97em;
+            color: #222;
+            border-top: 1px solid #aaa;
+            padding-top: 8px;
+            text-align: center;
+            background: white;
+        }
+
+        .logo { height: 120px; }
+
+    </style>
+</head>
+<body>
+    <!-- HOJA 1 -->
+    <div class="page">
+        <table class="header-table">
+            <tr>
+                <td style="width: 25%;">
+                    <img src="@Url.Content("~/Content/lib/img/pizza-hut-logo.png")" class="logo" alt="Pizza Hut Logo" /><br />
+                    <b>Rige a partir:</b> AGO/2025
+                </td>
+                <td class="center" style="width: 50%;">
+                    <b>Biblioteca<br /><br />@Model.Titulo</b>
+                </td>
+                <td style="width: 25%;">
+                    <b>Versión:</b> 1/1<br />
+                    <br />
+                    <b>Actualización:</b> 2025
+                </td>
+            </tr>
+        </table>
+
+        <div class="doc-title">@Model.Titulo</div>
+
+        <div class="content">
+            @Html.Raw(Model.Contenido.Replace("\r\n", "<br/>"))
+        </div>
+
+        <div class="footer">
+            Comidas Centroamericanas S.A<br />
+            Central Telefónica: (506) 2203-2595 Fax: (506) 2232-7159<br />
+            Apdo. 3094-1000 San José Costa Rica, Pavas Zona Industrial<br />
+            Email: info@pizzahutcr.com - www.pizzahutcr.com
+        </div>
+    </div>
+
+</body>
+</html>
